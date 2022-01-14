@@ -1,0 +1,22 @@
+.custom-box{
+    width:350px;
+}
+.slds-modal__container {
+    max-width: 80rem !important;
+    width: 70% !important;
+}
+.slds-button_icon-bare{
+    display: none;
+}
+.captureButton{
+    margin: 10px 0px!important;
+    display: block;
+    width: 230px;
+}
+.captureButtons lightning-button{
+    margin:16px 16px 16px 0px;
+}
+.picklistAlign{
+    margin-top: 25px;
+    width: 300px;
+  }

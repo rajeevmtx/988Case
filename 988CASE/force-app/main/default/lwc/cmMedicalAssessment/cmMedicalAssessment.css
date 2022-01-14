@@ -1,0 +1,10 @@
+.paddingStyle{
+    padding-left: 3%;
+}
+.headerStyle{
+    font-weight: bold;
+}
+
+.slds-form-element__control .slds-radio, .slds-modal .slds-form-element__control .slds-checkbox{
+    display: inline-block!important;
+  }

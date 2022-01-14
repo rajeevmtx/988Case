@@ -1,0 +1,173 @@
+<template>
+
+    <template if:true={onLoad}>
+        <lightning-card>
+            <lightning-layout>
+                <lightning-layout-item size="4" class="slds-m-around_medium slds-align_absolute-center">
+                    <img src={phoneIcon}>
+                </lightning-layout-item>
+                <lightning-layout-item size="8" class="slds-m-around_medium slds-align_absolute-center">
+                    <b>
+                        <div class="slds-text-heading_large">988 Emergency Helpline</div></br>
+                        <div class="slds-m-around_medium slds-align_absolute-center">
+                            <!-- <button class="slds-button slds-button_inverse">Resume Call Script</button></br></br> -->
+                            <button class="slds-button slds-button_inverse" style="background-color:#16325c"
+                                onclick={onLoadSwitch}>Start Call
+                                Script</button>
+                        </div>
+                    </b>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+    </template>
+
+    <template if:false={onLoad}>
+        <div class="callScriptNotes">
+            <div class="introductionConsent">
+                <lightning-layout>
+                    <lightning-layout-item size="3">
+                        <c-cm-sidebar stage-num={stageNo}></c-cm-sidebar>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="9">
+                        <template if:true={isStage1}>
+                            <c-cm-preliminary-intake onchild={handleStageChanges} case-id={caseId}
+                                prev-stage-no={prevStageNo} step-no={stepNo}>
+                            </c-cm-preliminary-intake>
+                        </template>
+
+                        <template if:true={isStage2}>
+                            <c-cm-triage onchild={handleStageChanges} case-id={caseId} prev-stage-no={prevStageNo}
+                                is-deesclated={isDeesclated} triage-new={triageNew}>
+                            </c-cm-triage>
+                        </template>
+
+                        <template if:true={isStage3}>
+                            <c-cm-call-script-deescalation onchild={handleStageChanges} case-id={caseId}
+                                prev-stage-no={prevStageNo}>
+                            </c-cm-call-script-deescalation>
+                        </template>
+
+                        <template if:true={isStage4}>
+                            <c-cm-linkage-to-care onchild={handleStageChanges} case-id={caseId}
+                                prev-stage-no={prevStageNo}>
+                            </c-cm-linkage-to-care>
+                        </template>
+
+                        <template if:true={isStage5}>
+                            <c-cm-referral-creation onchild={handleStageChanges} case-id={caseId}
+                                prev-stage-no={prevStageNo} is-deesclated={isDeesclated}
+                                selected-program={selectedValue}>
+                            </c-cm-referral-creation>
+                        </template>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4" style="display: none;">
+                        <div class="fixed padddingStyle">
+                            <template if:true={isStage1}>
+                                <lightning-button class="slds-text-align_center slds-align_absolute-center block"
+                                    variant="brand" name="Emergency" label=" Dispatch Emergency Services "
+                                    onclick={redirectReferal}>
+                                </lightning-button>
+                                </br>
+                                <lightning-button class="slds-text-align_center slds-align_absolute-center block"
+                                    variant="brand" name="Crisis" label="Dispatch Crisis Response Team "
+                                    onclick={redirectReferal}>
+                                </lightning-button>
+                                </br>
+                            </template>
+                            <div class="slds-p-around_x-small">
+                                <b>Notes</b>
+                                <lightning-textarea class="notesClass" name="notes"
+                                    placeholder="Capture Call Notes here">
+                                </lightning-textarea>
+                            </div>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+
+            </div>
+            <div class="notesSection">
+                <div class="notes">
+                    <b>Notes</b>
+                    <div class="capture">
+                        <lightning-record-edit-form object-api-name="Case" record-id={caseId} class="notesInput">
+                            <lightning-input-field field-name="Call_Script_Notes__c" variant="label-hidden">
+                            </lightning-input-field>
+                        </lightning-record-edit-form>
+                    </div>
+                    <br />
+                    <div class="captureButtons">
+                        <lightning-button variant="brand" name="Emergency" class="captureButton"
+                            label=" Dispatch Emergency Services " onclick={redirectReferal}>
+                        </lightning-button>
+
+                        <lightning-button variant="brand" name="Crisis" class="captureButton"
+                            label="Dispatch Crisis Response Team" onclick={redirectReferal}>
+                        </lightning-button>
+
+                        <lightning-button variant="brand" name="ShowAvailableBeds" class="captureButton"
+                            label="      Show Available Beds     " onclick={showAvailableBedstReferal}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+
+            <template if:true={isModalOpen}>
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                    aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header" style="background-color:#16325c">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                                title="Close" onclick={closeModal}>
+                                <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                    size="small"></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"
+                                style="color:white">
+                                <b>Available Beds</b>
+                            </h2>
+                        </header>
+                        <div class="slds-modal__content slds-scrollable_y" id="modal-content-id-1"
+                            style="min-height:250px">
+                            <div class="slds-align_absolute-center" style="align-items:end;">
+                                <label for="facility">
+                                    <button class="slds-button" style="color: black;font-weight: bold;">
+                                        Select a Factility Type &nbsp;
+                                    </button>
+                                </label>&nbsp;
+                                <lightning-combobox class="picklistAlign" name="facility" id="facility" value={value}
+                                    options={facilityValues.data.values} onchange={handleChange}>
+                                </lightning-combobox>
+                            </div>
+                            </br>
+                            <template if:true={showDataTable}>
+                                <lightning-datatable key-field="id" data={data} columns={columns} hide-checkbox-column
+                                    show-row-number-column>
+                                </lightning-datatable>
+                            </template>
+                            <template if:false={showDataTable}>
+                                <div class="slds-align_absolute-center">
+                                    <img src={bed} style="height: 200px">
+                                </div>
+                            </template>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <button class="slds-button slds-button_destructive" onclick={closeModal}
+                                title="Cancel">Close</button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </template>
+
+        </div>
+
+        <div class="notesIntroduction">
+
+            <div class="slds-card__body ">
+
+            </div>
+        </div>
+    </template>
+</template>

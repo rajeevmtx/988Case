@@ -1,0 +1,121 @@
+.ny_ {
+    &nyc-header {
+        width: 100%;
+        top: 0;
+    }
+    &top-header {
+        background-color: $color-black;
+        padding: .8rem 0rem;
+        font-weight: bold;
+        line-height: 1;
+        font-size: 1rem;
+        color: $color-white;
+    }
+    &top {
+        &--content {
+            display: flex;
+            justify-content: space-between;
+        }
+        &--cityname {
+            justify-content: flex-start;
+        }
+        &--group {
+            justify-content: flex-end;
+        }
+    }
+    &header {
+        background-color: $color-white;
+        // height: 60px;
+        width: 100%;
+        // position: fixed;
+        // top: 0;
+        // display: flex;
+        // justify-content: space-between;
+        // z-index: 9999;
+    }
+    &logo {
+        color: $color-white;
+        font-size: 1.8rem;
+        // line-height: 3.75rem;
+        padding: 1rem 0;
+        font-weight: bold;
+        align-self: center;
+        width: 10rem;
+    }
+    &navigation {
+        list-style: none;
+        margin-right: 1.25rem;
+        li {
+            font-weight: 600;
+            display: inline-block;
+            line-height: 0px;
+            justify-content: center;
+        }
+        li a {
+            color: $color-white;
+            font-size: .8rem;
+            line-height: 3.75rem;
+            padding: 1rem 1rem 1rem;
+            text-decoration: none;
+            &.active,
+            &:hover {
+                border-bottom: .3rem solid $color-white;
+            }
+        }
+    }
+}
+
+// Post-Header
+.ny_ {
+    &post-header {
+        background-color: $color-pallet-3;
+        padding: .8rem;
+        width: 100%;
+        color: $color-heading-text;
+        position: sticky;
+        top: -1px;
+        z-index: 100;
+        &__label {
+            font-size: 1.5rem;
+            padding: 1rem 0rem;
+        }
+        &--padding {
+            padding-bottom: 30px;
+        }
+        &--portal {
+            background-color: $color-white;
+            border-top: $default-border;
+            border-bottom: $default-border;
+        }
+        // &--sidebar-margin {
+        //     margin-left: -2rem;
+        // }
+    }
+}
+
+.ny_ {
+    &avtar {
+        color: $color-black;
+        font-size: 1rem;
+        font-weight: 500;
+        margin-left: 1.8rem;
+        &,
+        &:link,
+        &:visited &:hover,
+        &:active,
+        &:focus {
+            color: $color-white;
+            text-decoration: none;
+        }
+    }
+    &user-image {
+        width: 2rem;
+        height: auto;
+        margin-right: .5rem;
+        border-radius: 50%;
+    }
+    &community-nav {
+        margin: auto;
+        margin-right: 0;
+    }
+}

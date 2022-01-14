@@ -1,0 +1,19 @@
+@media (max-width: 1199px) and (min-width: 992px) {
+    .ny_hide-ipad-p{
+        display: none !important; 
+    }
+    .ny_show-ipad-p {
+        display: block;
+    }
+}
+@media not screen and (max-width: 1199px) and (min-width: 992px) {
+    .ny_hide-all{
+        display: none !important;
+    }
+}
+.custom_width-45{
+    width: 45% !important;
+}
+.custom_width-100{
+    width: 100%  !important;
+}

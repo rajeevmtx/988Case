@@ -1,0 +1,121 @@
+.fixed{
+    margin: 0;
+        padding: 0;
+        width: 100%;
+        top: 0;
+        z-index: 101;
+        position: -webkit-sticky;
+        position: sticky;
+}
+.padddingStyle{
+  
+    padding-top: 0.5rem;
+}
+.block{
+    width: 100%;
+    font-weight: bold;
+}
+.notesClass{
+    min-height: 350px;
+    max-height: 500px;
+}
+  /* 
+.notesSection{
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+  
+     margin: 16px 0px;
+    min-height: 130px;
+    display: flex; 
+    align-items: center;
+
+}*/
+
+/* .notesSection{
+background: #f0f0f0;
+    padding: 10px;
+    border-radius: 4px;
+    align-items: center;
+    position: fixed;
+    top: 150px;
+    right: 37px;
+    height: auto;
+    min-height: 300px;
+    width:510px
+} */
+.notesIntroduction{
+    width: 60%;
+    height: 90%;
+}
+.capture b{
+    margin-bottom: -16px;
+    display: block;
+}
+/* 
+.capture{
+    float:left;
+    width:40%
+
+}
+.captureButtons{
+    float:left;
+    width:50%;
+    padding-top: 34px;
+} */
+/* .captureButtons{
+margin-left: -15px;
+margin-top: 5px;
+}
+.captureButtons lightning-button{
+    margin:0px 16px;
+} */
+
+.captureButtons lightning-button{
+    margin:16px 16px 16px 0px;
+}
+
+.callScriptNotes{
+    display: flex;
+}
+
+.introductionConsent{
+
+    width: 90%;
+    padding: 15px;
+}
+
+.notesSection{
+    padding: 10px;
+    position: relative;
+    background: white;
+}
+
+.notesSection .notes{
+    position: sticky;
+    top: 0px;
+}
+
+
+.captureButton{
+    margin: 10px 0px!important;
+    display: block;
+    width: 230px;
+}
+
+.slds-modal__container {
+    max-width: 80rem !important;
+    width: 70% !important;
+}
+.slds-button_icon-bare{
+    display: none;
+}
+.captureButton{
+    margin: 10px 0px!important;
+    display: block;
+    width: 230px;
+}
+.picklistAlign{
+    margin-top: 25px;
+    width: 300px;
+  }

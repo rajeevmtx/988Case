@@ -1,0 +1,68 @@
+.ny_ {
+    &table {
+        // margin-bottom: 5rem;
+        &-heading--search {
+            padding: 1rem 0rem;
+        }
+        button.slds-button.slds-button_brand {
+            display: inline-block;
+            font-size: 1.167rem;
+            font-weight: 500;
+            text-align: center;
+            text-decoration: none;
+            padding: .1rem 1rem;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            -webkit-transition: all .2s;
+            transition: all .2s;
+            cursor: pointer;
+            background-color: $color-primary;
+            color: $color-white;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0;
+            margin-left: .5rem;
+            &:hover {
+                background: #00002a;
+                text-decoration: underline;
+            }
+        }
+        button.slds-button.slds-button_neutral {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: normal;
+            text-align: center;
+            text-decoration: none;
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+            -webkit-transition: all .2s;
+            transition: all .2s;
+            cursor: pointer;
+            background-color: $color-white;
+            color: $color-primary;
+            padding: .1rem 1rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0;
+            margin-left: .5rem;
+            &:hover {
+                background: #f1f4f6;
+                text-decoration: underline;
+            }
+        }
+        td {
+            padding: .75rem;
+            vertical-align: top;
+            border-top: $default-border;
+        }
+        table th p {
+            color: $color-text-link;
+            font-weight: 500;
+            padding: .75rem;
+        }
+    }
+}

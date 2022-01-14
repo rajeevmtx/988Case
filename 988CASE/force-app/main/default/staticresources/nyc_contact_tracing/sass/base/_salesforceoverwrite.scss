@@ -1,0 +1,175 @@
+.split-left {
+    background: $body-background !important;
+}
+
+.ny_card .slds-form-element__control {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.ny_card .slds-form-element__legend>abbr {
+    position: inherit !important;
+    left: 1rem;
+}
+
+.ny_card .slds-form-element .slds-form-element__legend abbr,
+.ny_card .slds-form-element legend abbr {
+    left: 1rem;
+}
+
+.ny_card {
+    .slds-input {
+        min-height: 3.3rem;
+        font-size: 1.2rem;
+        color: $color-black;
+        border-radius: 0;
+        &:focus {
+            border-color: $color-text-link;
+        }
+    }
+    [role=combobox] input:focus {
+        border-color: $color-text-link;
+    }
+    .slds-has-error .slds-input {
+        border-color: $color-error;
+    }
+    .slds-form-element__legend,
+    .slds-form-element__label {
+        color: $color-text !important;
+        font-size: 1.167rem !important;
+        font-weight: normal !important;
+    }
+    lightning-checkbox-group .slds-form-element__control {
+        display: -ms-grid !important;
+        display: grid !important;
+        -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 1rem;
+    }
+    lightning-radio-group .slds-form-element__control {
+        display: -ms-grid !important;
+        display: grid !important;
+        -ms-grid-columns: repeat(4, max-content);
+        grid-template-columns: repeat(4, max-content);
+        column-gap: 1rem;
+    }
+    .ny_grid_not_inline lightning-radio-group .slds-form-element__control {
+        display: -ms-grid !important;
+        display: grid !important;
+        -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+        column-gap: 1rem;
+    }
+    .ny_grid_not_inline lightning-checkbox-group .slds-form-element__control {
+        display: -ms-grid !important;
+        display: grid !important;
+        -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+        column-gap: 1rem;
+    }
+    lightning-radio-group .slds-form-element__label:first-child {
+        font-weight: 500 !important;
+    }
+    lightning-checkbox-group .slds-form-element__label:first-child {
+        font-weight: 500 !important;
+    }
+    &--specific-grid-two lightning-checkbox-group .slds-form-element__control {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+    }
+    &--specific-grid-two lightning-radio-group .slds-form-element__control {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+    }
+    .slds-form-element {
+        width: 100%;
+        margin: 0;
+        margin-bottom: .5rem;
+    }
+    .slds-combobox_container {
+        width: -webkit-fill-available;
+    }
+    .slds-input-has-icon .slds-input__icon:not(button) {
+        top: 43%;
+    }
+    .slds-checkbox .slds-checkbox__label .slds-form-element__label {
+        font-size: 1.167rem !important;
+    }
+    .slds-form-element__help,
+    .slds-form-element__helper {
+        font-size: 1rem;
+        color: $color-error;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .ny_card {
+        lightning-checkbox-group .slds-form-element__control {
+            display: -ms-grid !important;
+            display: grid !important;
+            -ms-grid-columns: 1fr;
+            grid-template-columns: 1fr;
+            column-gap: 1rem;
+        }
+        lightning-radio-group .slds-form-element__control {
+            display: -ms-grid !important;
+            display: grid !important;
+            -ms-grid-columns: 1fr;
+            grid-template-columns: 1fr;
+            column-gap: 1rem;
+        }
+        &--specific-grid-three .slds-form-element__control {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+        }
+        &--specific-grid-two lightning-checkbox-group .slds-form-element__control {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+        }
+        &--specific-grid-two lightning-radio-group .slds-form-element__control {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+        }
+    }
+}
+
+.ny_card_body--accordion {
+    .slds-accordion__summary {
+        color: $color-text-link;
+        padding: 1.5rem;
+        margin: -.7rem;
+        span {
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .slds-accordion__summary-action-icon {
+        fill: $color-text-link;
+    }
+    .slds-accordion__content {
+        padding: 1rem;
+    }
+    .slds-button:hover,
+    .slds-button:focus {
+        color: $color-text-link-hover;
+    }
+}
+
+.ny_tab-card {
+    .slds-tabs_default {
+        padding: 2rem;
+    }
+    .slds-tabs_default__nav {
+        margin: -2rem;
+        margin-bottom: 0rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .slds-tabs_default__item {
+        padding: .5rem 2rem !important;
+    }
+}

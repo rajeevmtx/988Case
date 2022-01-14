@@ -1,0 +1,68 @@
+<template>
+  <div class="slds-align_absolute-center" style="align-items:end;">
+    <button class="slds-button" style="color: black;font-weight: bold;">
+      Select a Factility Type &nbsp;
+    </button>&nbsp;
+    <div class="slds-form-element">
+      <div class="slds-form-element__control">
+        <div class="slds-combobox_container picklistAlign">
+          <div class={dropdown} onmouseleave={closeDropDown} data-id="resultBox" aria-expanded="false"
+            aria-haspopup="listbox" role="combobox">
+
+            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+              <input type="text" class="slds-input slds-combobox__input slds-combobox__input-value"
+                placeholder="Select Facility" onclick={openDropdown} value={selectedValue} />
+              <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
+                title="Down icon">
+                <lightning-icon icon-name="utility:down" size="xx-small" class="slds-icon-text-default">
+                </lightning-icon>
+                <span class="slds-assistive-text">Down icon</span>
+              </span>
+            </div>
+
+            <div id="listbox-unique-id" role="listbox">
+              <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid" role="resentation">
+                <div class="slds-scrollable">
+                  <template for:each={facilityType} for:item="item">
+                    <li key={item.label} role="presentation" class="slds-listbox__item">
+                      <div
+                        class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small slds-is-selected"
+                        role="option" data-id={item.isChecked} data-name={item.label} onclick={selectOption}>
+                        <template if:true={item.isChecked}>
+                          <span class="slds-media__figure slds-listbox__option-icon">
+                            <span class="slds-icon_container slds-icon-utility-check slds-current-color">
+                              <lightning-icon class="slds-p-top_xxx-small" icon-name="utility:check" size="x-small"
+                                alternative-text="Selected" title="Selected">
+                              </lightning-icon>
+                            </span>
+                          </span>
+                        </template>
+                        <span class="slds-media__body">
+                          <span class="slds-truncate" title={item.label}>
+                            {item.label}
+                          </span>
+                        </span>
+                      </div>
+                    </li>
+                  </template>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="slds-align_absolute-center" style="height:50px;width:50%">
+    <template for:each={facilityType} for:item="option">
+      <template if:true={option.isChecked}>
+        <span key={option.label}>
+          <lightning-pill label={option.label} name={option.label} class="slds-m-around_xx-small"
+            onremove={removeRecord}>
+          </lightning-pill>
+        </span>
+      </template>
+    </template>
+  </div>
+</template>

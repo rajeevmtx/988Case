@@ -1,0 +1,198 @@
+<template>
+    <lightning-record-edit-form object-api-name="Assessment__c" record-id={recordId}>
+        <p>&nbsp;</p>
+        <div class="slds-p-horizontal_small">
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral">Primary Medical
+                    Care</span>
+            </h3>
+            </br>
+            <div class="paddingStyle primaryMedical">
+                <p>Do you have a Primary Care Provider?</p>
+                <lightning-radio-group label="" name="Do_you_have_a_Primary_Care_Provider__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+
+                <template if:true={data.Do_you_have_a_Primary_Care_Provider__c}>
+                    <p>Provider Name</p>
+                    <lightning-input-field field-name="Provider_Name__c" name="Provider_Name__c" onchange={handleChange}
+                        variant="label-hidden">
+                    </lightning-input-field>
+                    <p>Provider Address</p>
+                    <lightning-input-field field-name="Provider_Address__c" name="Provider_Address__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                    <p>PCP Phone</p>
+                    <lightning-input-field field-name="PCP_Phone__c" name="PCP_Phone__c" onchange={handleChange}
+                        variant="label-hidden">
+                    </lightning-input-field>
+                    <p>Date of Last visit</p>
+                    <lightning-input-field field-name="Date_of_Last_Visit__c" name="Date_of_Last_Visit__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                </template>
+                <p>Are you under the care of a Case Manager and/or Social Worker?</p>
+                <lightning-radio-group label="" name="Under_care_of_Case_Manager_Social_Worker__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+
+                <template if:true={data.Under_care_of_Case_Manager_Social_Worker__c}>
+                    <p>Name of Agency</p>
+                    <lightning-input-field field-name="Name_of_Agency__c" name="Name_of_Agency__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                    <p>Name of Case Manager/Social Worker</p>
+                    <lightning-input-field field-name="Case_Manager_Social_Worker_Name_Phone__c"
+                        name="Case_Manager_Social_Worker_Name_Phone__c" onchange={handleChange} variant="label-hidden">
+                    </lightning-input-field>
+                </template>
+                <p>Have you been recently Hospitalized?</p>
+                <lightning-radio-group label="" name="Have_you_been_recently_Hospitalized__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+
+                <template if:true={data.Have_you_been_recently_Hospitalized__c}>
+                    <p>Date of Hospitalization</p>
+                    <lightning-input-field field-name="Date_of_Hospitalization__c" name="Date_of_Hospitalization__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                    <p>Name of Hospital</p>
+                    <lightning-input-field field-name="Name_of_Hospital__c" name="Name_of_Hospital__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                    <p>Reason for Hospitalization</p>
+                    <lightning-input-field field-name="Reason_for_Hospitalization__c"
+                        name="Reason_for_Hospitalization__c" onchange={handleChange} variant="label-hidden">
+                    </lightning-input-field>
+                </template>
+                </br>
+                <p>Comments</p>
+                <lightning-input-field field-name="Primary_Medical_Care_Comments__c"
+                    name="Primary_Medical_Care_Comments__c" onchange={handleChange} variant="label-hidden">
+                </lightning-input-field>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="slds-p-horizontal_small">
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral">OB-GYN Care</span>
+            </h3>
+            </br>
+            <div class="paddingStyle">
+                <p>Are you currently pregnant?</p>
+                <lightning-radio-group label="" name="Are_you_currently_pregnant__c" onchange={handleRadioChange}
+                    options={options}>
+                </lightning-radio-group>
+
+                <template if:true={data.Are_you_currently_pregnant__c}>
+                    <p>Are you receiving prenatal care?</p>
+                    <lightning-radio-group label="" name="Are_you_receiving_prenatal_care__c"
+                        onchange={handleRadioChange} options={options}>
+                    </lightning-radio-group>
+
+                    <p>Name of OB/GYN Clinician</p>
+                    <lightning-input-field field-name="OB_GYN_Clinician__c" name="OB_GYN_Clinician__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                    <p>Phone number of OB/GYN Clinician</p>
+                    <lightning-input-field field-name="OB_GYN_Name_Phone_Number__c" name="OB_GYN_Name_Phone_Number__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                </template>
+                <p>What is the date of your last Pap Smear?</p>
+                <lightning-input-field field-name="Date_of_last_Pap_Smear__c" name="Date_of_last_Pap_Smear__c"
+                    onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                <template if:true={showPapSmear}>
+                    <p>What are the Results of your Last Pap Smear</p>
+                    <lightning-input-field field-name="Results_of_Last_Pap_Smear__c" name="Results_of_Last_Pap_Smear__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                </template>
+                </br>
+                <p>Comments</p>
+                <lightning-input-field field-name="OB_GYN_Comments__c" name="OB_GYN_Comments__c" onchange={handleChange}
+                    variant="label-hidden"></lightning-input-field>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="slds-p-horizontal_small">
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral">Medications</span>
+            </h3>
+            </br>
+            <div class="paddingStyle">
+                <p>Are your currently taking any medications?</p>
+                <lightning-radio-group label="" name="Are_you_currently_taking_any_medications__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+
+                <template if:true={data.Are_you_currently_taking_any_medications__c}>
+                    <p>Name of Current Medication(s)</p>
+                    <lightning-input-field field-name="Name_of_Current_Medication_s__c"
+                        name="Name_of_Current_Medication_s__c" onchange={handleChange} variant="label-hidden">
+                    </lightning-input-field>
+                </template>
+                <p>Do you have difficulty Taking your Medication(s)</p>
+                <lightning-radio-group label="" name="Difficulty_Taking_your_Medication_s__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+
+                <p>Do you have difficulty keeping appointments?</p>
+                <lightning-radio-group label="" name="Difficulty_Keeping_Appointments__c" onchange={handleRadioChange}
+                    options={options}>
+                </lightning-radio-group>
+                </br>
+                <p>Comments</p>
+                <lightning-input-field field-name="Medications_Comments__c" name="Medications_Comments__c"
+                    onchange={handleChange} variant="label-hidden"></lightning-input-field>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="slds-p-horizontal_small">
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral">Other</span>
+            </h3>
+            </br>
+            <div class="paddingStyle">
+                <p>Are there any unmet needs for health conditions or social determinants of health?</p>
+                <lightning-radio-group label="" name="Are_there_unmet_health_conditions__c" onchange={handleRadioChange}
+                    options={options}>
+                </lightning-radio-group>
+
+                <p>Does the client need assistance for services related to accessing treatment and care?</p>
+                <lightning-radio-group label="" name="Need_assistance_accessing_entitlements__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+
+                <p>Comments:</p>
+                <lightning-input-field field-name="Medical_Assessment_Other_Comments__c"
+                    name="Medical_Assessment_Other_Comments__c" onchange={handleChange} variant="label-hidden">
+                </lightning-input-field>
+            </div>
+        </div>
+
+        <div class="slds-hide">
+            <lightning-input-field field-name="Do_you_have_a_Primary_Care_Provider__c"
+                value={data.Do_you_have_a_Primary_Care_Provider__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Under_care_of_Case_Manager_Social_Worker__c"
+                value={data.Under_care_of_Case_Manager_Social_Worker__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Have_you_been_recently_Hospitalized__c"
+                value={data.Have_you_been_recently_Hospitalized__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Are_you_currently_pregnant__c"
+                value={data.Are_you_currently_pregnant__c}></lightning-input-field>
+            <lightning-input-field field-name="Are_you_currently_taking_any_medications__c"
+                value={data.Are_you_currently_taking_any_medications__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Are_you_receiving_prenatal_care__c"
+                value={data.Are_you_receiving_prenatal_care__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Difficulty_Taking_your_Medication_s__c"
+                value={data.Difficulty_Taking_your_Medication_s__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Difficulty_Keeping_Appointments__c"
+                value={data.Difficulty_Keeping_Appointments__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Are_there_unmet_health_conditions__c"
+                value={data.Are_there_unmet_health_conditions__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Need_assistance_accessing_entitlements__c"
+                value={data.Need_assistance_accessing_entitlements__c} variant="label-hidden">
+            </lightning-input-field>
+        </div>
+    </lightning-record-edit-form>
+</template>

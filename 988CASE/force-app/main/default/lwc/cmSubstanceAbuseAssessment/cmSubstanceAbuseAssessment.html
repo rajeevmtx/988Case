@@ -1,0 +1,172 @@
+<template>
+    <lightning-record-edit-form object-api-name="Assessment__c" record-id={recordId}>
+        <p>&nbsp;</p>
+        <div class="slds-p-horizontal_small substanceAbuse">
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral">During the Past 6
+                    months...</span>
+            </h3>
+            </br>
+            <div class="paddingStyle">
+                <p>Have you used alcohol or other drugs? (Such as wine, beer, hard liquor, pot, coke, heroin or
+                    other opioids, uppers, downers, hallucinogens, or inhalants.)"</p>
+                <lightning-radio-group label="" name="Have_you_used_alcohol_or_other_drugs__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <template if:true={data.Have_you_used_alcohol_or_other_drugs__c}>
+                    <p>What substance(s) have you used?</p>
+                    <lightning-input-field field-name="What_substance_s_have_you_used__c"
+                        name="What_substance_s_have_you_used__c" onchange={handleChange} variant="label-hidden">
+                    </lightning-input-field>
+                    <p>When was the last time you used it?</p>
+                    <lightning-input-field field-name="When_was_the_last_time_you_used_it__c"
+                        name="When_was_the_last_time_you_used_it__c" onchange={handleChange} variant="label-hidden">
+                    </lightning-input-field>
+                    <p>How often do you use this substance?</p>
+                    <lightning-input-field field-name="How_often_do_you_use_this_substance__c"
+                        name="How_often_do_you_use_this_substance__c" onchange={handleChange} variant="label-hidden">
+                    </lightning-input-field>
+                    <p>How often do you use this substance?</p>
+                    <lightning-input-field field-name="Date_of_Last_Visit__c" name="Date_of_Last_Visit__c"
+                        onchange={handleChange} variant="label-hidden"></lightning-input-field>
+                </template>
+                <p>Have you felt that you use too much alcohol or other drugs?</p>
+                <lightning-radio-group label="" name="Felt_that_you_use_too_much_Alcohol__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Have you tried to cut down or quit drinking or using drugs?</p>
+                <lightning-radio-group label="" name="Tried_to_cut_down_or_quit_drinking__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Have you gone to anyone for help because of your drinking or drug use? (Such as Alcoholics
+                    Anonymous, Narcotics Anonymous, Cocaine Anonymous, counselors, or a treatment program.)</p>
+                <lightning-radio-group label="" name="Gone_to_anyone_for_help_for_Drinking__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Have you had any of the following?</p>
+                <ul class="slds-list_dotted slds-m-top_large">
+                    <li>Blackouts or other periods of memory loss.</li>
+                    <li>Injury to your head after drinking or using drugs.</li>
+                    <li>Convulsions, or delirium tremens (“DTs”).</li>
+                    <li>Hepatitis or other liver problems.</li>
+                    <li>Feeling sick, shaky, or depressed when you stopped drinking or using drugs.</li>
+                    <li>Feeling “coke bugs,” or a crawling feeling under the skin, after you stopped using drugs.</li>
+                    <li>Injury after drinking or using drugs.</li>
+                    <li>Using needles to shoot drugs.</li>
+                </ul>
+                <lightning-radio-group label="" name="Have_you_had_any_of_the_following__c" onchange={handleRadioChange}
+                    options={options}>
+                </lightning-radio-group>
+                <p>Has drinking or other drug use caused problems between you and your family or friends?</p>
+                <lightning-radio-group label="" name="Drinking_cause_problems_b_w_family__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Has your drinking or other drug use caused problems at school or at work?</p>
+                <lightning-radio-group label="" name="Drinking_caused_problem_at_School_Work__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Have you been arrested or had other legal problems? (Such as bouncing bad checks, driving while
+                    intoxicated, theft, or drug possession.)</p>
+                <lightning-radio-group label="" name="Been_arrested_or_had_legal_Problems__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <template if:true={data.Been_arrested_or_had_legal_Problems__c}>
+                    <p>Date of arrest</p>
+                    <lightning-input-field field-name="Date_of_arrest__c" name="Date_of_arrest__c"
+                        onchange={handleChange} variant="label-hidden">
+                    </lightning-input-field>
+                    <p>Disposition of arrest</p>
+                    <lightning-input-field field-name="Disposition_of_arrest__c" name="Disposition_of_arrest__c"
+                        onchange={handleChange} variant="label-hidden">
+                    </lightning-input-field>
+                </template>
+                <p>When drinking or using drugs, are you more likely to do something you wouldn’t normally do, such
+                    as break rules, break the law, sell things that are important to you, or have unprotected sex with
+                    someone?</p>
+                <lightning-radio-group label="" name="When_drinking_are_you_likely_break_law__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Do you feel bad or guilty about your drinking or drug use?</p>
+                <lightning-radio-group label="" name="Do_you_feel_guilty_about_your_Drinking__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="slds-p-horizontal_small">
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral">Now I have some
+                    questions that are not limited to the past 6 months.</span>
+            </h3>
+            </br>
+            <div class="paddingStyle">
+                <p>Have you ever had a drinking or other drug problem?</p>
+                <lightning-radio-group label="" name="Have_you_ever_had_a_drinking_problem__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Have any of your family members ever told you that you have a drinking or drug problem?</p>
+                <lightning-radio-group label="" name="Anyone_told_that_you_have_Drinking_Prob__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Do you feel that you have a drinking or drug problem now?</p>
+                <lightning-radio-group label="" name="Feel_you_have_drinking_problem_now__c	"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Does the client have a need for substance abuse-related services?</p>
+                <lightning-radio-group label="" name="Client_need_Substance_Abuse_services__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group>
+                <p>Comments</p>
+                <lightning-input-field field-name="Substance_Abuse_comments__c" name="Substance_Abuse_comments__c"
+                    onchange={handleChange} variant="label-hidden">
+                </lightning-input-field>
+            </div>
+        </div>
+        <div class="slds-hide">
+            <lightning-input-field field-name="Have_you_used_alcohol_or_other_drugs__c"
+                value={data.Have_you_used_alcohol_or_other_drugs__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Felt_that_you_use_too_much_Alcohol__c"
+                value={data.Felt_that_you_use_too_much_Alcohol__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Tried_to_cut_down_or_quit_drinking__c"
+                value={data.Tried_to_cut_down_or_quit_drinking__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Gone_to_anyone_for_help_for_Drinking__c"
+                value={data.Gone_to_anyone_for_help_for_Drinking__c}></lightning-input-field>
+            <lightning-input-field field-name="Have_you_had_any_of_the_following__c"
+                value={data.Have_you_had_any_of_the_following__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Drinking_cause_problems_b_w_family__c"
+                value={data.Drinking_cause_problems_b_w_family__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Drinking_caused_problem_at_School_Work__c"
+                value={data.Drinking_caused_problem_at_School_Work__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Been_arrested_or_had_legal_Problems__c"
+                value={data.Been_arrested_or_had_legal_Problems__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="When_drinking_are_you_likely_break_law__c"
+                value={data.When_drinking_are_you_likely_break_law__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Do_you_feel_guilty_about_your_Drinking__c"
+                value={data.Do_you_feel_guilty_about_your_Drinking__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Have_you_ever_had_a_drinking_problem__c"
+                value={data.Have_you_ever_had_a_drinking_problem__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Anyone_told_that_you_have_Drinking_Prob__c"
+                value={data.Anyone_told_that_you_have_Drinking_Prob__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Drinking_caused_problem_at_School_Work__c"
+                value={data.Drinking_caused_problem_at_School_Work__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Feel_you_have_drinking_problem_now__c"
+                value={data.Feel_you_have_drinking_problem_now__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Client_need_Substance_Abuse_services__c"
+                value={data.Client_need_Substance_Abuse_services__c} variant="label-hidden">
+            </lightning-input-field>
+        </div>
+    </lightning-record-edit-form>
+</template>

@@ -1,0 +1,30 @@
+<apex:page standardController="Contact">
+    <style>
+  html body.hasMotif.contactTab.sfdcBody{padding-left:0px;padding-right:0px;}
+
+    </style>
+ 
+    <apex:includeScript value="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
+    <script>
+        var j$ = jQuery.noConflict();
+        j$("iframe").each(function(){
+            j$(this).load(function() {
+                j$(this).height( j$(this).contents().find("body").height() );
+            });
+        });
+    </script>
+    <apex:includeLightning />
+    <div id="lightning" ></div> 
+     <script>
+    $Lightning.use("PHONELOCATION:PhoneLocationApp", function() {
+        $Lightning.createComponent(
+            "PHONELOCATION:PhoneLocation",
+            {recordId:'{!$CurrentPage.parameters.Id}'},
+            "lightning",
+            function(cmp) {
+                console.log("Component is created!");
+                console.log(cmp);
+            });
+    });
+  </script>
+</apex:page>

@@ -1,0 +1,5 @@
+<aura:component implements="lightning:isUrlAddressable">
+    <div style="background-color: white;">
+        <c:cmCallScriptContainer/>
+    </div>
+</aura:component>

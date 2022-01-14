@@ -1,0 +1,126 @@
+    .ny_ {
+        &btn {
+            &,
+            &:link,
+            &:visited {
+                display: inline-block;
+                font-size: 1.167rem;
+                font-weight: 500;
+                text-align: center;
+                padding: .6rem 3rem;
+                text-decoration: none;
+                width: fit-content;
+                transition: all .2s;
+                cursor: pointer;
+            }
+            &:hover {
+                // transform: translateY(-.2rem);
+                box-shadow: $default-shadow;
+                text-decoration: underline;
+                &::after {
+                    // transform: scaleX(1.4) scaleY(1.6);
+                    opacity: 0;
+                }
+            }
+            &:active,
+            &:focus {
+                transform: translate(-.1rem);
+                box-shadow: $default-shadow;
+            }
+            &--primary {
+                background-color: $color-primary;
+                color: $color-white;
+                -webkit-appearance: none;
+                appearance: none;
+                &::after {
+                    background: $color-white;
+                }
+                &:hover {
+                    background: $color-primary-hover;
+                }
+            }
+            &--default {
+                background-color: $color-white;
+                border: 1px solid $color-primary;
+                color: $color-primary;
+                padding: .6rem 1.8rem;
+                -webkit-appearance: none;
+                appearance: none;
+                &::after {
+                    background: $color-primary;
+                }
+                &:hover {
+                    background: $color-light-gray;
+                }
+            }
+            &--disable,
+            &--disable:hover {
+                cursor: not-allowed;
+                pointer-events: none;
+                color: $color-text-disable;
+                background-color: #d2d2d2;
+            }
+        }
+        &btn-card {
+            display: flex;
+            justify-content: space-between;
+            &--left_section {
+                align-self: center;
+            }
+            &--right_section {
+                align-self: flex-end;
+            }
+            &--flex_end {
+                justify-content: flex-end;
+            }
+        }
+        &hidden {
+            visibility: hidden;
+        }
+    }
+    
+    .ny_top-button {
+        &--logout {
+            background: $color-white;
+            color: $color-black !important;
+            padding: 0.7rem;
+            text-transform: uppercase;
+            &:hover {
+                background: $color-secondary;
+                color: $color-white !important;
+            }
+        }
+        &--login {
+            background: $color-secondary;
+            padding: 0.7rem;
+            text-transform: uppercase;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .ny_ {
+            &btn {
+                &,
+                &:link,
+                &:visited {
+                    padding: .6rem .8rem;
+                    &--default {
+                        padding: .6rem .8rem;
+                    }
+                }
+                &-card {
+                    display: block;
+                }
+                &--default {
+                    width: 100%;
+                    margin-top: 1rem;
+                    margin-left: 0;
+                }
+                &--primary {
+                    width: 100%;
+                    margin-top: 1rem;
+                    margin-left: 0;
+                }
+            }
+        }
+    }

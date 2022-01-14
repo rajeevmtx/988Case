@@ -1,0 +1,104 @@
+<template>
+    <div class="slds-theme_default slds-scrollable_y">
+        <div class=" slds-section slds-is-open">
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral Creation">Referral
+                    Creation</span>
+            </h3></br>
+            <div aria-hidden="false" class="slds-section__content">
+                <b>Type of Referral</b>
+                <lightning-combobox name="reffVal" options={referralOptions} onchange={handleReferralChange}>
+                </lightning-combobox></br>
+
+                <b>Notes</b>
+                <lightning-textarea name="notes" onchange={handleNotesChange}></lightning-textarea></br>
+
+                <b>Referral Outcome</b>
+                <lightning-combobox name="refOutcome" value={outcomeValue} options={referralOutcome}
+                    onchange={handleOutcomeChange}>
+                </lightning-combobox></br>
+
+                <b>Program</b>
+                <lightning-combobox name="program" options={programOptions} onchange={handleProgramChange}
+                    value={programValue}>
+                </lightning-combobox></br>
+                </br>
+
+                <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+                    <lightning-input-address address-label="Location of the Incident" street-label="Street"
+                        city-label="City" country-label="Country" province-label="Province"
+                        postal-code-label="PostalCode" street={addressData.Street_Address__c} city={addressData.City__c}
+                        country={addressData.County__c} province={addressData.Province__c}
+                        postal-code={addressData.Zip_Code__c} show-address-lookup onchange={onAddressChange}>
+                    </lightning-input-address>
+
+                    <div class="slds-hide">
+                        <lightning-input-field field-name="Street_Address__c" variant="label-hidden"
+                            value={addressData.Street_Address__c}>
+                        </lightning-input-field></br>
+
+                        <lightning-input-field field-name="Province__c" variant="label-hidden"
+                            value={addressData.Province__c}>
+                        </lightning-input-field></br>
+                        <!-- <b>City</b> -->
+                        <lightning-input-field field-name="City__c" variant="label-hidden" value={addressData.City__c}>
+                        </lightning-input-field></br>
+                        <!-- <b>County</b> -->
+                        <lightning-input-field field-name="County__c" variant="label-hidden"
+                            value={addressData.County__c}>
+                        </lightning-input-field></br>
+                        <!-- <b>ZipCode</b> -->
+                        <lightning-input-field field-name="Zip_Code__c" variant="label-hidden"
+                            value={addressData.Zip_Code__c}>
+                        </lightning-input-field></br>
+                    </div>
+                    <lightning-output-field field-name={nameField}> </lightning-output-field>
+                </lightning-record-edit-form>
+                </br>
+                <button class="slds-button slds-button_brand" onclick={onBackClick}>Back</button>
+                <button class="slds-button slds-button_neutral" onclick={onSubmit}>Submit</button>
+                <button class="slds-button slds-button_destructive" onclick={onClose}>Save and Close</button>
+                </br>
+                </br>
+                <template if:true={hasReferral}>
+                    <h3 class="slds-section__title slds-theme_shade">
+                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                            title="Referrals">Referrals</span>
+                    </h3></br>
+                    <template for:each={recordId} for:item="rec">
+                        <div key={rec.Id}>
+                            <lightning-record-view-form record-id={rec.Id} object-api-name="Case">
+                                <div class="slds-grid">
+                                    <div class="slds-col slds-size_1-of-4">
+                                        <span>
+                                            <lightning-output-field field-name="CaseNumber">
+                                            </lightning-output-field>
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-4">
+                                        <span>
+                                            <lightning-output-field field-name="Referral_Outcome__c">
+                                            </lightning-output-field>
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-4">
+                                        <span>
+                                            <lightning-output-field field-name="Program__c">
+                                            </lightning-output-field>
+                                        </span>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-4">
+                                        <span>
+                                            <lightning-output-field field-name="Type_of_Referral__c">
+                                            </lightning-output-field>
+                                        </span>
+                                    </div>
+                                </div>
+                            </lightning-record-view-form>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

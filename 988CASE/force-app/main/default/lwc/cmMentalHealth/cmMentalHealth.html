@@ -1,0 +1,166 @@
+<template>
+
+    <h3 class="slds-section__title slds-theme_shade">
+        <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Mental">Mental Health</span>
+    </h3>
+    <lightning-record-edit-form object-api-name="Assessment__c" record-id={recordId}>
+        <div class="slds-p-horizontal_small">
+            </br>
+            <p>Has the client ever talked to a psychiatrist, therapist, social worker, or counselor about an emotional
+                problem?</p>
+            <lightning-radio-group label="" name="Have_they_talked_about_problem_to_anyone__c"
+                onchange={handleRadioChange} options={options}>
+            </lightning-radio-group>
+            </br>
+            <template if:true={data.Have_they_talked_about_problem_to_anyone__c}>
+                <p>Clinician name?</p>
+                <lightning-input-field field-name="Clinician_name__c" name="Clinician_name__c" onchange={handleChange}
+                    variant="label-hidden">
+                </lightning-input-field>
+                </br>
+                <p>Address</p>
+                <lightning-input-field field-name="Provider_Address__c" name="Provider_Address__c"
+                    onchange={handleChange} variant="label-hidden">
+                </lightning-input-field>
+                </br>
+                <p>Phone Number</p>
+                <lightning-input-field field-name="Phone_Number__c" name="Phone_Number__c" onchange={handleChange}
+                    variant="label-hidden"></lightning-input-field>
+                </br>
+            </template>
+            <p>Have you ever felt you needed help with your emotional problems, or have you had people tell you that you
+                should get help for your emotional probelms?</p>
+            <lightning-radio-group label="" name="Ever_felt_you_needed_help_with_problems__c"
+                onchange={handleRadioChange} options={options}>
+            </lightning-radio-group>
+            </br>
+            <p>Have you ever been advised to take medication for anxiety, depressions, hearing voices, or for any other
+                emotional problem?</p>
+            <lightning-radio-group label="" name="Ever_been_advised_to_take_Medication__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group>
+            </br>
+            <template if:true={data.Ever_been_advised_to_take_Medication__c}>
+                <p>Name of medication(s)</p>
+                <lightning-input-field field-name="Name_of_Current_Medication_s__c"
+                    name="Name_of_Current_Medication_s__c" onchange={handleChange} variant="label-hidden">
+                </lightning-input-field>
+                </br>
+                <p>Dosage</p>
+                <lightning-input-field field-name="Dosage__c" name="Dosage__c" onchange={handleChange}
+                    variant="label-hidden">
+                </lightning-input-field>
+            </template>
+            </br>
+            <p>Have you ever been seen in a psychiatric emergency room or been hospitalized for psychiatric reason?</p>
+            <lightning-radio-group label="" name="Ever_seen_Psychiatric_Emergency_Room__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group>
+            </br>
+            <template if:true={data.Ever_seen_Psychiatric_Emergency_Room__c}>
+                <p>Most recent date:</p>
+                <lightning-input-field field-name="Most_recent_date__c" name="Most_recent_date__c"
+                    onchange={handleChange} variant="label-hidden"></lightning-input-field> </br>
+                <p>Name of Hospital</p>
+                <lightning-input-field field-name="Name_of_Hospital__c" name="Name_of_Hospital__c"
+                    onchange={handleChange} variant="label-hidden"></lightning-input-field> </br>
+                <p>Hospital Address</p>
+                <lightning-input-field field-name="Hospital_Address__c" name="Hospital_Address__c"
+                    onchange={handleChange} variant="label-hidden"></lightning-input-field> </br>
+                <p>Reason for hospitalization? </p>
+                <lightning-input-field field-name="Reason_for_Hospitalization__c" name="Reason_for_Hospitalization__c"
+                    onchange={handleChange} variant="label-hidden"></lightning-input-field> </br>
+            </template>
+            <p>Have you ever heard voices no one else could hear or seen objects or things which others could not see?
+            </p>
+            <lightning-radio-group label="" name="Ever_heard_voices_or_seen_the_objects__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group> </br>
+            <p>Have you ever been depressed for weeks at a time, lost interest or pleasure in most
+                activities had trouble concentrating and making decisions, or thought about killing yourself?</p>
+            <lightning-radio-group label="" name="Ever_depressed_for_a_week__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group> </br>
+            <template if:true={data.Ever_depressed_for_a_week__c}>
+                <p>Have you ever attempted to kill yourself?</p>
+                <lightning-radio-group label="" name="Have_you_ever_attempted_to_kill_yourself__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group> </br>
+                <p>Are you currently thinking of hurting yourself?</p>
+                <lightning-radio-group label="" name="Are_you_currently_thinking_of_hurting__c"
+                    onchange={handleRadioChange} options={options}>
+                </lightning-radio-group> </br>
+            </template>
+            <p>Have you ever had nightmares or flashbacks as a result of being involved in some
+                traumatic/terrible event? (For example, warfare, gang fights, fire, domestic violence, rape,
+                incest, car accident, being shot or stabbed?)</p>
+            <lightning-radio-group label="" name="Ever_had_Nightmares_or_Flashbacks__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group> </br>
+            <p>Have you ever given in to an aggressive urge or impulse, on more than one occasion, that
+                resulted in serious harm to others or led to the destruction of property?</p>
+            <lightning-radio-group label="" name="Ever_given_aggressive_urge_or_impulse__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group> </br>
+            <p>Have you ever had spells or attacks when you suddenly felt anxious, frightened, or uneasy to
+                the extent that you began sweating, your heart began to beat rapidly, you were shaking or
+                trembling, your stomach was upset, or you felt dizzy or unsteady, as if you would faint? </p>
+            <lightning-radio-group label="" name="Ever_had_spells_or_attacks__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group> </br>
+            <p>Have you ever had a persistent, lasting thought or impulse to do something over and over
+                that caused you considerable distress and interfered with normal routines, work, or social
+                relations? Examples would include repeatedly counting things, checking and rechecking
+                on things you had done, washing and rewashing your hands, praying, or maintaining a very
+                rigid schedule of daily activities from which you could not deviate.?</p>
+            <lightning-radio-group label="" name="Ever_had_a_persistent_lasting_thoughts__c"
+                onchange={handleRadioChange} options={options}>
+            </lightning-radio-group> </br>
+            <p>Does the client have a need for mental health services?</p>
+            <lightning-input-field field-name="Need_Mental_Health_Services__c" name="Need_Mental_Health_Services__c"
+                onchange={handleChange} variant="label-hidden">
+            </lightning-input-field> </br>
+            <p>Comments</p>
+            <lightning-input-field field-name="Comments__c" name="Comments__c" onchange={handleChange}
+                variant="label-hidden"></lightning-input-field> </br>
+        </div>
+        <div class="slds-hide">
+            <lightning-input-field field-name="Have_they_talked_about_problem_to_anyone__c"
+                value={data.Have_they_talked_about_problem_to_anyone__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_felt_you_needed_help_with_problems__c"
+                value={data.Ever_felt_you_needed_help_with_problems__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_been_advised_to_take_Medication__c"
+                value={data.Ever_been_advised_to_take_Medication__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_seen_Psychiatric_Emergency_Room__c"
+                value={data.Ever_seen_Psychiatric_Emergency_Room__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_heard_voices_or_seen_the_objects__c"
+                value={data.Ever_heard_voices_or_seen_the_objects__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_depressed_for_a_week__c" value={data.Ever_depressed_for_a_week__c}
+                variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_had_Nightmares_or_Flashbacks__c"
+                value={data.Ever_had_Nightmares_or_Flashbacks__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Have_you_ever_attempted_to_kill_yourself__c"
+                value={data.Have_you_ever_attempted_to_kill_yourself__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Are_you_currently_thinking_of_hurting__c"
+                value={data.Are_you_currently_thinking_of_hurting__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_given_aggressive_urge_or_impulse__c"
+                value={data.Ever_given_aggressive_urge_or_impulse__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_had_spells_or_attacks__c" value={data.Ever_had_spells_or_attacks__c}
+                variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Ever_had_a_persistent_lasting_thoughts__c"
+                value={data.Ever_had_a_persistent_lasting_thoughts__c} variant="label-hidden">
+            </lightning-input-field>
+        </div>
+    </lightning-record-edit-form>
+</template>

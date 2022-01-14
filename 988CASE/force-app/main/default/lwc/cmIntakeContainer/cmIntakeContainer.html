@@ -1,0 +1,926 @@
+<template>
+    <div style="background-color:#16325c;padding:0.5rem">
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" size="12" class="slds-align_absolute-center">
+                <button class="slds-button slds-button_inverse custom-box" style="width: 350px;" onclick={openModal}
+                    name="Referred By">Create Intake</button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container" style="width: 80%;">
+                <header class="slds-modal__header" style="background-color:#16325c">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="color:white">
+                        Intake
+                    </h2>
+                </header>
+
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-record-edit-form object-api-name="Intake_Request__c" record-id={intakeID}>
+                        <p>&nbsp;</p>
+                        <div class="slds-p-horizontal_small">
+                            <h3 class="slds-section__title slds-theme_shade">
+                                <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                    style="font-weight: bold;" title="Referred By">Referred By</span>
+                            </h3>
+                            </br>
+                            <div class="paddingStyle" style="padding-left: 3%;">
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Case ID</th>
+                                            <th>Referral ID</th>
+                                            <th>Referral Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <lightning-input-field style="width:135px;" field-name="Case__c"
+                                                    name="Case__c" onchange={handleChange} variant="label-hidden">
+                                                </lightning-input-field>&nbsp;&nbsp;
+                                            </td>
+                                            <td>
+                                                <lightning-input-field field-name="Name" name="Name"
+                                                    onchange={handleChange} variant="label-hidden">
+                                                </lightning-input-field>
+                                            </td>
+                                            <td>
+                                                <lightning-input-field field-name="Name" name="Name"
+                                                    onchange={handleChange} variant="label-hidden">
+                                                </lightning-input-field>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                </br>
+                            </div>
+                            <h3 class="slds-section__title slds-theme_shade">
+                                <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                    style="font-weight: bold;" title="Non-Medical Service Providers">Non-Medical
+                                    Service Providers</span>
+                            </h3>
+                            </br>
+                            <div class="paddingStyle" style="padding-left: 3%;">
+                                Select a Non-Medical Service Providers
+                                <lightning-input-field field-name="Non_Medical_Service_Providers__c"
+                                    name="Non_Medical_Service_Providers__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field>
+                                </br>
+
+                                Agency
+                                <lightning-input-field field-name="Agency__c" name="Agency__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field>
+
+                                </br>
+                                Contact Person
+                                <lightning-input-field field-name="Contact_Person__c" name="Contact_Person__c"
+                                    onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field>
+
+                                </br>
+                                Phone
+                                <lightning-input-field field-name="Non_Medical_Service_Providers_Phone__c"
+                                    name="Non_Medical_Service_Providers_Phone__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field>
+
+
+                                </br>
+                                Service
+                                <lightning-input-field field-name="Service__c" name="Service__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field>
+
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Are case management services provided through another
+                                        agency?</div></br>
+                                    <div class="slds-col">
+                                        <lightning-input-field field-name="Service_provided_through_another_agency__c"
+                                            name="Service_provided_through_another_agency__c" onchange={handleChange}
+                                            variant="label-hidden">
+                                        </lightning-input-field>
+                                    </div>
+                                </div>
+                                </br>
+                            </div>
+
+                            <h3 class="slds-section__title slds-theme_shade">
+                                <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                    style="font-weight: bold;" title="Additional Information">Additional
+                                    Information</span>
+                            </h3>
+                            </br>
+                            <div class="paddingStyle" style="padding-left: 3%;">
+                                Date of Birth</br>
+                                <lightning-input-field field-name="Date_of_Birth__c" name="Provider_Name__c"
+                                    onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+
+
+                                Age</br>
+                                <lightning-input-field field-name="Additional_Information_Age__c"
+                                    name="Additional_Information_Age__c" onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Gender</br>
+                                <lightning-input-field field-name="Gender__c" name="Gender__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Ethnicity: Hispanic?</div></br>
+                                    <div class="slds-col">
+                                        <lightning-input-field field-name="Ethnicity_Hispanic__c"
+                                            name="Ethnicity_Hispanic__c" onchange={handleChange} variant="label-hidden">
+                                        </lightning-input-field>
+                                    </div>
+                                </div>
+                                </br>
+
+                                Race</br>
+                                <lightning-input-field field-name="Race__c" name="Race__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Relationship Status</br>
+                                <lightning-input-field field-name="Relationship_Status__c" name="Relationship_Status__c"
+                                    onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Person describes self as</br>
+                                <lightning-input-field field-name="Person_describes_self_as__c"
+                                    name="Person_describes_self_as__c" onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Primary language spoken</br>
+                                <lightning-input-field field-name="Primary_language_spoken__c"
+                                    name="Primary_language_spoken__c" onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col">Read?</div></br>
+                                    <div class="slds-col">
+                                        <lightning-input-field field-name="Read__c" name="Read__c"
+                                            onchange={handleChange} variant="label-hidden">
+                                        </lightning-input-field>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col">Write?</div></br>
+                                    <div class="slds-col">
+                                        <lightning-input-field field-name="Write__c" name="Write__c"
+                                            onchange={handleChange} variant="label-hidden">
+                                        </lightning-input-field>
+                                    </div>
+                                </div>
+                                </br>
+
+                                Does the client have difficulty understanding English?</br>
+                                <lightning-input-field field-name="Has_difficulty_understanding_English__c"
+                                    name="Has_difficulty_understanding_English__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Does the client have difficulty using English to navigate the health and social service
+                                systems?</br>
+                                <lightning-input-field field-name="Has_difficulty_in_English_to_navigate__c"
+                                    name="Has_difficulty_in_English_to_navigate__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Citizenship/Immigration Status</br>
+                                <lightning-input-field field-name="Citizenship_Immigration_Status__c"
+                                    name="Citizenship_Immigration_Status__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Is the client an undocumented U.S. resident?</br>
+                                <lightning-input-field field-name="Is_client_an_undocumented_U_S_resident__c"
+                                    name="Is_client_an_undocumented_U_S_resident__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Does the client have pending immigration issues?</br>
+                                <lightning-input-field field-name="Client_has_pending_immigration__c"
+                                    name="Client_has_pending_immigration__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Living Situation</br>
+                                <lightning-input-field field-name="Living_Situation__c" name="Living_Situation__c"
+                                    onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Living Arrangement</br>
+                                <lightning-input-field field-name="Living_Arrangement__c" name="Living_Arrangement__c"
+                                    onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                Does the client have temporary, unsafe, and/or inadequate housing?</br>
+                                <lightning-input-field field-name="Have_temporary_or_inadequate_housing__c"
+                                    name="Have_temporary_or_inadequate_housing__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+                            </div>
+
+                            <h3 class="slds-section__title slds-theme_shade">
+                                <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                    style="font-weight: bold;" title="Primary Insurance">Primary Insurance</span>
+                            </h3>
+                            </br>
+                            <div class="paddingStyle" style="padding-left: 3%;">
+                                <b>Indicate all that Apply:</b></br></br>
+                                Medicaid:</br></br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col">Is there an exception - 35?</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Is_there_an_exception_35__c"
+                                                name="Is_there_an_exception_35__c" onchange={handleChange}
+                                                variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Is there a spend-down?</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Is_there_a_spend_down__c"
+                                                name="Is_there_a_spend_down__c" onchange={handleChange}
+                                                variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col">Medicaid Managed Care</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Medicaid_Managed_Care__c"
+                                                name="Medicaid_Managed_Care__c" onchange={handleChange}
+                                                variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col">Medicare</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Medicare__c" name="Medicare__c"
+                                                onchange={handleChange} variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Private Insurance</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Private_Insurance__c"
+                                                name="Private_Insurance__c" onchange={handleChange}
+                                                variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> HMO/Managed Care</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="HMO_Managed_Care__c"
+                                                name="HMO_Managed_Care__c" onchange={handleChange}
+                                                variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> ADAP Plus</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="ADAP_PLUS__c" name="ADAP_PLUS__c"
+                                                onchange={handleChange} variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Self Pay</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Self_Pay__c" name="Self_Pay__c"
+                                                onchange={handleChange} variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Military</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Military__c" name="Military__c"
+                                                onchange={handleChange} variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                Other</br>
+                                <lightning-input-field field-name="Primary_Insurance_Other__c"
+                                    name="Primary_Insurance_Other__c" onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+                            </div>
+
+                            <h3 class="slds-section__title slds-theme_shade">
+                                <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                    style="font-weight: bold;" title="Secondary Insurance">Secondary
+                                    Insurance</span>
+                            </h3>
+                            </br>
+                            <div class="paddingStyle" style="padding-left: 3%;">
+                                <!-- <b>Indicate all that Apply:</b></br></br>
+                                <lightning-input-field field-name="Secondary_Insurance__c" name="Secondary_Insurance__c"
+                                    onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br> -->
+
+                                <div class="slds-grid">
+                                    <div class="slds-col">Medicaid Managed Care</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Medicaid_Managed_Care__c"
+                                                name="Medicaid_Managed_Care__c" onchange={handleChange}
+                                                variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col">Medicare</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Medicare__c" name="Medicare__c"
+                                                onchange={handleChange} variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Private Insurance</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Private_Insurance__c"
+                                                name="Private_Insurance__c" onchange={handleChange}
+                                                variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> HMO/Managed Care</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="HMO_Managed_Care__c"
+                                                name="HMO_Managed_Care__c" onchange={handleChange}
+                                                variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> ADAP Plus</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="ADAP_PLUS__c" name="ADAP_PLUS__c"
+                                                onchange={handleChange} variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Self Pay</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Self_Pay__c" name="Self_Pay__c"
+                                                onchange={handleChange} variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                <div class="slds-grid">
+                                    <div class="slds-col"> Military</div></br>
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-input-field field-name="Military__c" name="Military__c"
+                                                onchange={handleChange} variant="label-hidden">
+                                            </lightning-input-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                </br>
+
+                                Other</br>
+                                <lightning-input-field field-name="Primary_Insurance_Other__c"
+                                    name="Primary_Insurance_Other__c" onchange={handleChange} variant="label-hidden">
+                                </lightning-input-field></br>
+
+
+                                Does the client need assistance with insurance for medical care?
+                                <lightning-input-field field-name="Need_help_with_insurance_medical_care__c"
+                                    name="Need_help_with_insurance_medical_care__c" onchange={handleChange}
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+                            </div>
+                        </div>
+                        <!-- Adding household info -->
+                        <h3 class="slds-section__title slds-theme_shade">
+                            <span class="slds-truncate slds-p-horizontal_small headerStyle" style="font-weight: bold;"
+                                title="Household Composition">Household Composition &
+                                Living Situation
+                            </span>
+                        </h3>
+                        <div class="paddingStyle" style="padding-left: 3%;">
+                            <h3 class="headerStyle">Household Composition</h3>
+                            </br>
+                            Number of people in household (including client)</br>
+                            <lightning-input-field field-name="No_of_people_in_household_incl_client__c"
+                                name="No_of_people_in_household_incl_client__c" onchange={handleChange}
+                                variant="label-hidden">
+                            </lightning-input-field></br>
+                            </br>
+                        </div>
+                    </lightning-record-edit-form>
+
+                    <!-- For adults -->
+                    <div class="paddingStyle" style="padding-left: 3%;">
+                        <div class="slds-grid">
+                            <div class="slds-col">Adults</div></br>
+                            <div class="slds-clearfix">
+                                <div class="slds-col slds-float_right">
+                                    <lightning-button label="Add" title="Add action" icon-name="utility:add"
+                                        onclick={handleAddAdult} class="slds-m-left_x-small">
+                                    </lightning-button>
+                                </div>
+                                <div class="slds-col slds-float_right">
+                                    <!-- <lightning-button variant="brand" label="Save" title="Save" onclick={saveAdult}>
+                                    </lightning-button> -->
+                                </div>
+                            </div>
+                        </div>
+                        </br>
+                        <template if:true={hasRecordAdult}>
+                            <!-- <lightning-record-edit-form object-api-name="Household_Member__c" record-id={houseHoldId} data-id="accountForm"> -->
+                            <lightning-spinner alternative-text="Loading..." if:true={showSpinner} variant="brand">
+                            </lightning-spinner>
+                            <div if:false={showSpinner}>
+                                Name
+                                <lightning-input data-id="houseHold" name="Name" onchange={handleChangeAdult}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+                                Relationship</br>
+                                <lightning-input data-id="houseHold" name="Relationship" onchange={handleChangeAdult}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+
+                                HIV Status (+,- or unknown)</br>
+                                <lightning-combobox data-id="houseHold" name="HIV_Status_or_unknown" label=""
+                                    options={HIVStatusOption.data.values} onchange={handleChangeAdult}
+                                    variant="label-hidden">
+                                </lightning-combobox>
+                                <!-- <lightning-input data-id="houseHold" name="HIV_Status_or_unknown"
+                                    onchange={handleChangeAdult} variant="label-hidden">
+                                </lightning-input> -->
+
+                                </br>
+
+                                Age</br>
+                                <lightning-input data-id="houseHold" name="Age" onchange={handleChangeAdult}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+
+                                Aware of Client's HIV+ Status (Y/N/NA)</br>
+                                <lightning-combobox data-id="houseHold" name="Aware_of_Client_s_HIV_Status_Y_N_NA"
+                                    label="" options={AwayClientOption.data.values} onchange={handleChangeAdult}
+                                    variant="label-hidden">
+                                </lightning-combobox>
+                                <!-- <lightning-input data-id="houseHold" name="Aware_of_Client_s_HIV_Status_Y_N_NA"
+                                    onchange={handleChangeAdult} variant="label-hidden">
+                                </lightning-input> -->
+                                </br>
+                                <div class="slds-m-vertical_medium">
+                                    <div class="slds-clearfix">
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-button variant="destructive" data-id="Adults" label="Cancel"
+                                                title="Cancel" onclick={handleCancel}>
+                                            </lightning-button>
+                                        </div>
+                                        <div class="slds-col slds-float_right">
+                                            <lightning-button variant="brand" label="Save" data-id="Adults" title="Save"
+                                                onclick={saveAdult}>
+                                            </lightning-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </lightning-record-edit-form> -->
+                            <!-- <c-cm-additional-intake recordid={houseHoldId}></c-cm-additional-intake> -->
+
+                        </template>
+                        <template if:true={hasRecordAdultList}>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                                aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Name">Name</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Relationship">Relationship</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="HIV Status (+,- or unknown)">HIV Status
+                                                (+,- or unknown)</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Age">Age</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Aware of Client's HIV+ Status (Y/N/NA)">
+                                                Aware of Client's HIV+ Status (Y/N/NA)</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={adultsList} for:item="rec">
+
+                                        <tr class="slds-hint-parent" key={rec.keyIndex}>
+                                            <th data-label="Name" scope="row">
+                                                <div class="slds-truncate" title="">
+                                                    {rec.Name}
+                                                </div>
+                                            </th>
+                                            <td data-label="Relationship">
+                                                <div class="slds-truncate" title="">{rec.Relationship}</div>
+                                            </td>
+                                            <td data-label="HIV Status (+,- or unknown)">
+                                                <div class="slds-truncate" title="">{rec.HIV_Status_or_unknown}</div>
+                                            </td>
+                                            <td data-label="Age">
+                                                <div class="slds-truncate" title="">{rec.Age}</div>
+                                            </td>
+                                            <td data-label="Aware of Client's HIV+ Status (Y/N/NA)">
+                                                <div class="slds-truncate" title="">
+                                                    {rec.Aware_of_Client_s_HIV_Status_Y_N_NA}</div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </template>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <!-- For Children -->
+                    <div class="paddingStyle" style="padding-left: 3%;">
+                        <div class="slds-grid">
+                            <div class="slds-col">Children</div></br>
+                            <div class="slds-clearfix">
+                                <div class="slds-col slds-float_right">
+                                    <lightning-button label="Add" title="Add action" icon-name="utility:add"
+                                        onclick={handleAddChild} class="slds-m-left_x-small">
+                                    </lightning-button>
+                                </div>
+                                <div class="slds-col slds-float_right">
+                                    <!-- <lightning-button variant="brand" label="Save" title="Save" onclick={saveChild}>
+                                    </lightning-button> -->
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <template if:true={hasRecordChild}>
+                            <!-- <lightning-record-edit-form object-api-name="Household_Member__c" record-id={houseHoldId} data-id="accountForm"> -->
+                            <lightning-spinner alternative-text="Loading..." if:true={showSpinner} variant="brand">
+                            </lightning-spinner>
+                            <div if:false={showSpinner}>
+                                Name
+                                <lightning-input data-id="houseHold" name="Name" onchange={handleChangeChild}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+                                Relationship</br>
+                                <lightning-input data-id="houseHold" name="Relationship" onchange={handleChangeChild}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+                                DOB</br>
+                                <lightning-input type="date" data-id="houseHold" name="DOB" onchange={handleChangeChild}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+                                Sex</br>
+                                <lightning-combobox data-id="houseHold" name="Sex" label=""
+                                    options={SexStatusOption.data.values} onchange={handleChangeChild}
+                                    variant="label-hidden">
+                                </lightning-combobox>
+
+                                </br>
+                                School Grade</br>
+                                <lightning-input data-id="houseHold" name="School_Grade" onchange={handleChangeChild}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+                                HIV Status (+,- or unknown)</br>
+                                <lightning-combobox data-id="houseHold" name="HIV_Status_or_unknown" label=""
+                                    options={HIVStatusOption.data.values} onchange={handleChangeChild}
+                                    variant="label-hidden">
+                                </lightning-combobox>
+
+                                </br>
+                                Aware of Client's HIV+ Status (Y/N/NA)</br>
+                                <lightning-combobox data-id="houseHold" name="Aware_of_Client_s_HIV_Status_Y_N_NA"
+                                    label="" options={AwayClientOption.data.values} onchange={handleChangeChild}
+                                    variant="label-hidden">
+                                </lightning-combobox>
+
+                                </br>
+
+                            </div>
+                            <div class="slds-m-vertical_medium">
+                                <div class="slds-clearfix">
+                                    <div class="slds-col slds-float_right">
+                                        <lightning-button variant="destructive" data-id="Children" label="Cancel"
+                                            title="child" onclick={handleCancel}>
+                                        </lightning-button>
+                                    </div>
+                                    <div class="slds-col slds-float_right">
+                                        <lightning-button variant="brand" label="Save" data-id="Children" title="Save" onclick={saveChild}>
+                                        </lightning-button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </lightning-record-edit-form> -->
+                            <!-- <c-cm-additional-intake recordid={houseHoldId}></c-cm-additional-intake> -->
+
+                        </template>
+                        <template if:true={hasRecordChildList}>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                                aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Name">Name</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Relationship">Relationship</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="DOB">DOB</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Sex">Sex</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="School Grade">School Grade</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="HIV Status (+,- or unknown)">HIV Status
+                                                (+,- or unknown)</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Aware of Client's HIV+ Status (Y/N/NA)">
+                                                Aware of Client's HIV+ Status (Y/N/NA)</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={childList} for:item="rec">
+
+                                        <tr class="slds-hint-parent" key={rec.keyIndex}>
+                                            <th data-label="Name" scope="row">
+                                                <div class="slds-truncate" title="">
+                                                    {rec.Name}
+                                                </div>
+                                            </th>
+                                            <td data-label="Relationship">
+                                                <div class="slds-truncate" title="">{rec.Relationship}</div>
+                                            </td>
+                                            <td data-label="DOB">
+                                                <div class="slds-truncate" title="">{rec.DOB}</div>
+                                            </td>
+                                            <td data-label="Sex">
+                                                <div class="slds-truncate" title="">{rec.Sex}</div>
+                                            </td>
+                                            <td data-label="School Grade">
+                                                <div class="slds-truncate" title="">{rec.School_Grade}</div>
+                                            </td>
+                                            <td data-label="HIV Status (+,- or unknown)">
+                                                <div class="slds-truncate" title="">{rec.HIV_Status_or_unknown}</div>
+                                            </td>
+                                            <td data-label="Aware of Client's HIV+ Status (Y/N/NA)">
+                                                <div class="slds-truncate" title="">
+                                                    {rec.Aware_of_Client_s_HIV_Status_Y_N_NA}</div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </template>
+                    </div>
+                    <br>
+                    <hr>
+                    <br>
+                    <!-- For Others -->
+                    <div class="paddingStyle" style="padding-left: 3%;">
+                        <div class="slds-grid">
+                            <div class="slds-col slds-heading">Other</div></br>
+                            <div class="slds-clearfix">
+                                <div class="slds-col slds-float_right">
+                                    <lightning-button label="Add" title="Add action" icon-name="utility:add"
+                                        onclick={handleAddOther} class="slds-m-left_x-small">
+                                    </lightning-button>
+                                </div>
+                            </div>
+                        </div>
+                        </br>
+                        <template if:true={hasRecordOther} class="slds-m-vertical_medium">
+                            <!-- <lightning-record-edit-form object-api-name="Household_Member__c" record-id={houseHoldId} data-id="accountForm"> -->
+                            <lightning-spinner alternative-text="Loading..." if:true={showSpinner} variant="brand">
+                            </lightning-spinner>
+                            <div if:false={showSpinner}>
+                                Name
+                                <lightning-input data-id="houseHold" name="Name" onchange={handleChangeOther}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+                                Relationship</br>
+                                <lightning-input data-id="houseHold" name="Relationship" onchange={handleChangeOther}
+                                    variant="label-hidden">
+                                </lightning-input>
+
+                                </br>
+                                HIV Status (+,- or unknown)</br>
+                                <lightning-combobox data-id="houseHold" name="HIV_Status_or_unknown" label=""
+                                    options={HIVStatusOption.data.values} onchange={handleChangeOther}
+                                    variant="label-hidden">
+                                </lightning-combobox>
+
+                                </br>
+                                Aware of Client's HIV+ Status (Y/N/NA)</br>
+                                <lightning-combobox data-id="houseHold" name="Aware_of_Client_s_HIV_Status_Y_N_NA"
+                                    label="" options={AwayClientOption.data.values} onchange={handleChangeOther}
+                                    variant="label-hidden">
+                                </lightning-combobox>
+
+                                </br>
+                                Whereabouts</br>
+                                <lightning-input data-id="houseHold" name="Whereabouts" onchange={handleChangeOther}
+                                    variant="label-hidden">
+                                </lightning-input>
+                                </br>
+
+                            </div>
+                            <div class="slds-m-vertical_medium">
+                                <div class="slds-clearfix">
+                                    <div class="slds-col slds-float_right">
+                                        <lightning-button variant="destructive" data-id="Other" label="Cancel"
+                                            title="Cancel" onclick={handleCancel}>
+                                        </lightning-button>
+                                    </div>
+                                    <div class="slds-col slds-float_right">
+                                        <lightning-button variant="brand" label="Save" data-id="Other" title="Save" onclick={saveOther}>
+                                        </lightning-button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- </lightning-record-edit-form> -->
+                            <!-- <c-cm-additional-intake recordid={houseHoldId}></c-cm-additional-intake> -->
+
+                        </template>
+                        <template if:true={hasRecordOtherList} class="slds-m-vertical_medium">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered"
+                                aria-labelledby="element-with-table-label other-element-with-table-label">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Name">Name</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Relationship">Relationship</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="HIV Status (+,- or unknown)">HIV Status
+                                                (+,- or unknown)</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Aware of Client's HIV+ Status (Y/N/NA)">
+                                                Aware of Client's HIV+ Status (Y/N/NA)</div>
+                                        </th>
+                                        <th class="" scope="col">
+                                            <div class="slds-truncate" title="Whereabouts">Whereabouts</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <template for:each={otherList} for:item="rec">
+
+                                        <tr class="slds-hint-parent" key={rec.keyIndex}>
+                                            <th data-label="Name" scope="row">
+                                                <div class="slds-truncate" title="">
+                                                    {rec.Name}
+                                                </div>
+                                            </th>
+                                            <td data-label="Relationship">
+                                                <div class="slds-truncate" title="">{rec.Relationship}</div>
+                                            </td>
+                                            <td data-label="HIV Status (+,- or unknown)">
+                                                <div class="slds-truncate" title="">{rec.HIV_Status_or_unknown}</div>
+                                            </td>
+                                            <td data-label="Aware of Client's HIV+ Status (Y/N/NA)">
+                                                <div class="slds-truncate" title="">
+                                                    {rec.Aware_of_Client_s_HIV_Status_Y_N_NA}</div>
+                                            </td>
+                                            <td data-label="Whereabouts">
+                                                <div class="slds-truncate" title="">{rec.Whereabouts}</div>
+                                            </td>
+                                        </tr>
+                                    </template>
+                                </tbody>
+                            </table>
+                        </template>
+                    </div>
+                    
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_destructive" onclick={closeModal}
+                        title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={onSubmitClick} title="Submit">Submit</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

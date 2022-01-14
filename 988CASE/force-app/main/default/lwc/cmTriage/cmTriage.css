@@ -1,0 +1,22 @@
+.readoutStyle {
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(1, 118, 211);
+}
+.helptextStyle {
+    font-style: italic;
+}
+.headerStyle {
+    font-weight: bold;
+    font-size: large;
+}
+.subheaderStyle {
+    font-weight: bold;
+    font-size: medium;
+}
+.paddingStyle {
+    padding-left: 3%;
+}
+.safety {
+    padding-left: 2%;
+}

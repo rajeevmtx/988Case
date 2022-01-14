@@ -1,0 +1,107 @@
+<template>
+    <div class="slds-theme_default">
+        <h2 class="slds-section__title slds-theme_shade">
+            <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Call Script - Linkage to Care">
+                Call Script - Linkage to Care</span>
+        </h2>
+        <p>&nbsp;</p>
+        <div class="slds-p-horizontal_small">
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral">Referral</span>
+            </h3>
+            </br>
+            <div class="readoutStyle">The teams at 988 Case Management can really provide you with
+                tools to help you manage your
+                [chief complaint].</div>
+            <div class="helptextStyle">* It is important to help the caller think about what using the
+                resource may mean to them. Help the caller think through which type of
+                resource(s) they might use.</div>
+            <p>&nbsp;</p>
+            <div class="readoutStyle">988 Case Management has
+                great resources
+                available and an amazing team. Several of our other callers have had great success
+                with them in the past.</div>
+            <div class="helptextStyle">* Be confident that the referred agency will provide the
+                requested
+                resources. Describe only two to three choices, supplying too much information
+                can overwhelm the caller.</div>
+            <p>&nbsp;</p>
+            <div class="helptextStyle">* Try to answer the caller's questions about the resource and
+                encourage them to contact the resource directly. Do not give an answer for the
+                sake of answering. If you do not know, say you do not know but you are willing
+                to find out more information if they would like a callback.</div>
+            <p>&nbsp;</p>
+            <div class="paddingStyle">
+                <button class="slds-button slds-button_brand" onclick={handleCreateReferral}>Create Referral</button>
+            </div>
+            <hr>
+            <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Safety">Educational
+                    Resources</span>
+            </h3>
+            <p>&nbsp;</p>
+            <div class="helptextStyle">* If the caller is solely seeking information about a
+                resource:
+                Provide verbal information about the resource over the phone.</div>
+            <p>&nbsp;</p>
+            <b>
+                <div class="paddingStyle">
+                    <lightning-formatted-date-time label="Date" value={todayDate} disabled>
+                    </lightning-formatted-date-time>
+                </div>
+            </b>
+            <p>&nbsp;</p>
+            <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+                <div class="paddingStyle">
+                    <b>Information Requested</b>
+                    <lightning-input-field field-name="Information_Requested__c" name="informationRequested"
+                        onchange={handleInputChange} variant="label-hidden"></lightning-input-field>
+                    <b>Information Provided</b>
+                    <lightning-input-field field-name="Information_Provided__c" name="informationProvided"
+                        onchange={handleInputChange} variant="label-hidden"></lightning-input-field>
+                    <b>Email</b>
+                    <lightning-input-field field-name="Linkage_Email__c" name="emailId" onchange={handleInputChange}
+                        variant="label-hidden"></lightning-input-field>
+                </div>
+            </lightning-record-edit-form>
+            <p>&nbsp;</p>
+            <div class="paddingStyle">
+                <button class="slds-button slds-button_brand" onclick={sendEmailMethod}>Send
+                    E-mail</button>
+            </div>
+            <p>&nbsp;</p>
+            </br>
+        </div>
+        <!-- Button Section-->
+        <div style="float: right;">
+            <lightning-button variant="brand-outline" label="Back" onclick={handleBackButton}
+                class="slds-m-left_x-small">
+            </lightning-button>
+            <button class="slds-button slds-button_destructive slds-m-left_x-small" onclick={handleClose}>Save and
+                Close</button>
+            <!-- <lightning-button variant="brand" label="Save and Close" onclick={handleClose}
+                class="slds-button_destructive slds-m-left_x-small">
+            </lightning-button>-->
+        </div>
+    </div>
+
+    <!-- Modal Popup-->
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header slds-modal__header_empty">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        onclick={handleModal} title="Close">
+                        <lightning-icon icon-name="utility:close" alternative-text="Close">
+                        </lightning-icon>
+                    </button>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <c-cm-referral-creation case-id={caseId} prev-stage-no={prevStageNo}></c-cm-referral-creation>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

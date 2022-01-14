@@ -1,0 +1,10 @@
+<template>
+    <template if:true={isCallRecord}>
+        <lightning-record-form record-id={caseId} object-api-name="Case" layout-type="Full" mode="view" columns="2">
+        </lightning-record-form>
+    </template>
+    <template if:true={isReferral}>
+        <lightning-record-form record-id={caseId} fields={fields} object-api-name="Case" mode="view" columns="2">
+        </lightning-record-form>
+    </template>
+</template>

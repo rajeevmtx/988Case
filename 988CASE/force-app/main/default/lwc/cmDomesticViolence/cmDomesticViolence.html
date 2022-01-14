@@ -1,0 +1,52 @@
+<template>
+    <h3 class="slds-section__title slds-theme_shade">
+        <span class="slds-truncate slds-p-horizontal_small headerStyle" title="domViolence">Domestic Violence</span>
+    </h3>
+    <lightning-record-edit-form object-api-name="Assessment__c" record-id={recordId}>
+        <div class="slds-p-horizontal_small">
+            </br>
+            1. Are you currently in an abusive relationship?
+            <lightning-input-field field-name="Ever_been_in_Abusive_Relationship__c" variant="label-hidden"
+                onchange={handlePicklistChange}>
+            </lightning-input-field>
+            </br>
+            2. Do you feel safe in current living arrangement?
+            <lightning-radio-group label="" name="Feel_Safe_in_Current_Living_area__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group>
+            </br>
+            3. Do you ever feel that you or a family member/partner would resort to force when interacting?
+            <lightning-radio-group label="" name="Will_member_or_partner_resort_to_force__c"
+                onchange={handleRadioChange} options={options}>
+            </lightning-radio-group>
+            </br>
+            Does the client have needs related to current or recent domestic violence?
+            <lightning-radio-group label="" name="Have_needs_to_Domestic_Violence__c" onchange={handleRadioChange}
+                options={options}>
+            </lightning-radio-group>
+            </br>
+            <p>Comments</p>
+            <lightning-input-field field-name="Comments_member_partner_resort_to_force__c" name="Comments"
+                onchange={handleChange} variant="label-hidden">
+            </lightning-input-field>
+            </br>
+        </div>
+        <div class="slds-hide">
+            <lightning-input-field field-name="Ever_been_in_Abusive_Relationship__c"
+                value={data.Ever_been_in_Abusive_Relationship__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Feel_Safe_in_Current_Living_area__c"
+                value={data.Feel_Safe_in_Current_Living_area__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Will_member_or_partner_resort_to_force__c"
+                value={data.Will_member_or_partner_resort_to_force__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Have_needs_to_Domestic_Violence__c"
+                value={data.Have_needs_to_Domestic_Violence__c} variant="label-hidden">
+            </lightning-input-field>
+            <lightning-input-field field-name="Comments_member_partner_resort_to_force__c"
+                value={data.Comments_member_partner_resort_to_force__c} variant="label-hidden">
+            </lightning-input-field>
+        </div>
+    </lightning-record-edit-form>
+</template>

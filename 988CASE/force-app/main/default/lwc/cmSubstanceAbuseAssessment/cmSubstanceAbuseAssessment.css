@@ -1,0 +1,8 @@
+.substanceAbuse p{
+    margin: 10px 0px 20px 0px;
+  }
+  
+  .substanceAbuse .slds-radio{
+    display: inline-block!important;
+    margin: 5px 0px 20px 0px;
+  }

@@ -1,0 +1,386 @@
+/* Media query Manager */
+/*
+0 - 600px       :   Phone
+601 - 900px     :   Tablet Potrait
+901 - 1200px    :   Tablet Landscape
+1201 - 1800px   :   Desktop
+1801 +          :   BigDesktop
+*/
+/*Break-point argument choices: 
+- mob
+- tab-p
+- tab-l
+- b-desktop
+*/
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  background: #ebf1fa;
+  font-size: 16px;
+}
+@media (max-width: 37.5em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 60%;
+  }
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 70%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 80%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  margin: 10rem 0;
+}
+
+.slds-radio {
+  display: inline !important;
+  margin-right: 1.8rem;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #354052;
+  background-color: #ebf1fa;
+}
+
+.readoutStyle {
+  color: blue;
+  font-size: larger;
+}
+
+.ny_container {
+  margin: 3.1rem;
+}
+
+.ny_card {
+  background: #ffffff;
+  border-radius: 0px;
+  box-shadow: 2px 2px 20px 5px #376dc80d;
+  margin-bottom: 1.8rem;
+}
+.ny_card_header {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0px;
+  width: 100%;
+  padding: 0.6rem 1.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+.ny_card_header--left_section {
+  align-self: center;
+}
+.ny_card_header--right_section {
+  align-self: flex-end;
+}
+.ny_card_header--dark {
+  background-color: #354052;
+  color: #ffffff;
+}
+.ny_card_header--orange {
+  background-color: #f7981c;
+  color: #354052;
+}
+.ny_card_body {
+  font-size: 1rem;
+  letter-spacing: 0px;
+  padding: 1.8rem;
+}
+.ny_card_body--content {
+  max-width: 70%;
+}
+.ny_card_footer {
+  background-color: rgba(55, 109, 200, 0.2);
+  padding: 1.25rem;
+}
+
+.ny_grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 1.25rem;
+  row-gap: 1.25rem;
+}
+
+.ny_sub-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1.25rem 1fr;
+}
+
+.ny_grid-item {
+  background-color: rgba(55, 109, 200, 0.1);
+  border: 1px solid #376dc8;
+  padding: 0.6rem 1.25rem;
+}
+.ny_grid-item--selection {
+  display: flex;
+  justify-content: space-between;
+}
+.ny_grid-item--heading {
+  align-self: center;
+  color: #376dc8;
+  font-size: 1rem;
+  font-weight: bold;
+  display: inline;
+}
+.ny_grid-item--subheading {
+  color: #354052;
+  font-size: 1rem;
+}
+.ny_grid-item--checkbox {
+  align-self: flex-end;
+  display: inline;
+}
+.ny_grid-item--content {
+  color: #354052;
+  font-size: 0.8rem;
+}
+.ny_grid-item--button {
+  font-size: 1rem;
+  cursor: pointer;
+  color: #376dc8;
+}
+
+.ny_grid-item--blank {
+  background-color: #ffffff;
+  border: 1px dotted #376dc8;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.ny_question-b-p {
+  margin-bottom: 1.8rem;
+}
+.ny_question-b-p:last-child {
+  margin-bottom: 0rem;
+}
+
+.ny_badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.3rem 1.25rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.2s;
+  border-radius: 3rem;
+  cursor: default;
+}
+.ny_badge--high {
+  background-color: rgba(248, 83, 89, 0.1);
+  color: #f85359;
+  border: 1px solid #f85359;
+}
+.ny_badge--medium {
+  background-color: rgba(247, 152, 28, 0.1);
+  color: #f7981c;
+  border: 1px solid #f7981c;
+}
+.ny_badge--low {
+  background-color: rgba(53, 64, 82, 0.1);
+  color: #354052;
+  border: 1px solid #354052;
+}
+.ny_badge--default {
+  background-color: rgba(55, 109, 200, 0.1);
+  color: #376dc8;
+  border: 1px solid #376dc8;
+}
+.ny_badge--success {
+  background-color: rgba(57, 181, 74, 0.1);
+  color: #39b54a;
+  border: 1px solid #39b54a;
+}
+
+.ny_btn,
+.ny_btn:link,
+.ny_btn:visited {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  padding: 0.6rem 3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.ny_btn:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: 2px 2px 20px 5px #376dc80d;
+}
+.ny_btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.ny_btn:active,
+.ny_btn:focus {
+  transform: translate(-0.1rem);
+  box-shadow: 2px 2px 20px 5px #376dc80d;
+}
+
+.ny_btn--primary {
+  background-color: #376dc8;
+  color: #ffffff;
+}
+.ny_btn--primary::after {
+  background: #ffffff;
+}
+
+.ny_btn--default {
+  background-color: #ffffff;
+  color: #376dc8;
+  padding: 0.6rem 1.8rem;
+}
+.ny_btn--default::after {
+  background: #376dc8;
+}
+
+.model_close:after {
+  content: " \2715";
+  color: white;
+  display: contents;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.ny_header {
+  background-color: #376dc8;
+  height: 3.75rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ny_logo {
+  color: #ffffff;
+  font-size: 1.8rem;
+  line-height: 3.75rem;
+  padding: 0 1.8rem;
+  font-weight: bold;
+  align-self: center;
+}
+
+.ny_navigation {
+  list-style: none;
+  margin-right: 1.25rem;
+}
+.ny_navigation li {
+  font-weight: 600;
+  display: inline-block;
+  line-height: 0px;
+  justify-content: center;
+}
+.ny_navigation li a {
+  color: #ffffff;
+  font-size: 0.8rem;
+  line-height: 3.75rem;
+  padding: 1rem 1rem 1rem;
+  text-decoration: none;
+}
+.ny_navigation li a.active,
+.ny_navigation li a:hover {
+  border-bottom: 0.3rem solid #ffffff;
+}
+
+.ny_post-header {
+  background-color: #ffffff;
+  height: 3.75rem;
+  width: 100%;
+  position: fixed;
+  top: 3.75rem;
+}
+.ny_post-header__label {
+  font-size: 1.5rem;
+  padding: 0 1.8rem;
+  line-height: 3.75rem;
+}
+
+.footer {
+  background-color: #354052;
+  padding: 0.3rem 0;
+  font-size: 0.8rem;
+  color: #ffffff;
+  text-align: center;
+  bottom: 0;
+  position: fixed;
+  width: -webkit-fill-available;
+}
+
+
+.THIS .questionSection .displayInline .slds-radio{
+  display: inline-block!important;
+}
+
+lightning-radio-group{
+  display: block;
+    margin: 10px;
+}
+
+.slds-fade-in-open input{
+  margin: 10px 0px;
+}
+
+.slds-modal  .slds-radio{
+  display: inline-block;
+  background: red;
+  margin: 10px 10px 10px 0px;
+}
+.slds-modal .slds-form-element__control .slds-radio, .slds-modal .slds-form-element__control .slds-checkbox{
+  display: inline-block!important;
+}
+.primaryMedical .slds-radio{
+  display: inline-block!important;
+  margin: 5px 0px 20px 0px;
+}
+
+.customBlueButton{
+  width:350px;
+  /* background: #16325c; */
+  background: #4094f9;
+  border:1px solid #4094f9;
+  padding: 4px 0px;
+}
+
+.customBlueButton:hover{
+  color: #4094f9;
+  background: #fff;
+}
+
+/* Substance Abuse */
+
+.substanceAbuse p{
+  margin: 10px 0px 20px 0px;
+}
+
+.substanceAbuse .slds-radio{
+  display: inline-block!important;
+  margin: 5px 0px 20px 0px;
+}

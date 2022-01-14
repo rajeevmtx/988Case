@@ -1,0 +1,302 @@
+<template>
+    <div class="slds-theme_default">
+        <lightning-record-edit-form object-api-name="Assessment__c" record-id={recordId}>
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Income"> Income
+                    </span>
+                </h3>
+                <br>
+                <div class="safety">
+                    1. Do you currently have a regular source of income?
+                    <lightning-radio-group name="Have_Regular_Source_of_Income__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field name="Have_Regular_Source_of_Income__c"
+                            value={data.Have_Regular_Source_of_Income__c} field-name="Have_Regular_Source_of_Income__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field>
+                    </div>
+                    </br>
+
+                    <template if:true={data.Have_Regular_Source_of_Income__c}>
+                        1(a). Monthly Employment income
+                        <lightning-input-field name="Monthly_Employment_income__c"
+                            field-name="Monthly_Employment_income__c" variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(b). Monthly Social Security income
+                        <lightning-input-field name="Monthly_Social_Security_income__c"
+                            field-name="Monthly_Social_Security_income__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(c). Monthly Alimony income
+                        <lightning-input-field name="Monthly_Alimony_income__c" field-name="Monthly_Alimony_income__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(d). Monthly income from Child Support
+                        <lightning-input-field name="Monthly_income_from_Child_Support__c"
+                            field-name="Monthly_income_from_Child_Support__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(e). Monthly Short Term Disability income
+                        <lightning-input-field name="Monthly_Short_Term_Disability_income__c"
+                            field-name="Monthly_Short_Term_Disability_income__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(f). Monthly Survivor Benefits income
+                        <lightning-input-field name="Monthly_Survivor_Benefits_income__c"
+                            field-name="Monthly_Survivor_Benefits_income__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+
+                        <!-- check the field value -->
+
+                        1(g). Monthly Rent Supplement
+                        <lightning-input-field name="Rent_Supplement__c" field-name="Rent_Supplement__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(h). Monthly income from Veteran's Assistance
+                        <lightning-input-field name="Veteran_s_Assistance__c" field-name="Veteran_s_Assistance__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(i). Monthly Pension income
+                        <lightning-input-field name="Pension__c" field-name="Pension__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(j). Monthly Long Term Disability income
+                        <lightning-input-field name="Long_Term_Disability__c" field-name="Long_Term_Disability__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(k). Monthly Workman's Compensation income
+                        <lightning-input-field name="Workman_s_Compensation__c" field-name="Workman_s_Compensation__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(l). Monthly Unemployment stipend
+                        <lightning-input-field name="Monthly_Unemployment_stipend__c"
+                            field-name="Monthly_Unemployment_stipend__c" variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(m). Monthly Food Stamps stipend
+                        <lightning-input-field name="Food_Stamps__c" field-name="Food_Stamps__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </template>
+
+                    <!-- view total Total Personal Monthly Income: -->
+                    Total Personal Monthly Income
+                    <lightning-input-field name="Total_Personal_Monthly_Income__c"
+                        field-name="Total_Personal_Monthly_Income__c" value={totalPersonalMonthlyIncome}
+                        variant="label-hidden" onchange={handleChange} readonly>
+                    </lightning-input-field> </br>
+
+                    1(p). Additional monthly income from household members
+                    <lightning-input-field name="Additional_monthly_income_from_household__c"
+                        field-name="Additional_monthly_income_from_household__c" variant="label-hidden"
+                        onchange={handleChange}>
+                    </lightning-input-field> </br>
+
+                    <!-- view total Total monthly household income: -->
+                    Total monthly household income:
+                    <lightning-input-field name="Total_monthly_household_income__c"
+                        field-name="Total_monthly_household_income__c" value={totalmonthlyhouseholdincome}
+                        variant="label-hidden" onchange={handleChange} readonly>
+                    </lightning-input-field> </br>
+
+                    <!-- view total Annual household income -->
+                    Annual household income
+                    <lightning-input-field name="Annual_household_income_for_URS__c"
+                        field-name="Annual_household_income_for_URS__c" value={totalannualincome} variant="label-hidden"
+                        onchange={handleChange} readonly>
+                    </lightning-input-field> </br>
+
+                    2. Do you have difficulty meeting monthly expenses?
+                    <lightning-radio-group name="Difficulty_meeting_monthly_Expenses__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Difficulty_meeting_monthly_Expenses__c}
+                            field-name="Difficulty_meeting_monthly_Expenses__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </div>
+
+                    Is the client linked to income sources they are eligible for?
+                    <lightning-radio-group name="Linked_to_Eligible_Income_sources__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Linked_to_Eligible_Income_sources__c}
+                            field-name="Linked_to_Eligible_Income_sources__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </div>
+                    Does the client have a need for assistance/advocacy in accessing entitlements?
+                    <lightning-radio-group name="Need_assistance_accessing_entitlements__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Need_assistance_accessing_entitlements__c}
+                            field-name="Need_assistance_accessing_entitlements__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </div>
+
+                    Comments
+                    <lightning-input-field name="Linked_Eligible_Income_sources_comments__c"
+                        field-name="Linked_Eligible_Income_sources_comments__c" variant="label-hidden"
+                        onchange={handleChange}>
+                    </lightning-input-field> </br>
+                </div>
+            </div>
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Incarceration">
+                        Incarceration
+                    </span>
+                </h3>
+                <br>
+                <div class="safety">
+                    1. Have you been released from a correctional facility in the last 12 months? If yes,
+                    when?
+                    <lightning-radio-group name="Released_from_Correctional_Facility__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+
+                        <lightning-input-field value={data.Released_from_Correctional_Facility__c}
+                            field-name="Released_from_Correctional_Facility__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field>
+                    </div>
+                    </br>
+                    <!-- cond -->
+                    <template if:true={data.Released_from_Correctional_Facility__c}>
+                        1(a). Date of release
+                        <lightning-input-field name="Date_of_release__c" field-name="Date_of_release__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(b). Reason for incarceration
+                        <lightning-input-field name="Reason_for_incarceration__c"
+                            field-name="Reason_for_incarceration__c" variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        1(c). How long was your incarceration?
+                        <lightning-input-field name="How_long_was_duration_of_incarceration__c"
+                            field-name="How_long_was_duration_of_incarceration__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </template>
+                    2. Are you currently on parole/probation?
+                    <lightning-radio-group name="Is_client_currently_on_parole_probation__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Is_client_currently_on_parole_probation__c}
+                            field-name="Is_client_currently_on_parole_probation__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </div>
+                    <!-- cond -->
+                    <template if:true={data.Is_client_currently_on_parole_probation__c}>
+                        2(a). Name of Parole/Probation Officer:
+                        <lightning-input-field name="If_yes_name_of_Parole_Probation_Officer__c"
+                            field-name="If_yes_name_of_Parole_Probation_Officer__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                        2(b). Phone number of Parole/Probation Officer
+                        <lightning-input-field name="Phone_number_of_Parole_Probation_Officer__c"
+                            field-name="Phone_number_of_Parole_Probation_Officer__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </template>
+                    Does the client need to be connected to legal services?
+                    <lightning-radio-group name="Legal_services__c" options={options} onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Legal_services__c} field-name="Legal_services__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </div>
+                    Does the client have legal needs to be addressed before they are able to receive
+                    services?
+                    <lightning-radio-group name="Legal_Needs_to_be_addressed__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Legal_Needs_to_be_addressed__c}
+                            field-name="Legal_Needs_to_be_addressed__c" variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field> </br>
+                    </div>
+
+                    Comments
+                    <lightning-input-field name="Legal_Needs_to_be_addressed_comment__c"
+                        field-name="Legal_Needs_to_be_addressed_comment__c" variant="label-hidden"
+                        onchange={handleChange}>
+                    </lightning-input-field> </br>
+                </div>
+            </div>
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Other Needs"> Other
+                        Needs
+                    </span>
+                </h3>
+                <br>
+                <div class="safety">
+                    1. Do you need assistance obtaining nutritious food?
+                    <lightning-radio-group name="Does_client_need_nutritional_food__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Does_client_need_nutritional_food__c}
+                            field-name="Does_client_need_nutritional_food__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field>
+                    </div>
+                    </br>
+                    2. Do you have appropriate clothing?
+                    <lightning-radio-group name="Appropriate_clothing__c" options={options} onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Appropriate_clothing__c} field-name="Appropriate_clothing__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field>
+                    </div>
+                    </br>
+
+                    3. Do you have reliable transportation?
+                    <lightning-radio-group name="Transportation__c" options={options} onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Transportation__c} field-name="Transportation__c"
+                            variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field>
+                    </div></br>
+                    4. Are you seeking education, training, or employment services?
+                    <lightning-radio-group name="Are_you_seeking_services__c" options={options} onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Are_you_seeking_services__c}
+                            field-name="Are_you_seeking_services__c" variant="label-hidden" onchange={handleChange}>
+                        </lightning-input-field>
+                    </div> </br>
+                    Does the client have a need for related services?
+                    <lightning-radio-group label="" name="Does_client_need_for_related_services__c" options={options}
+                        onchange={handleRadio}>
+                    </lightning-radio-group>
+                    <div class="slds-hide">
+                        <lightning-input-field value={data.Does_client_need_for_related_services__c}
+                            field-name="Does_client_need_for_related_services__c" variant="label-hidden"
+                            onchange={handleChange}>
+                        </lightning-input-field>
+                    </div>
+                    </br>
+                    Comment
+                    <lightning-input-field name="Does_client_need_for_services_comment__c"
+                        field-name="Does_client_need_for_services_comment__c" variant="label-hidden"
+                        onchange={handleChange}>
+                    </lightning-input-field> </br>
+                </div>
+            </div>
+        </lightning-record-edit-form>
+    </div>
+</template>

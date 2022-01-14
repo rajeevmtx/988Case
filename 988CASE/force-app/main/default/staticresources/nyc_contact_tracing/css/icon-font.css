@@ -1,0 +1,2098 @@
+@font-face {
+  font-family: 'NY';
+  src: url('../fonts/NY.eot?orgId=00D350000001DMw&orgId=00D350000001DOv&orgId=00Dt00000004XQH&orgId=00D350000001DMw');
+  src: url('../fonts/NY.eot?orgId=00D350000001DMw&orgId=00D350000001DOv&orgId=00Dt00000004XQH&orgId=00D350000001DMw') format('embedded-opentype'), url('../fonts/NY.woff2?orgId=00D350000001DMw&orgId=00D350000001DOv&orgId=00Dt00000004XQH&orgId=00D350000001DMw') format('woff2'), url('../fonts/NY.woff?orgId=00D350000001DMw&orgId=00D350000001DOv&orgId=00Dt00000004XQH&orgId=00D350000001DMw') format('woff'), url('../fonts/NY.ttf?orgId=00D350000001DMw&orgId=00D350000001DOv&orgId=00Dt00000004XQH&orgId=00D350000001DMw') format('truetype'), url('../fonts/NY.svg?orgId=00D350000001DMw&orgId=00D350000001DOv&orgId=00Dt00000004XQH&orgId=00D350000001DMw') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em / 1 'NY';
+  speak: none;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sm {
+  font-size: 0.8em;
+}
+
+.icon-lg {
+  font-size: 1.2em;
+}
+
+.icon-16 {
+  font-size: 16px;
+}
+
+.icon-32 {
+  font-size: 32px;
+}
+
+.icon-bg-square, .icon-bg-circle {
+  padding: 0.35em;
+  background-color: #eee;
+}
+
+.icon-bg-circle {
+  border-radius: 50%;
+}
+
+.icon-ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.icon-ul > li {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.4;
+}
+
+.icon-ul > li > .icon {
+  margin-right: 0.4em;
+  line-height: inherit;
+}
+
+.icon-is-spinning {
+  -webkit-animation: icon-spin 2s infinite linear;
+  -moz-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
+}
+
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes icon-spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.icon-rotate-90 {
+  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.icon-rotate-180 {
+  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.icon-rotate-270 {
+  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.icon-flip-y {
+  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.icon-flip-x {
+  filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  -moz-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+.ny-activity-outline:before {
+  content: "\ea01";
+}
+
+.ny-activity:before {
+  content: "\ea03";
+}
+
+.ny-alert-circle-outline:before {
+  content: "\ea02";
+}
+
+.ny-alert-circle:before {
+  content: "\ea04";
+}
+
+.ny-alert-triangle-outline:before {
+  content: "\ea05";
+}
+
+.ny-alert-triangle:before {
+  content: "\ea07";
+}
+
+.ny-archive-outline:before {
+  content: "\ea06";
+}
+
+.ny-archive:before {
+  content: "\ea08";
+}
+
+.ny-arrow-back-outline:before {
+  content: "\ea09";
+}
+
+.ny-arrow-back:before {
+  content: "\ea0a";
+}
+
+.ny-arrow-circle-down-outline:before {
+  content: "\ea0b";
+}
+
+.ny-arrow-circle-down:before {
+  content: "\ea0c";
+}
+
+.ny-arrow-circle-left-outline:before {
+  content: "\ea0d";
+}
+
+.ny-arrow-circle-left:before {
+  content: "\ea0e";
+}
+
+.ny-arrow-circle-right-outline:before {
+  content: "\ea0f";
+}
+
+.ny-arrow-circle-right:before {
+  content: "\ea10";
+}
+
+.ny-arrow-circle-up-outline:before {
+  content: "\ea11";
+}
+
+.ny-arrow-circle-up:before {
+  content: "\ea12";
+}
+
+.ny-arrow-down-outline:before {
+  content: "\ea13";
+}
+
+.ny-arrow-down:before {
+  content: "\ea14";
+}
+
+.ny-arrow-downward-outline:before {
+  content: "\ea15";
+}
+
+.ny-arrow-downward:before {
+  content: "\ea16";
+}
+
+.ny-arrow-forward-outline:before {
+  content: "\ea17";
+}
+
+.ny-arrow-forward:before {
+  content: "\ea18";
+}
+
+.ny-arrow-ios-back-outline:before {
+  content: "\ea19";
+}
+
+.ny-arrow-ios-back:before {
+  content: "\ea1a";
+}
+
+.ny-arrow-ios-downward-outline:before {
+  content: "\ea1b";
+}
+
+.ny-arrow-ios-downward:before {
+  content: "\ea1c";
+}
+
+.ny-arrow-ios-forward-outline:before {
+  content: "\ea1d";
+}
+
+.ny-arrow-ios-forward:before {
+  content: "\ea1e";
+}
+
+.ny-arrow-ios-upward-outline:before {
+  content: "\ea1f";
+}
+
+.ny-arrow-ios-upward:before {
+  content: "\ea20";
+}
+
+.ny-arrow-left-outline:before {
+  content: "\ea21";
+}
+
+.ny-arrow-left:before {
+  content: "\ea22";
+}
+
+.ny-arrow-right-outline:before {
+  content: "\ea23";
+}
+
+.ny-arrow-right:before {
+  content: "\ea24";
+}
+
+.ny-arrow-up-outline:before {
+  content: "\ea25";
+}
+
+.ny-arrow-up:before {
+  content: "\ea26";
+}
+
+.ny-arrow-upward-outline:before {
+  content: "\ea27";
+}
+
+.ny-arrow-upward:before {
+  content: "\ea28";
+}
+
+.ny-arrowhead-down-outline:before {
+  content: "\ea29";
+}
+
+.ny-arrowhead-down:before {
+  content: "\ea2a";
+}
+
+.ny-arrowhead-left-outline:before {
+  content: "\ea2b";
+}
+
+.ny-arrowhead-left:before {
+  content: "\ea2c";
+}
+
+.ny-arrowhead-right-outline:before {
+  content: "\ea2d";
+}
+
+.ny-arrowhead-right:before {
+  content: "\ea2e";
+}
+
+.ny-arrowhead-up-outline:before {
+  content: "\ea2f";
+}
+
+.ny-arrowhead-up:before {
+  content: "\ea30";
+}
+
+.ny-at-outline:before {
+  content: "\ea31";
+}
+
+.ny-at:before {
+  content: "\ea32";
+}
+
+.ny-attach-2-outline:before {
+  content: "\ea33";
+}
+
+.ny-attach-2:before {
+  content: "\ea34";
+}
+
+.ny-attach-outline:before {
+  content: "\ea35";
+}
+
+.ny-attach:before {
+  content: "\ea36";
+}
+
+.ny-award-outline:before {
+  content: "\ea37";
+}
+
+.ny-award:before {
+  content: "\ea38";
+}
+
+.ny-backspace-outline:before {
+  content: "\ea39";
+}
+
+.ny-backspace:before {
+  content: "\ea3a";
+}
+
+.ny-bar-chart-2-outline:before {
+  content: "\ea3c";
+}
+
+.ny-bar-chart-2:before {
+  content: "\ea3b";
+}
+
+.ny-bar-chart-outline:before {
+  content: "\ea3d";
+}
+
+.ny-bar-chart:before {
+  content: "\ea3e";
+}
+
+.ny-battery-outline:before {
+  content: "\ea3f";
+}
+
+.ny-battery:before {
+  content: "\ea40";
+}
+
+.ny-behance-outline:before {
+  content: "\ea41";
+}
+
+.ny-behance:before {
+  content: "\ea42";
+}
+
+.ny-bell-off-outline:before {
+  content: "\ea43";
+}
+
+.ny-bell-off:before {
+  content: "\ea44";
+}
+
+.ny-bell-outline:before {
+  content: "\ea45";
+}
+
+.ny-bell:before {
+  content: "\ea46";
+}
+
+.ny-bluetooth-outline:before {
+  content: "\ea47";
+}
+
+.ny-bluetooth:before {
+  content: "\ea48";
+}
+
+.ny-book-open-outline:before {
+  content: "\ea49";
+}
+
+.ny-book-open:before {
+  content: "\ea4a";
+}
+
+.ny-book-outline:before {
+  content: "\ea4b";
+}
+
+.ny-book:before {
+  content: "\ea4c";
+}
+
+.ny-bookmark-outline:before {
+  content: "\ea4d";
+}
+
+.ny-bookmark:before {
+  content: "\ea4e";
+}
+
+.ny-briefcase-outline:before {
+  content: "\ea4f";
+}
+
+.ny-briefcase:before {
+  content: "\ea50";
+}
+
+.ny-browser-outline:before {
+  content: "\ea51";
+}
+
+.ny-browser:before {
+  content: "\ea52";
+}
+
+.ny-brush-outline:before {
+  content: "\ea53";
+}
+
+.ny-brush:before {
+  content: "\ea54";
+}
+
+.ny-bulb-outline:before {
+  content: "\ea55";
+}
+
+.ny-bulb:before {
+  content: "\ea56";
+}
+
+.ny-calendar-outline:before {
+  content: "\ea57";
+}
+
+.ny-calendar:before {
+  content: "\ea58";
+}
+
+.ny-camera-outline:before {
+  content: "\ea59";
+}
+
+.ny-camera:before {
+  content: "\ea5a";
+}
+
+.ny-car-outline:before {
+  content: "\ea5b";
+}
+
+.ny-car:before {
+  content: "\ea5c";
+}
+
+.ny-cast-outline:before {
+  content: "\ea5d";
+}
+
+.ny-cast:before {
+  content: "\ea5e";
+}
+
+.ny-charging-outline:before {
+  content: "\ea5f";
+}
+
+.ny-charging:before {
+  content: "\ea60";
+}
+
+.ny-checkmark-circle-2-outline:before {
+  content: "\ea61";
+}
+
+.ny-checkmark-circle-2:before {
+  content: "\ea62";
+}
+
+.ny-checkmark-circle-outline:before {
+  content: "\ea63";
+}
+
+.ny-checkmark-circle:before {
+  content: "\ea64";
+}
+
+.ny-checkmark-outline:before {
+  content: "\ea65";
+}
+
+.ny-checkmark-square-2-outline:before {
+  content: "\ea66";
+}
+
+.ny-checkmark-square-2:before {
+  content: "\ea67";
+}
+
+.ny-checkmark-square-outline:before {
+  content: "\ea68";
+}
+
+.ny-checkmark-square:before {
+  content: "\ea69";
+}
+
+.ny-checkmark:before {
+  content: "\ea6a";
+}
+
+.ny-chevron-down-outline:before {
+  content: "\ea6b";
+}
+
+.ny-chevron-down:before {
+  content: "\ea6c";
+}
+
+.ny-chevron-left-outline:before {
+  content: "\ea6d";
+}
+
+.ny-chevron-left:before {
+  content: "\ea6e";
+}
+
+.ny-chevron-right-outline:before {
+  content: "\ea6f";
+}
+
+.ny-chevron-right:before {
+  content: "\ea70";
+}
+
+.ny-chevron-up-outline:before {
+  content: "\ea71";
+}
+
+.ny-chevron-up:before {
+  content: "\ea72";
+}
+
+.ny-clipboard-outline:before {
+  content: "\ea73";
+}
+
+.ny-clipboard:before {
+  content: "\ea74";
+}
+
+.ny-clock-outline:before {
+  content: "\ea75";
+}
+
+.ny-clock:before {
+  content: "\ea76";
+}
+
+.ny-close-circle-outline:before {
+  content: "\ea77";
+}
+
+.ny-close-circle:before {
+  content: "\ea78";
+}
+
+.ny-close-outline:before {
+  content: "\ea79";
+}
+
+.ny-close-square-outline:before {
+  content: "\ea7a";
+}
+
+.ny-close-square:before {
+  content: "\ea7b";
+}
+
+.ny-close:before {
+  content: "\ea7c";
+}
+
+.ny-cloud-download-outline:before {
+  content: "\ea7d";
+}
+
+.ny-cloud-download:before {
+  content: "\ea7e";
+}
+
+.ny-cloud-upload-outline:before {
+  content: "\ea7f";
+}
+
+.ny-cloud-upload:before {
+  content: "\ea80";
+}
+
+.ny-code-download-outline:before {
+  content: "\ea81";
+}
+
+.ny-code-download:before {
+  content: "\ea82";
+}
+
+.ny-code-outline:before {
+  content: "\ea83";
+}
+
+.ny-code:before {
+  content: "\ea84";
+}
+
+.ny-collapse-outline:before {
+  content: "\ea85";
+}
+
+.ny-collapse:before {
+  content: "\ea86";
+}
+
+.ny-color-palette-outline:before {
+  content: "\ea87";
+}
+
+.ny-color-palette:before {
+  content: "\ea88";
+}
+
+.ny-color-picker-outline:before {
+  content: "\ea89";
+}
+
+.ny-color-picker:before {
+  content: "\ea8a";
+}
+
+.ny-compass-outline:before {
+  content: "\ea8b";
+}
+
+.ny-compass:before {
+  content: "\ea8c";
+}
+
+.ny-copy-outline:before {
+  content: "\ea8d";
+}
+
+.ny-copy:before {
+  content: "\ea8e";
+}
+
+.ny-corner-down-left-outline:before {
+  content: "\ea8f";
+}
+
+.ny-corner-down-left:before {
+  content: "\ea90";
+}
+
+.ny-corner-down-right-outline:before {
+  content: "\ea91";
+}
+
+.ny-corner-down-right:before {
+  content: "\ea92";
+}
+
+.ny-corner-left-down-outline:before {
+  content: "\ea93";
+}
+
+.ny-corner-left-down:before {
+  content: "\ea94";
+}
+
+.ny-corner-left-up-outline:before {
+  content: "\ea95";
+}
+
+.ny-corner-left-up:before {
+  content: "\ea96";
+}
+
+.ny-corner-right-down-outline:before {
+  content: "\ea97";
+}
+
+.ny-corner-right-down:before {
+  content: "\ea98";
+}
+
+.ny-corner-right-up-outline:before {
+  content: "\ea99";
+}
+
+.ny-corner-right-up:before {
+  content: "\ea9a";
+}
+
+.ny-corner-up-left-outline:before {
+  content: "\ea9b";
+}
+
+.ny-corner-up-left:before {
+  content: "\ea9c";
+}
+
+.ny-corner-up-right-outline:before {
+  content: "\ea9d";
+}
+
+.ny-corner-up-right:before {
+  content: "\ea9e";
+}
+
+.ny-credit-card-outline:before {
+  content: "\ea9f";
+}
+
+.ny-credit-card:before {
+  content: "\eaa0";
+}
+
+.ny-crop-outline:before {
+  content: "\eaa1";
+}
+
+.ny-crop:before {
+  content: "\eaa2";
+}
+
+.ny-cube-outline:before {
+  content: "\eaa3";
+}
+
+.ny-cube:before {
+  content: "\eaa4";
+}
+
+.ny-diagonal-arrow-left-down-outline:before {
+  content: "\eaa5";
+}
+
+.ny-diagonal-arrow-left-down:before {
+  content: "\eaa6";
+}
+
+.ny-diagonal-arrow-left-up-outline:before {
+  content: "\eaa7";
+}
+
+.ny-diagonal-arrow-left-up:before {
+  content: "\eaa8";
+}
+
+.ny-diagonal-arrow-right-down-outline:before {
+  content: "\eaa9";
+}
+
+.ny-diagonal-arrow-right-down:before {
+  content: "\eaaa";
+}
+
+.ny-diagonal-arrow-right-up-outline:before {
+  content: "\eaab";
+}
+
+.ny-diagonal-arrow-right-up:before {
+  content: "\eaac";
+}
+
+.ny-done-all-outline:before {
+  content: "\eaad";
+}
+
+.ny-done-all:before {
+  content: "\eaae";
+}
+
+.ny-download-outline:before {
+  content: "\eaaf";
+}
+
+.ny-download:before {
+  content: "\eab0";
+}
+
+.ny-droplet-off-outline:before {
+  content: "\eab1";
+}
+
+.ny-droplet-off:before {
+  content: "\eab2";
+}
+
+.ny-droplet-outline:before {
+  content: "\eab3";
+}
+
+.ny-droplet:before {
+  content: "\eab4";
+}
+
+.ny-edit-2-outline:before {
+  content: "\eab5";
+}
+
+.ny-edit-2:before {
+  content: "\eab6";
+}
+
+.ny-edit-outline:before {
+  content: "\eab7";
+}
+
+.ny-edit:before {
+  content: "\eab8";
+}
+
+.ny-email-outline:before {
+  content: "\eab9";
+}
+
+.ny-email:before {
+  content: "\eaba";
+}
+
+.ny-expand-outline:before {
+  content: "\eabb";
+}
+
+.ny-expand:before {
+  content: "\eabc";
+}
+
+.ny-external-link-outline:before {
+  content: "\eabd";
+}
+
+.ny-external-link:before {
+  content: "\eabe";
+}
+
+.ny-eye-off-2-outline:before {
+  content: "\eabf";
+}
+
+.ny-eye-off-2:before {
+  content: "\eac0";
+}
+
+.ny-eye-off-outline:before {
+  content: "\eac1";
+}
+
+.ny-eye-off:before {
+  content: "\eac2";
+}
+
+.ny-eye-outline:before {
+  content: "\eac3";
+}
+
+.ny-eye:before {
+  content: "\eac4";
+}
+
+.ny-facebook-outline:before {
+  content: "\eac5";
+}
+
+.ny-facebook:before {
+  content: "\eac6";
+}
+
+.ny-file-add-outline:before {
+  content: "\eac7";
+}
+
+.ny-file-add:before {
+  content: "\eac8";
+}
+
+.ny-file-outline:before {
+  content: "\eac9";
+}
+
+.ny-file-remove-outline:before {
+  content: "\eaca";
+}
+
+.ny-file-remove:before {
+  content: "\eacb";
+}
+
+.ny-file-text-outline:before {
+  content: "\eacc";
+}
+
+.ny-file-text:before {
+  content: "\eacd";
+}
+
+.ny-file:before {
+  content: "\eace";
+}
+
+.ny-film-outline:before {
+  content: "\eacf";
+}
+
+.ny-film:before {
+  content: "\ead0";
+}
+
+.ny-flag-outline:before {
+  content: "\ead1";
+}
+
+.ny-flag:before {
+  content: "\ead2";
+}
+
+.ny-flash-off-outline:before {
+  content: "\ead3";
+}
+
+.ny-flash-off:before {
+  content: "\ead4";
+}
+
+.ny-flash-outline:before {
+  content: "\ead5";
+}
+
+.ny-flash:before {
+  content: "\ead6";
+}
+
+.ny-flip-2-outline:before {
+  content: "\ead7";
+}
+
+.ny-flip-2:before {
+  content: "\ead8";
+}
+
+.ny-flip-outline:before {
+  content: "\ead9";
+}
+
+.ny-flip:before {
+  content: "\eada";
+}
+
+.ny-folder-add-outline:before {
+  content: "\eadb";
+}
+
+.ny-folder-add:before {
+  content: "\eadc";
+}
+
+.ny-folder-outline:before {
+  content: "\eadd";
+}
+
+.ny-folder-remove-outline:before {
+  content: "\eade";
+}
+
+.ny-folder-remove:before {
+  content: "\eadf";
+}
+
+.ny-folder:before {
+  content: "\eae0";
+}
+
+.ny-funnel-outline:before {
+  content: "\eae1";
+}
+
+.ny-funnel:before {
+  content: "\eae2";
+}
+
+.ny-gift-outline:before {
+  content: "\eae3";
+}
+
+.ny-gift:before {
+  content: "\eae4";
+}
+
+.ny-github-outline:before {
+  content: "\eae5";
+}
+
+.ny-github:before {
+  content: "\eae6";
+}
+
+.ny-globe-2-outline:before {
+  content: "\eae7";
+}
+
+.ny-globe-2:before {
+  content: "\eae8";
+}
+
+.ny-globe-3:before {
+  content: "\eae9";
+}
+
+.ny-globe-outline:before {
+  content: "\eaea";
+}
+
+.ny-globe:before {
+  content: "\eaeb";
+}
+
+.ny-google-outline:before {
+  content: "\eaec";
+}
+
+.ny-google:before {
+  content: "\eaed";
+}
+
+.ny-grid-outline:before {
+  content: "\eaee";
+}
+
+.ny-grid:before {
+  content: "\eaef";
+}
+
+.ny-hard-drive-outline:before {
+  content: "\eaf0";
+}
+
+.ny-hard-drive:before {
+  content: "\eaf1";
+}
+
+.ny-hash-outline:before {
+  content: "\eaf2";
+}
+
+.ny-hash:before {
+  content: "\eaf3";
+}
+
+.ny-headphones-outline:before {
+  content: "\eaf4";
+}
+
+.ny-headphones:before {
+  content: "\eaf5";
+}
+
+.ny-heart-outline:before {
+  content: "\eaf6";
+}
+
+.ny-heart:before {
+  content: "\eaf7";
+}
+
+.ny-home-outline:before {
+  content: "\eaf8";
+}
+
+.ny-home:before {
+  content: "\eaf9";
+}
+
+.ny-image-2:before {
+  content: "\eafa";
+}
+
+.ny-image-outline:before {
+  content: "\eafb";
+}
+
+.ny-image:before {
+  content: "\eafc";
+}
+
+.ny-inbox-outline:before {
+  content: "\eafd";
+}
+
+.ny-inbox:before {
+  content: "\eafe";
+}
+
+.ny-info-outline:before {
+  content: "\eaff";
+}
+
+.ny-info:before {
+  content: "\eb00";
+}
+
+.ny-keypad-outline:before {
+  content: "\eb01";
+}
+
+.ny-keypad:before {
+  content: "\eb02";
+}
+
+.ny-layers-outline:before {
+  content: "\eb03";
+}
+
+.ny-layers:before {
+  content: "\eb04";
+}
+
+.ny-layout-outline:before {
+  content: "\eb05";
+}
+
+.ny-layout:before {
+  content: "\eb06";
+}
+
+.ny-link-2-outline:before {
+  content: "\eb07";
+}
+
+.ny-link-2:before {
+  content: "\eb08";
+}
+
+.ny-link-outline:before {
+  content: "\eb09";
+}
+
+.ny-link:before {
+  content: "\eb0a";
+}
+
+.ny-linkedin-outline:before {
+  content: "\eb0b";
+}
+
+.ny-linkedin:before {
+  content: "\eb0c";
+}
+
+.ny-list-outline:before {
+  content: "\eb0d";
+}
+
+.ny-list:before {
+  content: "\eb0e";
+}
+
+.ny-loader-outline:before {
+  content: "\eb0f";
+}
+
+.ny-lock-outline:before {
+  content: "\eb10";
+}
+
+.ny-lock:before {
+  content: "\eb11";
+}
+
+.ny-log-in-outline:before {
+  content: "\eb12";
+}
+
+.ny-log-in:before {
+  content: "\eb13";
+}
+
+.ny-log-out-outline:before {
+  content: "\eb14";
+}
+
+.ny-log-out:before {
+  content: "\eb15";
+}
+
+.ny-map-outline:before {
+  content: "\eb16";
+}
+
+.ny-map:before {
+  content: "\eb17";
+}
+
+.ny-maximize-outline:before {
+  content: "\eb18";
+}
+
+.ny-maximize:before {
+  content: "\eb19";
+}
+
+.ny-menu-2-outline:before {
+  content: "\eb1a";
+}
+
+.ny-menu-2:before {
+  content: "\eb1b";
+}
+
+.ny-menu-arrow-outline:before {
+  content: "\eb1c";
+}
+
+.ny-menu-arrow:before {
+  content: "\eb1d";
+}
+
+.ny-menu-outline:before {
+  content: "\eb1e";
+}
+
+.ny-menu:before {
+  content: "\eb1f";
+}
+
+.ny-message-circle-outline:before {
+  content: "\eb20";
+}
+
+.ny-message-circle:before {
+  content: "\eb21";
+}
+
+.ny-message-square-outline:before {
+  content: "\eb22";
+}
+
+.ny-message-square:before {
+  content: "\eb23";
+}
+
+.ny-mic-off-outline:before {
+  content: "\eb24";
+}
+
+.ny-mic-off:before {
+  content: "\eb25";
+}
+
+.ny-mic-outline:before {
+  content: "\eb26";
+}
+
+.ny-mic:before {
+  content: "\eb27";
+}
+
+.ny-minimize-outline:before {
+  content: "\eb28";
+}
+
+.ny-minimize:before {
+  content: "\eb29";
+}
+
+.ny-minus-circle-outline:before {
+  content: "\eb2a";
+}
+
+.ny-minus-circle:before {
+  content: "\eb2b";
+}
+
+.ny-minus-outline:before {
+  content: "\eb2c";
+}
+
+.ny-minus-square-outline:before {
+  content: "\eb2d";
+}
+
+.ny-minus-square:before {
+  content: "\eb2e";
+}
+
+.ny-minus:before {
+  content: "\eb2f";
+}
+
+.ny-monitor-outline:before {
+  content: "\eb30";
+}
+
+.ny-monitor:before {
+  content: "\eb31";
+}
+
+.ny-moon-outline:before {
+  content: "\eb32";
+}
+
+.ny-moon:before {
+  content: "\eb33";
+}
+
+.ny-more-horizontal-outline:before {
+  content: "\eb34";
+}
+
+.ny-more-horizontal:before {
+  content: "\eb35";
+}
+
+.ny-more-vertical-outline:before {
+  content: "\eb36";
+}
+
+.ny-more-vertical:before {
+  content: "\eb37";
+}
+
+.ny-move-outline:before {
+  content: "\eb38";
+}
+
+.ny-move:before {
+  content: "\eb39";
+}
+
+.ny-music-outline:before {
+  content: "\eb3a";
+}
+
+.ny-music:before {
+  content: "\eb3b";
+}
+
+.ny-navigation-2-outline:before {
+  content: "\eb3c";
+}
+
+.ny-navigation-2:before {
+  content: "\eb3d";
+}
+
+.ny-navigation-outline:before {
+  content: "\eb3e";
+}
+
+.ny-navigation:before {
+  content: "\eb3f";
+}
+
+.ny-npm-outline:before {
+  content: "\eb40";
+}
+
+.ny-npm:before {
+  content: "\eb41";
+}
+
+.ny-options-2-outline:before {
+  content: "\eb42";
+}
+
+.ny-options-2:before {
+  content: "\eb43";
+}
+
+.ny-options-outline:before {
+  content: "\eb44";
+}
+
+.ny-options:before {
+  content: "\eb45";
+}
+
+.ny-pantone-outline:before {
+  content: "\eb46";
+}
+
+.ny-pantone:before {
+  content: "\eb47";
+}
+
+.ny-paper-plane-outline:before {
+  content: "\eb48";
+}
+
+.ny-paper-plane:before {
+  content: "\eb49";
+}
+
+.ny-pause-circle-outline:before {
+  content: "\eb4a";
+}
+
+.ny-pause-circle:before {
+  content: "\eb4b";
+}
+
+.ny-people-outline:before {
+  content: "\eb4c";
+}
+
+.ny-people:before {
+  content: "\eb4d";
+}
+
+.ny-percent-outline:before {
+  content: "\eb4e";
+}
+
+.ny-percent:before {
+  content: "\eb4f";
+}
+
+.ny-person-add-outline:before {
+  content: "\eb50";
+}
+
+.ny-person-add:before {
+  content: "\eb51";
+}
+
+.ny-person-delete-outline:before {
+  content: "\eb52";
+}
+
+.ny-person-delete:before {
+  content: "\eb53";
+}
+
+.ny-person-done-outline:before {
+  content: "\eb54";
+}
+
+.ny-person-done:before {
+  content: "\eb55";
+}
+
+.ny-person-outline:before {
+  content: "\eb56";
+}
+
+.ny-person-remove-outline:before {
+  content: "\eb57";
+}
+
+.ny-person-remove:before {
+  content: "\eb58";
+}
+
+.ny-person:before {
+  content: "\eb59";
+}
+
+.ny-phone-call-outline:before {
+  content: "\eb5a";
+}
+
+.ny-phone-call:before {
+  content: "\eb5b";
+}
+
+.ny-phone-missed-outline:before {
+  content: "\eb5c";
+}
+
+.ny-phone-missed:before {
+  content: "\eb5d";
+}
+
+.ny-phone-off-outline:before {
+  content: "\eb5e";
+}
+
+.ny-phone-off:before {
+  content: "\eb5f";
+}
+
+.ny-phone-outline:before {
+  content: "\eb60";
+}
+
+.ny-phone:before {
+  content: "\eb61";
+}
+
+.ny-pie-chart-2:before {
+  content: "\eb62";
+}
+
+.ny-pie-chart-outline:before {
+  content: "\eb63";
+}
+
+.ny-pie-chart:before {
+  content: "\eb64";
+}
+
+.ny-pin-outline:before {
+  content: "\eb65";
+}
+
+.ny-pin:before {
+  content: "\eb66";
+}
+
+.ny-play-circle-outline:before {
+  content: "\eb67";
+}
+
+.ny-play-circle:before {
+  content: "\eb68";
+}
+
+.ny-plus-circle-outline:before {
+  content: "\eb69";
+}
+
+.ny-plus-circle:before {
+  content: "\eb6a";
+}
+
+.ny-plus-outline:before {
+  content: "\eb6b";
+}
+
+.ny-plus-square-outline:before {
+  content: "\eb6c";
+}
+
+.ny-plus-square:before {
+  content: "\eb6d";
+}
+
+.ny-plus:before {
+  content: "\eb6e";
+}
+
+.ny-power-outline:before {
+  content: "\eb6f";
+}
+
+.ny-power:before {
+  content: "\eb70";
+}
+
+.ny-pricetags-outline:before {
+  content: "\eb71";
+}
+
+.ny-pricetags:before {
+  content: "\eb72";
+}
+
+.ny-printer-outline:before {
+  content: "\eb73";
+}
+
+.ny-printer:before {
+  content: "\eb74";
+}
+
+.ny-question-mark-circle-outline:before {
+  content: "\eb75";
+}
+
+.ny-question-mark-circle:before {
+  content: "\eb76";
+}
+
+.ny-question-mark-outline:before {
+  content: "\eb77";
+}
+
+.ny-question-mark:before {
+  content: "\eb78";
+}
+
+.ny-radio-button-off-outline:before {
+  content: "\eb79";
+}
+
+.ny-radio-button-off:before {
+  content: "\eb7a";
+}
+
+.ny-radio-button-on-outline:before {
+  content: "\eb7b";
+}
+
+.ny-radio-button-on:before {
+  content: "\eb7d";
+}
+
+.ny-radio-outline:before {
+  content: "\eb7c";
+}
+
+.ny-radio:before {
+  content: "\eb7e";
+}
+
+.ny-recording-outline:before {
+  content: "\eb7f";
+}
+
+.ny-recording:before {
+  content: "\eb80";
+}
+
+.ny-refresh-outline:before {
+  content: "\eb81";
+}
+
+.ny-refresh:before {
+  content: "\eb82";
+}
+
+.ny-repeat-outline:before {
+  content: "\eb83";
+}
+
+.ny-repeat:before {
+  content: "\eb84";
+}
+
+.ny-rewind-left-outline:before {
+  content: "\eb85";
+}
+
+.ny-rewind-left:before {
+  content: "\eb86";
+}
+
+.ny-rewind-right-outline:before {
+  content: "\eb87";
+}
+
+.ny-rewind-right:before {
+  content: "\eb88";
+}
+
+.ny-save-outline:before {
+  content: "\eb89";
+}
+
+.ny-save:before {
+  content: "\eb8a";
+}
+
+.ny-scissors-outline:before {
+  content: "\eb8b";
+}
+
+.ny-scissors:before {
+  content: "\eb8c";
+}
+
+.ny-search-outline:before {
+  content: "\eb8d";
+}
+
+.ny-search:before {
+  content: "\eb8e";
+}
+
+.ny-settings-2-outline:before {
+  content: "\eb8f";
+}
+
+.ny-settings-2:before {
+  content: "\eb90";
+}
+
+.ny-settings-outline:before {
+  content: "\eb91";
+}
+
+.ny-settings:before {
+  content: "\eb92";
+}
+
+.ny-shake-outline:before {
+  content: "\eb93";
+}
+
+.ny-shake:before {
+  content: "\eb94";
+}
+
+.ny-share-outline:before {
+  content: "\eb95";
+}
+
+.ny-share:before {
+  content: "\eb96";
+}
+
+.ny-shield-off-outline:before {
+  content: "\eb97";
+}
+
+.ny-shield-off:before {
+  content: "\eb98";
+}
+
+.ny-shield-outline:before {
+  content: "\eb99";
+}
+
+.ny-shield:before {
+  content: "\eb9a";
+}
+
+.ny-shopping-bag-outline:before {
+  content: "\eb9b";
+}
+
+.ny-shopping-bag:before {
+  content: "\eb9c";
+}
+
+.ny-shopping-cart-outline:before {
+  content: "\eb9d";
+}
+
+.ny-shopping-cart:before {
+  content: "\eb9e";
+}
+
+.ny-shuffle-2-outline:before {
+  content: "\eb9f";
+}
+
+.ny-shuffle-2:before {
+  content: "\eba0";
+}
+
+.ny-shuffle-outline:before {
+  content: "\eba1";
+}
+
+.ny-shuffle:before {
+  content: "\eba2";
+}
+
+.ny-skip-back-outline:before {
+  content: "\eba3";
+}
+
+.ny-skip-back:before {
+  content: "\eba4";
+}
+
+.ny-skip-forward-outline:before {
+  content: "\eba5";
+}
+
+.ny-skip-forward:before {
+  content: "\eba6";
+}
+
+.ny-slash-outline:before {
+  content: "\eba7";
+}
+
+.ny-slash:before {
+  content: "\eba8";
+}
+
+.ny-smartphone-outline:before {
+  content: "\eba9";
+}
+
+.ny-smartphone:before {
+  content: "\ebaa";
+}
+
+.ny-speaker-outline:before {
+  content: "\ebab";
+}
+
+.ny-speaker:before {
+  content: "\ebac";
+}
+
+.ny-square-outline:before {
+  content: "\ebad";
+}
+
+.ny-square:before {
+  content: "\ebae";
+}
+
+.ny-star-outline:before {
+  content: "\ebaf";
+}
+
+.ny-star:before {
+  content: "\ebb0";
+}
+
+.ny-stop-circle-outline:before {
+  content: "\ebb1";
+}
+
+.ny-stop-circle:before {
+  content: "\ebb2";
+}
+
+.ny-sun-outline:before {
+  content: "\ebb3";
+}
+
+.ny-sun:before {
+  content: "\ebb4";
+}
+
+.ny-swap-outline:before {
+  content: "\ebb5";
+}
+
+.ny-swap:before {
+  content: "\ebb6";
+}
+
+.ny-sync-outline:before {
+  content: "\ebb7";
+}
+
+.ny-sync:before {
+  content: "\ebb8";
+}
+
+.ny-text-outline:before {
+  content: "\ebb9";
+}
+
+.ny-text:before {
+  content: "\ebba";
+}
+
+.ny-thermometer-minus-outline:before {
+  content: "\ebbb";
+}
+
+.ny-thermometer-minus:before {
+  content: "\ebbc";
+}
+
+.ny-thermometer-outline:before {
+  content: "\ebbd";
+}
+
+.ny-thermometer-plus-outline:before {
+  content: "\ebbf";
+}
+
+.ny-thermometer-plus:before {
+  content: "\ebbe";
+}
+
+.ny-thermometer:before {
+  content: "\ebc0";
+}
+
+.ny-toggle-left-outline:before {
+  content: "\ebc1";
+}
+
+.ny-toggle-left:before {
+  content: "\ebc2";
+}
+
+.ny-toggle-right-outline:before {
+  content: "\ebc3";
+}
+
+.ny-toggle-right:before {
+  content: "\ebc4";
+}
+
+.ny-trash-2-outline:before {
+  content: "\ebc5";
+}
+
+.ny-trash-2:before {
+  content: "\ebc6";
+}
+
+.ny-trash-outline:before {
+  content: "\ebc7";
+}
+
+.ny-trash:before {
+  content: "\ebc8";
+}
+
+.ny-trending-down-outline:before {
+  content: "\ebc9";
+}
+
+.ny-trending-down:before {
+  content: "\ebca";
+}
+
+.ny-trending-up-outline:before {
+  content: "\ebcb";
+}
+
+.ny-trending-up:before {
+  content: "\ebcc";
+}
+
+.ny-tv-outline:before {
+  content: "\ebcd";
+}
+
+.ny-tv:before {
+  content: "\ebce";
+}
+
+.ny-twitter-outline:before {
+  content: "\ebcf";
+}
+
+.ny-twitter:before {
+  content: "\ebd0";
+}
+
+.ny-umbrella-outline:before {
+  content: "\ebd1";
+}
+
+.ny-umbrella:before {
+  content: "\ebd2";
+}
+
+.ny-undo-outline:before {
+  content: "\ebd3";
+}
+
+.ny-undo:before {
+  content: "\ebd4";
+}
+
+.ny-unlock-outline:before {
+  content: "\ebd5";
+}
+
+.ny-unlock:before {
+  content: "\ebd6";
+}
+
+.ny-upload-outline:before {
+  content: "\ebd7";
+}
+
+.ny-upload:before {
+  content: "\ebd8";
+}
+
+.ny-video-off-outline:before {
+  content: "\ebd9";
+}
+
+.ny-video-off:before {
+  content: "\ebda";
+}
+
+.ny-video-outline:before {
+  content: "\ebdb";
+}
+
+.ny-video:before {
+  content: "\ebdc";
+}
+
+.ny-volume-down-outline:before {
+  content: "\ebdd";
+}
+
+.ny-volume-down:before {
+  content: "\ebde";
+}
+
+.ny-volume-mute-outline:before {
+  content: "\ebdf";
+}
+
+.ny-volume-mute:before {
+  content: "\ebe0";
+}
+
+.ny-volume-off-outline:before {
+  content: "\ebe1";
+}
+
+.ny-volume-off:before {
+  content: "\ebe2";
+}
+
+.ny-volume-up-outline:before {
+  content: "\ebe3";
+}
+
+.ny-volume-up:before {
+  content: "\ebe4";
+}
+
+.ny-wifi-off-outline:before {
+  content: "\ebe5";
+}
+
+.ny-wifi-off:before {
+  content: "\ebe6";
+}
+
+.ny-wifi-outline:before {
+  content: "\ebe7";
+}
+
+.ny-wifi:before {
+  content: "\ebe8";
+}

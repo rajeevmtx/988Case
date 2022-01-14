@@ -1,0 +1,23 @@
+.model_close {
+    &:after {
+        content: ' \2715';
+        color: $color-black;
+        display: contents;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
+
+.model_alignment {
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (max-width: 768px) {
+    .model_alignment {
+        width: 90%;
+    }
+}

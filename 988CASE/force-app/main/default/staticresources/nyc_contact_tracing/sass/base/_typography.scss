@@ -1,0 +1,51 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    // font-size: 15px;
+    line-height: 1.6;
+    color: $color-default-text;
+    background-color: $color-white;
+}
+
+.ny_card {
+    font-size: 15px;
+    a {
+        color: $color-text-link;
+        text-decoration: underline;
+        &:hover {
+            color: $color-text-link-hover;
+        }
+    }
+    p,
+    ol,
+    ul,
+    li,
+    dl,
+    fieldset,
+    b,
+    strong,
+    a {
+        font-size: 1.167rem;
+    }
+}
+
+h1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+span {
+    font-family: "Helvetica Neue", Helvetica, Arial, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.ny_capitalization {
+    text-transform: capitalize;
+}
+
+.ny_spical_dob {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: $color-text !important;
+}

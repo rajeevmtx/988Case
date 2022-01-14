@@ -1,0 +1,281 @@
+<template>
+    <div if:true={showSpinner}>
+        <div class="backdrop">
+            <div class="spinner">
+                <lightning-spinner alternative-text="Loading..." variant="brand">
+                </lightning-spinner>
+            </div>
+        </div>
+    </div>
+    <div class="slds-theme_default" if:false={showSpinner}>
+        <template if:true={isEmergency}>
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <template if:true={step1}>
+                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                            title="Introduction and Consent">Emergency Team</span>
+                    </template>
+                </h3>
+                </br>
+                <div aria-hidden="false" class="slds-section__content">
+                    <!-- IS EMERGENCY -->
+                    <div class="readoutStyle">
+                        988 Case Management Access Line, this is {agentName}.
+                        Is this a medical or life-threatening emergency?</div>
+                    <lightning-radio-group name="EmergencyQuestion" options={options} value={emergencyQvalue}
+                        type="radio" onchange={handleRadioChange}>
+                    </lightning-radio-group>
+                    </br>
+
+                    <lightning-record-edit-form object-api-name="Case" record-id={caseId} onsuccess={handleSuccess}>
+                        <div class="questionSection">
+                            <div class="readoutStyle">
+                                Could you please provide me some of your personal
+                                information which I would require to create a case for you?</br>
+                            </div>
+                            <lightning-layout>
+                                <lightning-layout-item size="6" class="slds-p-around_medium slds-text-align_center">
+                                    <b>First Name</b>
+                                    <lightning-input-field field-name="First_Name__c" variant="label-hidden">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="6" class="slds-p-around_medium slds-text-align_center">
+                                    <b>Last Name</b>
+                                    <lightning-input-field field-name="Last_Name__c" variant="label-hidden">
+                                    </lightning-input-field>
+                                </lightning-layout-item>
+                            </lightning-layout>
+
+                            <!-- PHONE NUMBER-->
+                            <div class="questionSection">
+                                <div class="readoutStyle">
+                                    Thank you for calling 988 Helpline, we will try our best to help you. Can you please
+                                    provide me with your contact number for our database?</br>
+                                </div>
+                                <div class="helptextStyle">
+                                    * Request a call back number in case the call is lost.</br>
+                                </div>
+                                <div class="textboxStyle">
+                                    <b>Phone Number</b>
+                                    <lightning-input-field name="contactPhone" field-name="Contact_Number__c"
+                                        variant="label-hidden" onchange={handlephoneChange}>
+                                    </lightning-input-field>
+                                    <template if:true={phoneError}>
+                                        <div class="ErrorStyle">
+                                            Please input a 10 digit number.
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="questionSection">
+                                 <!--LOCATION & ADDRESS -->
+                                <lightning-input-address address-label="Location of the Incident" street-label="Street"
+                                    city-label="City" country-label="Country" province-label="Province"
+                                    postal-code-label="PostalCode" street={addressData.Street_Address__c} city={addressData.City__c} country={addressData.County__c} province={addressData.Province__c}
+                                    postal-code={addressData.Zip_Code__c} show-address-lookup
+                                    onchange={onAddressChange}>
+                                </lightning-input-address>
+                                <div class="slds-hide">
+                                    <lightning-input-field field-name="Street_Address__c" variant="label-hidden"
+                                        value={addressData.Street_Address__c}>
+                                    </lightning-input-field></br>
+                                    <lightning-input-field field-name="Province__c" variant="label-hidden"
+                                        value={addressData.Province__c}>
+                                    </lightning-input-field></br>
+                                   
+                                    <lightning-input-field field-name="City__c" variant="label-hidden"
+                                        value={addressData.City__c}>
+                                    </lightning-input-field></br>
+                                   
+                                    <lightning-input-field field-name="County__c" variant="label-hidden"
+                                        value={addressData.County__c}>
+                                    </lightning-input-field></br>
+                                  
+                                    <lightning-input-field field-name="Zip_Code__c" variant="label-hidden"
+                                        value={addressData.Zip_Code__c}>
+                                    </lightning-input-field></br>
+                                </div>
+                            </div>
+                        </div>
+
+                        <lightning-button variant="brand" type="submit" label="Submit">
+                        </lightning-button>
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+        </template>
+        <template if:false={isEmergency}>
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <template if:true={step1}>
+                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                            title="Introduction and Consent">Introduction
+                            and Consent</span>
+                    </template>
+                    <template if:true={step2}>
+                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                            title="Personal Information">Personal
+                            Information</span>
+                    </template>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content ">
+                    <template if:true={step1}>
+                        <!-- IS EMERGENCY -->
+                        <div class="questionSection">
+                            <div class="readoutStyle">
+                                988 Case Management Access Line, this is {agentName}.
+                                Is this a medical or life-threatening emergency?</div>
+                            <lightning-radio-group name="EmergencyQuestion" class="displayInline" options={options}
+                                value={emergencyQvalue} type="radio" onchange={handleRadioChange}>
+                            </lightning-radio-group>
+                        </div>
+
+                        <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+                            <!-- PHONE NUMBER-->
+                            <div class="questionSection">
+                                <div class="readoutStyle">
+                                    Thank you for calling 988 Helpline, we will try our best to help you. Can you please
+                                    provide me with your contact number for our database?</br>
+                                </div>
+                                <div class="helptextStyle">
+                                    * Request a call back number in case the call is lost.</br>
+                                </div>
+                                <div class="textboxStyle">
+                                    <b>Phone Number</b>
+                                    <lightning-input-field name="contactPhone" field-name="Contact_Number__c"
+                                        variant="label-hidden" onchange={handlephoneChange}>
+                                    </lightning-input-field>
+                                    <template if:true={phoneError}>
+                                        <div class="ErrorStyle">
+                                            Please input a 10 digit number.
+                                        </div>
+                                    </template>
+
+                                </div>
+                            </div>
+                            <!--LANGUAGE -->
+                            <div class="questionSection">
+                                <div class="readoutStyle">Which language would you prefer for the further call?</div>
+                                <div class="helptextStyle">
+                                    * Determine the caller's language needs</br>
+                                </div>
+                                <div class="textboxStyle">
+                                    <b>Preferred Language</b>
+                                    <lightning-input-field field-name="Preferred_Language__c" variant="label-hidden">
+                                    </lightning-input-field>
+                                </div>
+                            </div>
+                            <!-- CALLLER CONSENT -->
+                            <div class="questionSection">
+                                <div class="readoutStyle">
+                                    This call is considered confidential and no information can be released
+                                    without
+                                    your consent.</br>
+                                    However, you need to be aware that as a mental health worker, I am a mandated
+                                    reporter
+                                    and
+                                    must report any information I receive regarding abuse or imminent danger to you or
+                                    others.</br>
+                                </div>
+                                <div class="helptextStyle">
+                                    * Provide Informed Consent and Determine the Caller’s Need: Inform the
+                                    Client:</br>
+                                </div>
+                                <b>Has the caller consented</b>
+                                <lightning-input-field field-name="Has_the_Caller_Consented__c" variant="label-hidden">
+                                </lightning-input-field>
+                            </div>
+                            <lightning-button variant="brand" type="submit" name="continue" label="Continue"
+                                onclick={onBtnClick}>
+                            </lightning-button>
+                        </lightning-record-edit-form>
+                    </template>
+
+                    <template if:true={step2}>
+                        <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+                            <!--PERSONAL INFORMATION-->
+                            <div class="questionSection">
+                                <div class="readoutStyle">
+                                    Could you please provide me some of your personal
+                                    information which I would require to create a case for you?</br>
+                                </div>
+                                <lightning-layout>
+                                    <lightning-layout-item size="4" class="slds-p-around_medium slds-text-align_center">
+                                        <b>First Name</b>
+                                        <lightning-input-field field-name="First_Name__c" variant="label-hidden">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="4" class="slds-p-around_medium slds-text-align_center">
+                                        <b>Middle Name</b>
+                                        <lightning-input-field field-name="Middle_Name__c" variant="label-hidden">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="4" class="slds-p-around_medium slds-text-align_center">
+                                        <b>Last Name</b>
+                                        <lightning-input-field field-name="Last_Name__c" variant="label-hidden">
+                                        </lightning-input-field>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+
+                                    <!--LOCATION & ADDRESS -->
+                                <!-- <b>Location of the Incident</b> -->
+                                </br>
+                                <!-- <b>Street Address</b> -->
+                                <lightning-input-address address-label="Location of the Incident" street-label="Street"
+                                    city-label="City" country-label="Country" province-label="Province"
+                                    postal-code-label="PostalCode" street={addressData.Street_Address__c} city={addressData.City__c} country={addressData.County__c} province={addressData.Province__c}
+                                    postal-code={addressData.Zip_Code__c} show-address-lookup
+                                    onchange={onAddressChange}>
+                                </lightning-input-address>
+                                <div class="slds-hide">
+                                    <lightning-input-field field-name="Street_Address__c" variant="label-hidden"
+                                        value={addressData.Street_Address__c}>
+                                    </lightning-input-field></br>
+                                    <!-- <b>Apt, Suite, Unit, Building</b> -->
+                                    <!-- <lightning-input-field field-name="Apt_Suite_Unit_Building__c"
+                                        variant="label-hidden" value={addressData.Apt_Suite_Unit_Building__c}>
+                                    </lightning-input-field></br> -->
+                                    <!-- <b>State</b> -->
+                                    <lightning-input-field field-name="Province__c" variant="label-hidden"
+                                        value={addressData.Province__c}>
+                                    </lightning-input-field></br>
+                                    <!-- <b>City</b> -->
+                                    <lightning-input-field field-name="City__c" variant="label-hidden"
+                                        value={addressData.City__c}>
+                                    </lightning-input-field></br>
+                                    <!-- <b>County</b> -->
+                                    <lightning-input-field field-name="County__c" variant="label-hidden"
+                                        value={addressData.County__c}>
+                                    </lightning-input-field></br>
+                                    <!-- <b>ZipCode</b> -->
+                                    <lightning-input-field field-name="Zip_Code__c" variant="label-hidden"
+                                        value={addressData.Zip_Code__c}>
+                                    </lightning-input-field></br>
+                                </div>
+                            </div>
+                            <!-- Nature of Crisis-->
+                            <div class="questionSection">
+                                <div class="readoutStyle">
+                                    Can you please describe to me the nature of the emergency?</br>
+                                </div>
+                                <b>Nature of Crisis</b>
+                                <lightning-input-field field-name="Nature_of_Crisis__c" variant="label-hidden">
+                                </lightning-input-field></br>
+
+                                <b>Relation to the person in need?</b>
+                                <lightning-input-field field-name="Relation_to_the_person_in_need__c"
+                                    variant="label-hidden">
+                                </lightning-input-field></br>
+                                <lightning-button variant="neutal" name="Back" label="Back" onclick={onBackBtnClick}>
+                                </lightning-button>&nbsp;&nbsp;
+                                <lightning-button variant="brand" type="submit" name="next" label="Next"
+                                    onclick={onNxtBtnClick}>
+                                </lightning-button>
+                            </div>
+                        </lightning-record-edit-form>
+                    </template>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

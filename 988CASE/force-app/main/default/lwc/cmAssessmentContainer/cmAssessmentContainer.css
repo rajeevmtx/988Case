@@ -1,0 +1,13 @@
+.custom-box{
+    width:350px;
+    /* background: #16325c; */
+    background: #4094f9;
+    
+    border:1px solid #4094f9;
+    padding: 4px 0px;
+}
+
+.custom-box:hover{
+    color: #4094f9;
+    background: #fff;
+}

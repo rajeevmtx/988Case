@@ -1,0 +1,39 @@
+<template>
+    <!-- <lightning-record-form object-api-name="Intake_Request__c" fields={fields} onsuccess={handleSuccess} columns="2">
+    </lightning-record-form> -->
+    <lightning-button variant="brand" label="Save" title="Save" onclick={saveAdult}>
+    </lightning-button>
+    <lightning-record-edit-form object-api-name="Household_Member__c" record-id={houseHoldId} data-id="accountForm">
+        Name</br>
+        <lightning-input-field field-name="Name__c" name="Name__c" onchange={handleChangeAdult} variant="label-hidden">
+        </lightning-input-field>
+
+        </br>
+
+        Relationship</br>
+        <lightning-input-field field-name="Relationship__c" name="Relationship__c" onchange={handleChangeAdult}
+            variant="label-hidden">
+        </lightning-input-field>
+
+        </br>
+
+        HIV Status (+,- or unknown)</br>
+        <lightning-input-field field-name="HIV_Status_or_unknown__c" name="HIV_Status_or_unknown__c"
+            onchange={handleChangeAdult} variant="label-hidden">
+        </lightning-input-field>
+
+        </br>
+
+        Age</br>
+        <lightning-input-field field-name="Age__c" name="Age__c" onchange={handleChangeAdult} variant="label-hidden">
+        </lightning-input-field>
+
+        </br>
+
+        Aware of Client's HIV+ Status (Y/N/NA)</br>
+        <lightning-input-field field-name="Aware_of_Client_s_HIV_Status_Y_N_NA__c"
+            name="Aware_of_Client_s_HIV_Status_Y_N_NA__c" onchange={handleChangeAdult} variant="label-hidden">
+        </lightning-input-field>
+        </br>
+    </lightning-record-edit-form>
+</template>

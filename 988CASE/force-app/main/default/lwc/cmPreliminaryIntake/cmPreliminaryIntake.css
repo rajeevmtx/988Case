@@ -1,0 +1,45 @@
+.readoutStyle{
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(1, 118, 211);
+    margin-bottom: 10px;
+    background: #eaf1fa;
+    padding: 10px;
+    border-radius: 4px;
+}
+.helptextStyle{
+    font-style: italic;
+}
+.headerStyle{
+    font-weight: bold;
+    font-size:large;
+}
+.leftpading{
+    padding-left:5%;
+}
+.textboxStyle{
+    width:100%;
+}
+.ErrorStyle {
+   color:red;
+   font-style: bold;
+   font-weight: bold;
+}
+
+.questionSection{
+    /* background: #DCEAFE; 
+    background:#eaf1fa;*/
+    padding: 10px;
+    margin: 16px 0px;
+    border-radius: 4px;
+}
+
+.THIS .questionSection .displayInline .slds-radio{
+    display: inline-block!important;
+}
+
+h3{
+    margin-left: -12px;
+    background:none;
+    margin-top: -23px;
+}

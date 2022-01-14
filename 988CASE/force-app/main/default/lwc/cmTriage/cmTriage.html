@@ -1,0 +1,215 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item size="6">
+            <div class="slds-p-horizontal_small">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                        title="Referral">Readout/Instructions</span>
+                </h3>
+                </br>
+                <div class="paddingStyle">
+                    <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+                        <p>Can you tell me how you are feeling today?</p>
+                        <lightning-input-field field-name="Caller_Name_feeling_today__c" variant="label-hidden"
+                            onchange={handeReadoutChange}>
+                        </lightning-input-field>
+                        <p>What initially brought on this feeling?</p>
+                        <lightning-input-field field-name="Initially_bought_feeling__c" variant="label-hidden"
+                            onchange={handeReadoutChange}>
+                        </lightning-input-field>
+                        <p>What’s been the most challenging part?</p>
+                        <lightning-input-field field-name="Most_Challenging_part__c" variant="label-hidden"
+                            onchange={handeReadoutChange}>
+                        </lightning-input-field>
+                        <p>How are you coping? Have you discovered a new healthy habit or hobby?</p>
+                        <lightning-input-field field-name="How_are_you_coping__c" variant="label-hidden"
+                            onchange={handeReadoutChange}></lightning-input-field>
+                        <p>Have you had any thoughts of harming yourself
+                            recently/today?</p>
+                        <lightning-radio-group label="" value={Have_thoughts_of_harming_yourself__c}
+                            name="Have_thoughts_of_harming_yourself__c" options={options} type="radio"
+                            onchange={handeReadoutChange}></lightning-radio-group>
+                        <template if:true={data.Have_thoughts_of_harming_yourself__c}>
+                            <p>Can you tell me about the suicidal thoughts?</p>
+                            <lightning-input-field field-name="About_Suicidal_thoughts__c" variant="label-hidden"
+                                onchange={handeReadoutChange}></lightning-input-field>
+                            <p>Have you made a plan?</p>
+                            <lightning-input-field field-name="Have_you_made_a_plan__c" variant="label-hidden"
+                                onchange={handeReadoutChange}></lightning-input-field>
+                            <p>Do you intend to attempt suicide?</p>
+                            <lightning-radio-group label="" value={Intend_to_attempt_suicide__c}
+                                name="Intend_to_attempt_suicide__c" options={options} type="radio"
+                                onchange={handeReadoutChange}></lightning-radio-group>
+                        </template>
+
+                        <div class="slds-hide">
+                            <lightning-input-field field-name="Have_thoughts_of_harming_yourself__c"
+                                value={data.Have_thoughts_of_harming_yourself__c} variant="label-hidden">
+                            </lightning-input-field>
+                            <lightning-input-field field-name="Intend_to_attempt_suicide__c"
+                                value={data.Intend_to_attempt_suicide__c} variant="label-hidden">
+                            </lightning-input-field>
+                        </div>
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="6">
+            <div class="slds-theme_default">
+                <div class="slds-section slds-is-open">
+                    <h3 class="slds-section__title slds-theme_shade">
+                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                            title="Identify Key Risk">Non-crisis
+                            Triage</span>
+                    </h3>
+                    <div aria-hidden="false" class="slds-section__content slds-p-horizontal_small paddingStyle">
+                        <template if:true={step1}>
+                            <template if:true={showSafety}>
+                                <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                                        title="Safety">Safety</span>
+                                </h3>
+                                <div class="safety">
+                                    <b>Is the caller a danger to self or others?</b>
+                                    <lightning-radio-group name="q1" options={options} value={q1} type="radio"
+                                        onchange={handleRadioChange}>
+                                    </lightning-radio-group>
+                                    </br>
+                                    <b>Is the caller gravely disabled?</b>
+                                    <lightning-radio-group name="q2" options={options} value={q2} type="radio"
+                                        onchange={handleRadioChange}>
+                                    </lightning-radio-group>
+                                    </br>
+                                </div>
+                            </template>
+                            <template if:true={showMentalHealthStatus}>
+                                <h3 class="slds-section__title slds-theme_shade subheaderStyle">
+                                    <span class="slds-truncate slds-p-horizontal_small"
+                                        title="Mental Health Status">Mental
+                                        Health Status</span>
+                                </h3>
+                                <div class="safety">
+                                    <b>Is the caller experiencing an altered mental state?</b>
+                                    <lightning-radio-group name="q3" options={options} value={q3} type="radio"
+                                        onchange={handleRadioChange}>
+                                    </lightning-radio-group>
+                                    </br>
+                                    <b>Is the caller in need of an evaluation for a psychiatric hospitalization?</b>
+                                    <lightning-radio-group name="q4" options={options} value={q4} type="radio"
+                                        onchange={handleRadioChange}>
+                                    </lightning-radio-group>
+                                    </br>
+                                </div>
+                            </template>
+                            <template if:true={showSubstanceAbuse}>
+                                <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                                        title="Substance Abuse">Substance
+                                        Abuse</span>
+                                </h3>
+                                <div class="safety">
+                                    <b>Does the caller have substance use/abuse issues?</b>
+                                    <lightning-radio-group name="q5" options={options} value={q5} type="radio"
+                                        onchange={handleRadioChange}>
+                                    </lightning-radio-group>
+                                    </br>
+                                    <b>Is the caller currently under the influence of any substances?</b>
+                                    <lightning-radio-group name="q6" options={options} value={q6} type="radio"
+                                        onchange={handleRadioChange}>
+                                    </lightning-radio-group>
+                                    </br>
+                                </div>
+                            </template>
+                            <template if:true={showDeEscalation}>
+                                <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                                        title="De-escalation">De-escalation</span>
+                                </h3>
+                                <div class="safety">
+                                    <b>Does the caller appear to be in need of de-escalation?</b>
+                                    <lightning-radio-group name="q7" options={options} value={q7} type="radio"
+                                        onchange={handleRadioChange}>
+                                    </lightning-radio-group>
+                                    </br>
+                                </div>
+                            </template>
+                            <template if:true={showLinkageToCare}>
+                                <h3 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                                        title="Required to provide Linkage to Care?">Required to provide Linkage to
+                                        Care?</span>
+                                </h3>
+                                <div class="safety">
+                                    <b>Provide Linkage to Care?</b>
+                                    <lightning-radio-group name="q8" options={options} value={q8} type="radio"
+                                        onchange={handleRadioChange}>
+                                    </lightning-radio-group>
+                                    </br>
+                                </div>
+                            </template>
+                        </template>
+
+                        <template if:true={step2}>
+                            <h3 class="slds-section__title slds-theme_shade">
+                                <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                                    title="Identify Key Risk">Identify Key
+                                    Risk</span>
+                            </h3>
+                            </br>
+                            <div class="safety">
+                                <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+                                    <b>Does the caller need information/assistance with</b>
+                                    <lightning-input-field name="riskVal" value={riskOption} options={riskOptions}
+                                        onchange={handleRiskChange}
+                                        field-name="Does_the_caller_need_information_assista__c" variant="label-hidden">
+                                    </lightning-input-field>
+                                    </br>
+                                    <template if:true={isOtherRisk}>
+                                        <b>Other Referral Details</b>
+                                        <lightning-input-field name="otherRisk" field-name="Other_Referral_Details__c"
+                                            variant="label-hidden">
+                                        </lightning-input-field> </br>
+                                    </template>
+                                </lightning-record-edit-form>
+                            </div>
+                            <!--
+                                <div class="safety">
+                                    <b>Does the caller need information/assistance with</b>
+                                    <lightning-combobox name="riskVal" value={riskOption} options={riskOptions}
+                                        onchange={handleRiskChange}></lightning-combobox></br>
+                                    <template if:true={isOtherRisk}>
+                                        <b>Other Referral Details</b>
+                                        <lightning-textarea name="otherRisk"></lightning-textarea></br>
+                                    </template>
+                                </div>-->
+                        </template>
+                    </div>
+                    <template if:true={caseOutcome}>
+                        <div class="slds-form-element safety">
+                            <label class="slds-form-element__label subheaderStyle" for="text-input-id-46">Case
+                                Outcome</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="text-input-id-46" readonly="" placeholder=""
+                                    class="slds-input readoutStyle" value={caseOutcome} />
+                            </div>
+                        </div>
+                    </template>
+                    </br>
+                    <div class="paddingStyle">
+                        <button class="slds-button slds-button_neutral" onclick={onBackClick}>Back</button>
+                        <template if:true={caseOutcome}>
+                            <button class="slds-button slds-button_brand" onclick={onNextClick}>Next</button>
+                        </template>
+                        <template if:false={caseOutcome}>
+                            <button class="slds-button slds-button_destructive" onclick={onNextClick}>Save and
+                                Close</button>
+                        </template>
+                    </div>
+                    </br>
+                </div>
+            </div>
+        </lightning-layout-item>
+    </lightning-layout>
+
+
+</template>

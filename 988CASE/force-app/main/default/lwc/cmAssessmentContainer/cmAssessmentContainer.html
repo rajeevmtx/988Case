@@ -1,0 +1,78 @@
+<template>
+    <div>
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" size="6" class="slds-align_absolute-center">
+                <button class="slds-button slds-button_inverse custom-box" onclick={openModal}
+                    name="MedicalAssessment">Medical Assessment</button>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="6" class="slds-align_absolute-center">
+                <button class="slds-button slds-button_inverse custom-box" onclick={openModal}
+                    name="SocialDeterminants">Social Determinants of Health
+                </button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" size="6" class="slds-align_absolute-center">
+                <button class="slds-button slds-button_inverse custom-box" onclick={openModal}
+                    name="MentalHealth">Mental Health Assessment</button>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="6" class="slds-align_absolute-center">
+                <button class="slds-button slds-button_inverse custom-box" name="DomesticViolance"
+                    onclick={openModal}>Domestic
+                    Violence</button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" size="12" class="slds-align_absolute-center">
+                <button class="slds-button slds-button_inverse custom-box" name="SubstanceAbuse"
+                    onclick={openModal}>Substance Abuse</button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header" style="background-color:#16325c">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="color:white">
+                        <template if:true={showMedicalAssessment}>Medical Assessment</template>
+                        <template if:true={showMentalHealthAssesment}>Mental Health Assessment</template>
+                        <template if:true={showSocialAssignment}>Social Determinants of Health</template>
+                        <template if:true={showDomesticViolance}>Domestic Violence</template>
+                        <template if:true={showSubstaceAbuse}>Substance Abuse</template>
+                    </h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <template if:true={showMedicalAssessment}>
+                        <c-cm-medical-assessment record-id={assessmentID}></c-cm-medical-assessment>
+                    </template>
+                    <template if:true={showMentalHealthAssesment}>
+                        <c-cm-mental-health record-id={assessmentID}></c-cm-mental-health>
+                    </template>
+                    <template if:true={showSocialAssignment}>
+                        <c-cm-social-assignment record-id={assessmentID}></c-cm-social-assignment>
+                    </template>
+                    <template if:true={showDomesticViolance}>
+                        <c-cm-domestic-violence record-id={assessmentID}></c-cm-domestic-violence>
+                    </template>
+                    <template if:true={showSubstaceAbuse}>
+                        <c-cm-substance-abuse-assessment record-id={assessmentID}></c-cm-substance-abuse-assessment>
+                    </template>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_destructive" onclick={closeModal}
+                        title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="Submit">Submit</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

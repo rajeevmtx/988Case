@@ -1,0 +1,9 @@
+<aura:component
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global">
+    <aura:attribute name="recordId" type="String" />
+    <lightning:workspaceAPI aura:id="workspace" />
+    <lightning:card  class="slds-align_absolute-center">
+        <lightning:button class="btnClass" label="Start Call Script" variant="brand" onclick="{!c.openCaseCloneTab }" />
+    </lightning:card>
+</aura:component>
