@@ -21,6 +21,7 @@ export default class CmCallScriptContainer extends LightningElement {
     isModalOpen = false;
     @track value = '';
     showDataTable = false;
+    @track isoutpatientScheduling=false;
 
     @track onLoad;
     phoneIcon = phoneIcon;
@@ -124,6 +125,14 @@ export default class CmCallScriptContainer extends LightningElement {
         this.isModalOpen = true;
         this.showDataTable = false;
     }
+
+    outpatientScheduling(event) {
+        
+        this.isoutpatientScheduling =true;
+       
+    }
+
+
 
     closeModal(event) {
         this.isModalOpen = false;

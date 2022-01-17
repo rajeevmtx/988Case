@@ -108,9 +108,16 @@
                         <lightning-button variant="brand" name="ShowAvailableBeds" class="captureButton"
                             label="      Show Available Beds     " onclick={showAvailableBedstReferal}>
                         </lightning-button>
+
+                        <lightning-button variant="brand" name="OutpatientScheduling" class="captureButton"
+                            label="      Outpatient Scheduling     " onclick={outpatientScheduling}>
+                        </lightning-button>
                     </div>
                 </div>
             </div>
+            <template if:true={isoutpatientScheduling}>
+                <c-cm-outpatient-scheduling></c-cm-outpatient-scheduling>
+            </template>
 
             <template if:true={isModalOpen}>
                 <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"

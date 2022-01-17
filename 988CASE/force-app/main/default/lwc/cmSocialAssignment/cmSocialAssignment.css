@@ -4,3 +4,13 @@
 .headerStyle{
     font-weight: bold;
 }
+
+.SocialAssign p{
+    margin: 10px 0px;
+  }
+  
+  
+  .socialAssign .slds-radio__label,   .socialAssign lightning-radio-group{
+    margin: 10px 0px;
+    display: inline-block;
+  }

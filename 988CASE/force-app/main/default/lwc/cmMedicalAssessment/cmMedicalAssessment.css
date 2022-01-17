@@ -8,3 +8,15 @@
 .slds-form-element__control .slds-radio, .slds-modal .slds-form-element__control .slds-checkbox{
     display: inline-block!important;
   }
+
+ 
+
+  .primaryMedical p{
+    margin: 10px 0px;
+  }
+
+
+  .primaryMedical .slds-radio__label{
+    margin: 10px 0px;
+    display: inline-block;
+  }

@@ -384,3 +384,15 @@ lightning-radio-group{
   display: inline-block!important;
   margin: 5px 0px 20px 0px;
 }
+
+
+
+.primaryMedical p{
+  margin: 10px 0px;
+}
+
+
+.primaryMedical .slds-radio__label{
+  margin: 10px 0px;
+  display: inline-block;
+}
