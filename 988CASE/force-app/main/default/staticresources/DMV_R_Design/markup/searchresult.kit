@@ -1,0 +1,607 @@
+<!-- $pageName = Search results -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- @include "/partials/head.kit" -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--Refer this link for icon options "https://fontawesome.com/v4.7.0/icons/"-->
+</head>
+
+<body>
+  <!-- @include "/partials/header-unauthenticated.html" -->
+  <main class="ok_ban--page">
+    <div class="ok_ban-page--container">
+      <div class="ok_ban-page-header">
+        <div class="ok_ban-container">
+          <div class="back-to-home">
+            <a href="../index.html"> &#8592; Back to Home</a>
+          </div>
+          <h1 class="page-heading">
+            Find local neighbor organizations for your needs
+          </h1>
+          <div class="page-description">
+            You do not need to answer all of the questions. Only respond to the questions that are related
+            to your current needs.
+          </div>
+        </div>
+      </div>
+      <div class="filter-section">
+        <!-- <div class="ok_ban-search-section">
+                    <div class="ok_ban-container">
+                        <div class="slds-grid slds-gutters slds-wrap">
+                            <div class="slds-col slds-size_3-of-12">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="text-input-id-1">County</label>
+                                    <div class="slds-form-element__control">
+                                        <input type="text" id="text-input-id-1" placeholder="" required=""
+                                            class="slds-input" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+        <div class="ok_ban-search-section">
+          <div class="category-section">
+
+
+            <input type="checkbox" name="toggle" class="toggle-input" id="categoryFood" />
+            <label class="toggle-btn" for="categoryFood">
+              Food <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </label>
+            <div class="toggle-panel">
+              <fieldset>
+
+                <div class="message-section">
+                  <legend class="section--heading">Food</legend>
+                  <div class="section--action">
+                    <a href="#" class="slds-m-right_x-large">Select All</a>
+                    <a href="#">Clear All</a>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73"
+                          checked="" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+            </div>
+
+
+            <input type="checkbox" name="toggle" class="toggle-input" id="categoryHousing" />
+            <label class="toggle-btn" for="categoryHousing">
+              Housing <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </label>
+            <div class="toggle-panel">
+              <fieldset>
+
+                <div class="message-section">
+                  <legend class="section--heading">Housing</legend>
+                  <div class="section--action">
+                    <a href="#" class="slds-m-right_x-large">Select All</a>
+                    <a href="#">Clear All</a>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73"
+                          checked="" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+            </div>
+
+            <input type="checkbox" name="toggle" class="toggle-input" id="categoryHealth" />
+            <label class="toggle-btn" for="categoryHealth">
+              Health <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </label>
+            <div class="toggle-panel">
+              <fieldset>
+
+                <div class="message-section">
+                  <legend class="section--heading">Health</legend>
+                  <div class="section--action">
+                    <a href="#" class="slds-m-right_x-large">Select All</a>
+                    <a href="#">Clear All</a>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73"
+                          checked="" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+            </div>
+
+            <input type="checkbox" name="toggle" class="toggle-input" id="categoryMedical" />
+            <label class="toggle-btn" for="categoryMedical">
+              Medical health and Support Groups <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </label>
+            <div class="toggle-panel">
+              <fieldset>
+
+                <div class="message-section">
+                  <legend class="section--heading">Medical health and Support Groups</legend>
+                  <div class="section--action">
+                    <a href="#" class="slds-m-right_x-large">Select All</a>
+                    <a href="#">Clear All</a>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73" value="checkbox-unique-id-73"
+                          checked="" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="slds-form-element checkbox-items">
+                    <div class="slds-form-element__control">
+                      <div class="slds-checkbox">
+                        <input type="checkbox" name="options" id="checkbox-unique-id-73"
+                          value="checkbox-unique-id-73" />
+                        <label class="slds-checkbox__label" for="checkbox-unique-id-73">
+                          <span class="slds-checkbox_faux"></span>
+                          <span class="slds-form-element__label">Checkbox Label</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </fieldset>
+            </div>
+
+
+            <div class="panel-spacer"></div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="search-result--section">
+        <div class="ok_ban-result-section">
+          <div class="ok_ban-container">
+            <div class="rs--sort">
+              Result found: 12
+            </div>
+            <div class="rs--cards">
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Restaurant</div>
+                    <div class="header--tag header--tag-blue">
+                      Food
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Restaurant</div>
+                    <div class="header--tag header--tag-blue">
+                      Food
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Restaurant</div>
+                    <div class="header--tag header--tag-blue">
+                      Food
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Medical</div>
+                    <div class="header--tag header--tag-pink">
+                      COVID-19
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Medical</div>
+                    <div class="header--tag header--tag-pink">
+                      COVID-19
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Medical</div>
+                    <div class="header--tag header--tag-pink">
+                      COVID-19
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Housing</div>
+                    <div class="header--tag header--tag-yellow">
+                      Complex
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Housing</div>
+                    <div class="header--tag header--tag-yellow">
+                      Hotel
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card--image"></div>
+                <div class="card--content">
+                  <div class="header">
+                    <div class="header--category">Housing</div>
+                    <div class="header--tag header--tag-yellow">
+                      Villa
+                    </div>
+                  </div>
+                  <div class="card--body">
+                    <div class="title">Cheever's Cafe</div>
+                    <div class="contact">(555) 555-5555</div>
+                    <div class="url-details">
+                      <a href="https://www.cheeverscafe.com"
+                        target="blank">https://www.cheeverscafe.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ok_ban-map-section">
+          <div class="ms--map">
+            <img src="../img/Map.png" alt="Foster youth" class="card-section--image" />
+          </div>
+          <div class="ms-collapsable"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- @include "/partials/footer.html" -->
+</body>
+
+</html>

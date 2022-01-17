@@ -6,19 +6,16 @@
 .captureButtons lightning-button{
     margin:16px 16px 16px 0px;
 }
-.appointment_slot{
-    padding: 0.35rem 0.7rem;
-    border-radius: 6px;
-    font-weight: 500;
-    font-size: 14px;
-    direction: ltr;
-    color: #90be6d;
-    text-align: center;
+.slds-modal__container {
+    max-width: 80rem !important;
+    width: 70% !important;
+}
+.radioStyle{
+    visibility: hidden;
+}
 
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    white-space: nowrap;
-    padding: 0.9rem 0;
-
+.labelStyle{
+    padding: 2px 2px 2px 2px;
+    background:lightgrey;
+    outline: auto;
 }

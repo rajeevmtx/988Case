@@ -1,0 +1,22 @@
+@import
+  "abstracts/mixin",
+  "abstracts/variables",
+  "base/base",
+  "base/animation",
+  "base/overwritesalesforce",
+  "base/utilities",
+  "components/button",
+  "components/slider",
+  "components/card",
+  "components/form",
+  "components/navigation",
+  "components/stepper",
+  "components/model",
+  "components/page",
+  "layout/header",
+  "layout/footer",
+  "pages/home",
+  "pages/appointment",
+  "pages/landing_page";
+ 
+  @import "../fontawsome/scss/font-awesome.scss"; 

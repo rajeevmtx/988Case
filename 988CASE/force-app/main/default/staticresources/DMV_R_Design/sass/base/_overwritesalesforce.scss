@@ -1,0 +1,314 @@
+label.slds-form-element__label {
+    font-family: Muli;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom:0.5rem;
+    }
+
+    .slds-col_padded, .slds-col--padded{
+        padding: 0rem !important;
+    }
+.mtx-container{
+    
+    .slds-tabs_scoped__content{
+        padding: 0rem;
+    }
+    .slds-tabs_scoped__nav{
+        border: 0px;
+        border-radius: 0px 6px 0px 0px;
+        background-color: #e8e8e8;
+    }
+    .slds-tabs_scoped__content{
+        border: 0px;
+        border-radius: 0px 0px 6px 6px;
+    }
+    .slds-is-active {
+        border-top: 3px solid $mtx_default-text;
+    }
+    .slds-is-active .slds-tabs_scoped__link{
+        border: 0px;
+    }
+    .slds-tabs_scoped__link{
+        padding: 0 2rem;
+    }
+}
+
+
+/* Ravi K reference for you */
+.THIS .applyRealId label{
+    font-family: "Mulish", sans-serif;
+    font-size: 14x!important;
+    font-weight: 600;
+  }
+  
+  
+  
+  
+  /* uploadDocuments New Css 29-11-2021 */
+  .uploadDocuments .slds-grid{
+    display: contents;
+  }
+  .uploadDocuments ol {
+    margin-top: 10px;
+  }
+  
+  .uploadDocuments ol li{
+    margin-bottom: 12px;
+  }
+  .uploadDocument .slds-file-selector{
+    display: grid;
+  }
+  
+  .appointmentCard{
+    border: 1px solid #e5e4e4;
+    border-radius: 8px;
+    padding: 20px 16px;
+      margin: 0px 0px 16px 0px;
+      background: #f4f4f4;
+      box-shadow: 2px 7px 10px -10px;
+  }
+  .divider{
+    height: 1px;
+    width: 100%;
+    background: #dfdfdf;
+    margin: 16px 0px;
+  }
+  .document_details article{
+    min-height: 180px;
+    max-height: 180px;
+    overflow: auto;
+  }
+  
+  .document_details header{
+    background: #0149b3;
+    padding: 12px;
+    margin: -16px -16px 0px -16px;
+    border-radius: 4px 4px 0px 0px;
+    color: #fff;
+  }
+  .document_details  lightning-layout-item{
+    padding: 0px 12px 0px 0px;
+  }
+  
+  .personal_details h4, .appointment_details h4, .document_details h4{
+    color: #7e7e7e;
+    font-size: 18px;
+  }
+  .personal_details h2 span, .appointment_details h2 span, .document_details h2 span{
+    font-size: 12px!important;
+  }
+  
+  .document_details .slds-badge{
+    background: #f4f4f4;
+    border-radius: 4px;
+    padding: 4px 8px 8px;
+    width: 100%;
+  }
+  
+  .document_details .slds-var-p-around_small{
+    padding-bottom: 0px;
+  }
+  
+  .noLeftspaceing{
+    padding-left: 0px;
+  }
+  
+  .uploadDocuments lightning-accordion-section{
+    border:none;
+  }
+  
+  .uploadDocuments .slds-list_ordered .slds-radio{
+    margin-bottom: 8px;
+  }
+  
+  .uploadDocuments .slds-accordion__summary-action{
+    background: #f4f4f4;
+  }
+  
+  .uploadDocuments h3 lightning-primitive-icon{
+    position: absolute;
+    right: 0px;
+  }
+  
+  .uploadDocuments .slds-file-selector__dropzone{
+    width: 100%!important;
+  }
+  
+  .uploadDocuments .slds-is-open .slds-accordion__content{
+    background: #e5efff;
+    margin: -13px;
+    padding: 20px;
+  }
+  
+  .uploadDocuments .slds-is-open button{
+    background:#0048B4;
+    /* margin-bottom:10px; */
+    color:#fff;
+  }
+  .uploadDocuments .slds-accordion__summary-heading{
+    font-size: 14px;
+    font-weight: normal;
+  }
+  .uploadDocuments button{
+    outline: none;
+  }
+  
+  .appointmentBooked h1{
+    margin: -40px -20px 20px -20px;
+        background: #ececec;
+        border-radius: 4px;
+        height: 60px;
+        color: #000;
+        font-size: 20px;
+        font-weight: normal;
+  }
+  
+  .appointmentBooked  .slds-icon-utility-close{
+    margin: 109px 50px 0px 0px;
+  }
+  
+  .appointmentBooked  lightning-primitive-icon svg{
+    fill:#000
+  }
+  
+  .appointmentBooked p{
+    font-size: 16px;
+  }
+  
+  .appointmentBooked  .center_name{
+    float: left;
+  }
+  
+  /* .appointmentBooked .bookingTime{
+    
+   float: left;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid green;
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: green;
+  
+  } */
+  
+  .yourAppointmentInfo header{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .yourAppointmentInfo header h3{
+    font-size: 20px;
+    color: #1fb604;
+  }
+  
+  .yourAppointmentInfo h2{
+    font-size: 1rem;
+  }
+  
+  .yourAppointmentInfo li{
+    list-style: disc;
+    margin-left: 20px;
+    font-size: 16px;
+  }
+  /* .yourAppointmentInfo ul{
+    margin-top: 20px;
+  } */
+  
+  .yourAppointmentInfo ul strong{
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0px;
+      display: block;
+  
+  }
+  
+  .yourAppointmentInfo  .qrImg{
+    background: #ededed;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+  }
+  
+  .yourAppointmentInfo .contentSection{
+    float: left;
+    width: 80%;
+    padding-left: 20px;
+  }
+  .yourAppointmentInfo lightning-layout{
+    float: right;
+  }
+  .yourAppointmentInfo .contentSection p span{
+    max-width:100px;
+    color: #9e9797;
+    min-width: 100px;
+      display: inline-block;
+  }
+  
+  .yourAppointmentInfo .contentSection p{
+    min-width: 100px;
+    display: block;
+    margin-bottom: 16px;
+    
+  
+  }
+  .yourAppointmentInfo .slds-modal__close{
+    top: 10px;
+    right: 20px;
+    z-index: 9;
+  }
+  
+  .yourAppointmentInfo .slds-modal__close svg{
+    fill: #000;
+  }
+  
+  /* Doc Upload Stack */
+  
+  .selectDocumentsName{
+    float: left;
+    width: 60%;
+  }
+  .selectDocumentsFile{
+    float: left;
+    margin: -1px 0px 0px 10px;
+  }
+  .uploadFilesData{
+    background: #b3c6e3;
+    margin-top: 20px;
+    display: inline-table;
+  }
+  
+  .uploadFilesData th, .uploadFilesData td{
+    padding: 10px;
+    
+  }
+  .uploadFilesData th{
+    background: #ccdef9;
+  }
+  
+  
+  .uploadFilesData tr{
+    background: #fff;
+    border-bottom: 1px solid #b4c6e2;
+    
+  }
+  .uploadFilesData tr td:first-child{
+    width: 40%;
+  }
+  
+  
+  .userinfo_section lightning-layout-item{
+    margin-bottom: 10px;
+  }
+  
+  .clear{
+    clear:both
+  }
+  
+  .floatInitial{
+    float: initial!important;
+  } 
+  
+  .searchButton button{
+    background-color: #0048B4;
+  }

@@ -1,0 +1,304 @@
+.toggle,
+[id^="drop"] {
+    display: none;
+}
+
+/* Giving a background-color to the nav container. */
+nav {
+    margin: 0;
+    padding: 1rem 0;
+    background-color: $mtx_white;
+}
+
+.logo {
+    display: block;
+    padding: 0 30px;
+    float: left;
+    font-size: 20px;
+    line-height: 60px;
+}
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+
+nav:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */ 
+nav ul {
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Positioning the navigation items inline */
+nav ul li {
+    margin: 0px;
+    display: inline-block;
+    background-color: $mtx_white;
+}
+
+/* Styling the links */
+nav a {
+    display: block;
+    padding: 14px 20px;
+    color: $mtx_default-text;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+nav ul li ul li:hover {
+    background: $mtx_secoundary-color;
+}
+
+/* Background color change on Hover */
+nav a:hover {
+    background-color: $mtx_secoundary-color;
+    color: $mtx_default-text;
+    text-decoration: none;
+}
+
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+nav ul ul {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    /* has to be the same number as the "line-height" of "nav a" */
+}
+
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+    display: inherit;
+}
+
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+    width: 170px;
+    float: none;
+    display: list-item;
+    position: relative;
+}
+
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+    position: relative;
+    top: -60px;
+    /* has to be the same number as the "width" of "nav ul ul li" */
+    left: 170px;
+}
+
+/* Change ' +' in order to change the Dropdown symbol */
+li > a:after {
+    content: "";
+}
+li > a:only-child:after {
+    content: "";
+}
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width: 768px) {
+    .logo {
+        display: block;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        float: none;
+    }
+
+    nav {
+        margin: 0;
+    }
+
+    /* Hide the navigation menu by default */
+    /* Also hide the  */
+    .toggle + a,
+    .menu {
+        display: none;
+    }
+
+    /* Stylinf the toggle lable */
+    .toggle {
+        display: block;
+        background-color: $mtx_white;
+        padding: 14px 20px;
+        color: $mtx_default-text;
+        font-size: 17px;
+        text-decoration: none;
+        border: none;
+    }
+
+    .toggle:hover {
+        background-color: $mtx_secoundary-color;
+    }
+
+    /* Display Dropdown when clicked on Parent Lable */
+    [id^="drop"]:checked + ul {
+        display: block;
+        width: -webkit-fill-available;
+    }
+
+    /* Change menu item's width to 100% */
+    nav ul li {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul ul .toggle,
+    nav ul ul a {
+        padding: 0 40px;
+    }
+
+    nav ul ul ul a {
+        padding: 0 80px;
+    }
+
+    nav a:hover,
+    nav ul ul ul a {
+        background-color: $mtx_secoundary-color;
+    }
+
+    nav ul li ul li .toggle,
+    nav ul ul a,
+    nav ul ul ul a {
+        padding: 14px 20px;
+        color: $mtx_default-text;
+        font-size: 17px;
+    }
+
+    
+
+    /* Hide Dropdowns by Default */
+    nav ul ul {
+        float: none;
+        position: static;
+        color: $mtx_default-text;
+        /* has to be the same number as the "line-height" of "nav a" */
+    }
+
+    /* Hide menus on hover */
+    nav ul ul li:hover > ul,
+    nav ul li:hover > ul {
+        display: none;
+    }
+
+    /* Fisrt Tier Dropdown */
+    nav ul ul li {
+        display: block;
+        width: 100%;
+    }
+
+    nav ul ul ul li {
+        position: static;
+        /* has to be the same number as the "width" of "nav ul ul li" */
+    }
+}
+
+@media all and (max-width: 330px) {
+    nav ul li {
+        display: block;
+        width: 94%;
+    }
+}
+
+.dropdown a {
+    color: $mtx_default-text;
+    &:hover {
+        color: $mtx_default-text;
+    }
+}
+
+/* Dropdown */
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dd-button {
+    display: inline-block;
+    background-color: $mtx_secoundary-color;
+    outline: 1px solid $mtx_border;
+    outline-offset: -1px;
+    color: $mtx_default-text;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 14px 20px;
+    span {
+        padding: 0 16px 0 0;
+        vertical-align: middle;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+}
+
+.dd-button:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0.7rem;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $mtx_default-text;
+}
+
+.dd-input {
+    display: none;
+}
+
+.dd-menu {
+    position: absolute;
+    top: 100%;
+    border-radius: 4px;
+    padding: 0;
+    margin: 4px 0 0 0;
+    box-shadow: $mtx_default-shadow;
+    background-color: $mtx_white;
+    list-style-type: none;
+    z-index: 99;
+    right: 0;
+}
+
+.dd-input + .dd-menu {
+    display: none;
+}
+
+.dd-input:checked + .dd-menu {
+    display: block;
+}
+
+.dd-menu li {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: 400;
+}
+
+
+.dd-menu li a {
+    display: block;
+    margin: -10px -20px;
+    padding: 10px 20px;
+}
+
+.dd-menu li.divider {
+    padding: 0;
+    border-bottom: 1px solid $mtx_border;
+}

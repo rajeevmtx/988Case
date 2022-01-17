@@ -1,0 +1,42 @@
+/*Color Codes*/
+$mtx_bg: #f4f4f4;
+$mtx_default-text: #1A1919;
+$mtx_secoundary-text: #3f3d56;
+$mtx_white: #ffffff;
+$mtx_black: #000000;
+$mtx_primary-color: #0048B4;
+$mtx_secoundary-color: #E52654;
+$mtx_fill: #f1f5fa;
+
+$mtx_link: #3a86ff;
+$mtx_success: #90be6d;
+$mtx_error: #E71D36;
+$mtx_warning: #fbb418;
+
+$mtx_light_gray-1: #aaacb1;
+$mtx_light_gray-2: #DFE0E2;
+$mtx_dark_gray-1: #6C6E75;
+
+$mtx_border: #a5c3e4;
+$mtx_primary-hover: #215FAB;
+
+
+/*Shadow Codes*/
+$mtx_btn-shadow--hover: 0 3px 1px -2px rgba($mtx_black,.2), 0 2px 2px 0 rgba($mtx_black,.14), 0 1px 5px 0 rgba($mtx_black,.12);
+$mtx_btn-shadow--focus: 0 5px 5px -3px rgba($mtx_black,.2), 0 8px 10px 1px rgba($mtx_black,.14), 0 3px 14px 2px rgba($mtx_black,.12);
+$mtx_default-shadow: 2px 5px 12px 0px rgba($mtx_primary-color, 0.1);
+
+/*Fonts*/
+$mtx_font: 'Mulish', sans-serif;
+
+/*Screen Size*/
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-sm-min: $screen-sm - 1px;
+$screen-sm-ls: 1024px;
+$screen-md: 991px;
+$screen-lg: 1200px;
+$screen-xl: 1400px;
+
+/*Animation*/
+$animationSpeed: 40s;

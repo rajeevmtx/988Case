@@ -41,30 +41,49 @@
                     <!-- SLOTS Starts-->
                     <div class="slds-align_absolute-center">
                         <template if:true={isDateSelected}>
-                            <div class="appointment_slot">
-                                <template for:each={slots} for:item="slot">
-                                    <label key={slot}>
-                                    <input type="radio" name="radio"
-                                    class="card-input-element">
-                                    <div class="panel panel-default card-input">
-                                        <div class="panel-heading">
-                                                <lightning-formatted-time value={slot}>
-                                                </lightning-formatted-time>
-                                            </div>
-                                        </div>
-                                    </label>
+                            <lightning-layout multiple-rows="false" class="slds-align_absolute-center">
+                                <template for:each={defaultSlot} for:item="slot">
+                                       <lightning-layout-item size="3" key={slot.Id} class="slds-align_absolute-center">
+                                            <label key={slot.Id}>
+                                            <input type="radio" name={slot.Time} onclick={timeValue} 
+                                            class="card-input-element radioStyle slds-align_absolute-center">
+                                            <div class="panel panel-default card-input slds-align_absolute-center" >
+                                                <div class="panel-heading labelStyle slds-align_absolute-center">
+                                                        <lightning-formatted-time value={slot.Time}>
+                                                        </lightning-formatted-time> &nbsp;&nbsp;
+                                                    </div>
+                                                </div>
+                                            </label>
+                                       </lightning-layout-item>
                                 </template>
-                            </div>
-                            <!-- {slots} -->
-                        </template> 
-                        <template if:false={isDateSelected}>
-                            NO SLOTS AVAILABLE
+                            </lightning-layout> 
+                            <!-- {slots}  -->
                         </template> 
                     </div>
+                    </br>
                     <!-- SLOTS ENDS-->
+                    <template if:true={isDateSelected}>
+                        <div class="slds-align_absolute-center">
+                            <label for="bookedDate">
+                                <button class="slds-button" style="color: green;font-weight: bold;">
+                                    Booked Date and Time is : &nbsp;
+                                </button>
+                            </label>&nbsp;
+                            <lightning-formatted-date-time value={bookedDate} id="bookedDate">
+                            </lightning-formatted-date-time>
+                            &nbsp; {istimeValue}
+                        </div>
+                    </template>
                 </div>
                 <!--  Modal Body Ends -->
-
+                <div class="slds-hide">
+                    <lightning-record-edit-form
+                                record-id={caseId}
+                                object-api-name="Case">
+                        <lightning-messages></lightning-messages>
+                        <lightning-input-field field-name="Booked_Slot__c" value={bookedDateTime}></lightning-input-field>
+                    </lightning-record-edit-form>
+                </div>
                 <!-- Modal Footer Starts-->
                 <footer class="slds-modal__footer">
                      <button class="slds-button slds-button_success" onclick={bookSlotHandle} title="Book Slot" >

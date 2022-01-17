@@ -1,0 +1,66 @@
+.mtx {
+    &-login {
+        &--section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+        &--image{
+            padding: 2rem;
+            background: $mtx_secoundary-color;
+        }
+        &--btn{
+            .slds-button.slds-button_brand, .slds-button_outline-brand{
+                display: flex;
+                width: -webkit-fill-available;
+            }
+        }
+    }
+    &_thankyou {
+        text-align: center;
+        padding: 2rem;
+        h1{
+            font-size: 2rem;
+        }
+        img{
+            max-width: 300px;
+        }
+        p {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            line-height: 2rem;
+        }
+        .primary_msg{
+            margin-top: 1rem;
+            color:$mtx_primary-color;
+        }
+        @include primarybtnform;
+    }
+    &_message{
+        display: grid;
+        grid-template-columns: 50px auto;
+        padding: 1rem;
+        border-radius: 4px;
+        &--error{
+            border: 2px solid $mtx_error;
+            background-color: rgba($mtx_error, 0.2);
+            &-icon{
+                color: $mtx_error;
+                font-size: 2rem;
+            }
+        }
+        &--success{
+            border: 2px solid $mtx_success;
+            background-color: rgba($mtx_success, 0.2);
+            &-icon{
+                color: $mtx_success;
+                font-size: 2rem;
+            }
+        }
+        &--content{
+            align-self: center;
+        }
+    }
+}
+

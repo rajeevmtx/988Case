@@ -1,0 +1,7 @@
+.btn-section{
+    @include outlinebtnform;
+    @include neutralbtnform;
+    @include primarybtnform;
+    @include deletebtnform;
+    @include successbtnform;
+}

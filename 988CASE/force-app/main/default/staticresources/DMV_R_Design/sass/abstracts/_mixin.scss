@@ -1,0 +1,204 @@
+/* Media query Manager */
+
+
+/*
+0 - 600px       :   Phone
+601 - 900px     :   Tablet Potrait
+901 - 1200px    :   Tablet Landscape
+1201 - 1800px   :   Desktop
+1801 +          :   BigDesktop
+*/
+
+
+/*Break-point argument choices:
+- mob
+- tab-p
+- tab-l
+- b-desktop
+*/
+
+@mixin respond($break-point) {
+    @if $break-point==phone {
+        @media (max-width: 37.5em) {
+            //600px
+            @content
+        }
+        ;
+    }
+    @if $break-point==tab-p {
+        @media (max-width: 56.25em) {
+            //900px
+            @content
+        }
+        ;
+    }
+    @if $break-point==tab-l {
+        @media (max-width: 75em) {
+            //1200px
+            @content
+        }
+        ;
+    }
+    @if $break-point==b-desktop {
+        @media (min-width: 112.5em) {
+            //1800px+
+            @content
+        }
+        ;
+    }
+}
+
+
+@mixin basebtn{
+    &,
+    &:link,
+    &:visited{
+        align-items: center;
+        border-radius: 2px;
+        display: inline-flex; 
+        flex: 0 0 auto;
+        font-size: 18px;
+        font-weight: 500;
+        justify-content: center;
+        min-width: 88px;
+        outline: 0;
+        // text-transform: uppercase;
+        text-decoration: none;
+        transition: .3s cubic-bezier(.25,.8,.5,1),color 1ms;
+        position: relative;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        will-change: box-shadow;
+    }
+    &:hover{
+        background: $mtx_primary-hover;
+        border: 1px solid $mtx_primary-color;
+        color: $mtx_white;
+    }
+}
+
+@mixin primarybtn{
+    .slds-button.slds-button_brand {
+        @include basebtn;
+        padding: 0.3rem 1.5rem;
+        box-shadow: $mtx_btn-shadow--hover;
+        background: $mtx_primary-color;
+        border: 1px solid $mtx_primary-color;
+        color: $mtx_white;
+        &:active,
+        &:focus{
+            box-shadow: $mtx_btn-shadow--focus;
+        }
+    }
+}
+
+
+@mixin neutralbtn{
+    .slds-button--neutral,.slds-button_neutral{
+        @include basebtn;
+        background: transparent;
+        color: $mtx_primary-color;
+        border: 0px;
+        box-shadow: none;
+        &:hover{
+            background: rgba($mtx_primary-color, 0.1);
+            color: $mtx_primary-color;
+            border: 0px;
+            box-shadow: none;
+        }
+    }
+}
+@mixin outlinebtnform{
+    .slds-button_outline-brand{
+        @include basebtn;
+        padding: 0.3rem 1.5rem;
+        background: transparent;
+        color: $mtx_primary-color;
+        border: 0px;
+        box-shadow: none;
+        &:hover{
+            background: rgba($mtx_primary-color, 0.1);
+            color: $mtx_primary-color;
+            border: 0px;
+            box-shadow: none;
+        }
+    }
+}
+
+@mixin neutralbtnform{
+    .slds-button_neutral{
+        @include basebtn;
+        padding: 0.3rem 1.5rem;
+        background: transparent;
+        color: $mtx_dark_gray-1;
+        border: 0px;
+        box-shadow: none;
+        &:hover{
+            background: rgba($mtx_dark_gray-1, 0.1);
+            color: $mtx_dark_gray-1;
+            border: 0px;
+            box-shadow: none;
+        }
+    }
+}
+@mixin primarybtnform{
+    .slds-button.slds-button_brand {
+        @include basebtn;
+        padding: 0.3rem 1.5rem;
+        box-shadow: $mtx_btn-shadow--hover;
+        background: $mtx_primary-color;
+        border: 1px solid $mtx_primary-color;
+        color: $mtx_white;
+        &:active,
+        &:focus{
+            box-shadow: $mtx_btn-shadow--focus;
+        }
+    }
+}
+@mixin deletebtnform{
+    .slds-button_destructive {
+        @include basebtn;
+        padding: 0.3rem 1.5rem;
+        background: transparent;
+        color: $mtx_error;
+        border: 0px;
+        box-shadow: none;
+        &:hover{
+            background: rgba($mtx_error, 0.1);
+            color: $mtx_error;
+            border: 0px;
+            box-shadow: none;
+        }
+    }
+}
+
+@mixin successbtnform{
+    .slds-button_success{
+        @include basebtn;
+        padding: 0.3rem 1.5rem;
+        background: transparent;
+        color: $mtx_success;
+        border: 0px;
+        box-shadow: none;
+        &:hover{
+            background: rgba($mtx_success, 0.1);
+            color: $mtx_success;
+            border: 0px;
+            box-shadow: none;
+        }
+    }
+}
+
+
+@mixin white-gradient {
+	background: linear-gradient(to right,  rgba($mtx_white,1) 0%, rgba($mtx_white,0) 100%);
+}
+
+@mixin container-content {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+}

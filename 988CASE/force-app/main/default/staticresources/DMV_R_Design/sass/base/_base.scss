@@ -1,0 +1,90 @@
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+*,
+::after,
+::before {
+    //margin: 0;
+    //padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $mtx_font;
+    font-size: 16px;
+    line-height: 20px;
+    background: $mtx_bg;
+    color: $mtx_default-text;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+  
+a {
+    color: $mtx_primary-color;
+    text-decoration: none;
+    transition: color .1s linear;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 4rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 3.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2.75rem;
+  padding-top: 1rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+
+.mtx-container{
+    font-size: 15px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+@media (min-width: 1400px) {
+    .mtx-container{
+      max-width: 1360px;
+    }
+  }
+
+  @media (max-width: 1399px) and (min-width: 1200px) {
+    .mtx-container{
+      max-width: 1140px;
+    }
+  }
+
+  @media (max-width: 1199px) and (min-width: 992px) {
+    .mtx-container{
+      max-width: 960px;
+    }
+  }
+
+  @media (max-width: 991px) and (min-width: 768px) {
+    .mtx-container{
+      max-width: 720px;
+    }
+  }
+
+  @media (max-width: 767px) and (min-width: 576px) {
+    .mtx-container{
+      max-width: 540px;
+    }
+  }

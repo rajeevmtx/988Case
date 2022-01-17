@@ -1,0 +1,140 @@
+.appointment {
+    &_grid {
+        width: 100%;
+    }
+    &_card {
+        width: 100%;
+        border: 1px solid #cccccc !important;
+        border-radius: 6px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.5rem;
+        overflow: scroll;
+        &:last-child {
+            margin-bottom: 0rem;
+        }
+        dt {
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1em;
+            margin-bottom: 0.25rem;
+            .page-h3 {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                width: -webkit-fill-available;
+            }
+        }
+        dd {
+            color: $mtx_secoundary-text;
+            font-size: 13px;
+            span {
+                font-weight: 500;
+            }
+        }
+    }
+    &_slot {
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%; 
+        white-space: nowrap;
+        padding: 0.9rem 0;
+        label {
+            display: inline-flex;
+            margin-right: 0.5rem;
+            vertical-align: top;
+            position: relative;
+        }
+        .card-input-element {
+            display: none;
+        }
+        .card-input {
+            border: 1px solid $mtx_success;
+            border-radius: 6px;
+            text-align: center;
+            color: $mtx_success;
+        }
+        .card-input:hover {
+            cursor: pointer;
+        }
+        .card-input-element:checked+.card-input {
+            border: 1px solid $mtx_success;
+            background-color: $mtx_success;
+            color: $mtx_white;
+        }
+        .panel {
+            &-heading {
+                padding: 0.35rem 0.7rem;
+                border-radius: 6px;
+                font-weight: 500;
+                font-size: 14px;
+                direction: ltr;
+            }
+            &-body {
+                padding: 0.5rem;
+                p {
+                    color: $mtx_dark_gray-1;
+                    font-size: 12px;
+                }
+                .value {
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    &_blue {
+                        color: $mtx_primary-color;
+                    }
+                    &_red {
+                        color: $mtx_error;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.appointment_slot {
+    .card-input-element {
+        position: absolute;
+        z-index: -9999;
+        left: 28px;
+        top: 20px;
+        display: block;
+        visibility: visible;
+        // Use visible instead to keep the taborder. the absolute positioning, and -9999 will handle hiding.
+        //visibility: invisible;
+        &:focus {
+            + {
+                .panel.panel-default.card-input {
+                    border: 1px solid #015ecc;
+                }
+            }
+        }
+    }
+    .card-input {
+        z-index: 1;
+        background: #fff;
+        position: relative;
+    }
+}
+
+.appointment_grid-single {
+    outline: none;
+}
+
+.appointment-section {
+    display: flex;
+    flex-direction: column; 
+    margin-bottom: 2rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    // @media (min-width: $screen-sm) {
+    //     box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+    // }
+    @media (max-width: $screen-sm-min) {
+        padding: 0;
+        margin: 0;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    @media (min-width: $screen-sm) and (min-height: $screen-sm) {
+        max-height: calc(100vh - 362px);
+    }
+}

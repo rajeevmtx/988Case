@@ -1,0 +1,117 @@
+@mixin container-content {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.main-header {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .header-main-wrap {
+        background-color: $mtx_white;
+        .header-wrap {
+            @include container-content;
+            background-color: $mtx_white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px;
+
+            .logo-mtx {
+                border-bottom: 0;
+                background-color: $mtx_primary-color;
+                text-align: center;
+                padding: 25px;
+            }
+
+            .slds-context-bar {
+                border-bottom: 0;
+                flex: 1;
+                margin-left: 45px;
+                text-align: center;
+
+                ul {
+                    li {
+                        padding: 12px;
+                        margin: 0 20px;
+
+                        &:hover {
+                            background-color: $mtx_white;
+                        }
+
+                        &.active::before {
+                            content: '';
+                            height: 3px;
+                            display: block;
+                            background: $mtx_primary-color;
+                            position: absolute;
+                            top: 95%;
+                            border-radius: 2px;
+                            left: -1px;
+                            right: -1px;
+                            animation: navBounceIn .15s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+                        }
+
+                        a:hover {
+                            background-color: $mtx_white;
+                        }
+                    }
+                }
+            }
+
+            .button-holder {
+                padding: 0 10px;
+
+                .slds-button_brand {
+                    background-color: $mtx_primary-color;
+                    padding: 0px 25px;
+                }
+
+                .slds-button_neutral {
+                    background: rgba(227, 227, 227, 0.2);
+                    color: #000;
+                    padding: 0px 25px;
+                }
+            }
+        }
+    }
+
+        .header-content {
+            @include container-content;
+            padding-bottom: 75px;
+
+
+            h2 {
+                color: $mtx_white;
+                font-weight: bold;
+                font-size: 1.3rem;
+            }
+
+            p {
+                font-size: 1.7rem;
+                color: $mtx_white;
+                font-weight: 300;
+                max-width: 666px;
+                line-height: 31px;
+
+            }
+
+            .slds-button_success {
+                background: transparent;
+                color: #fff;
+                padding: 5px 85px;
+                background-color: gray;
+                opacity: 2.1;
+                font-size: 1rem;
+                margin-top: 25px;
+                clip-path: polygon(0% 1%, 98% 2%, 83% 98%, 1% 98%);
+            }
+
+        }
+    
+
+
+}

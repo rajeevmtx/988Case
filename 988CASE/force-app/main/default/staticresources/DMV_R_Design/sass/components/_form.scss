@@ -1,0 +1,172 @@
+.mtx {
+    &-breadcrumb--section {
+        background-color: #f9f9f9;
+    }
+    &-page-header {
+        .breadcrumbs {
+            ol {
+                display: inline-flex;
+                .breadcrumb {
+                    margin: 1rem 0.5rem;
+                    &::after {
+                        margin-left: 0.5rem;
+                        content: "/";
+                    }
+                    &:last-child {
+                        pointer-events: none;
+                        cursor: default;
+                        a {
+                            color: $mtx_default-text;
+                            &:hover {
+                                pointer-events: none;
+                                cursor: default;
+                            }
+                        }
+                        &::after {
+                            content: "";
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-form-container {
+        padding: 2rem 0rem;
+    }
+    &-right--section,
+    &-model {
+            background: $mtx_white;
+            border-radius: 6px;
+            border: 0px solid $mtx_border;
+            box-shadow:$mtx_default-shadow;
+        .form {
+            &--header {
+                padding: 1.5rem 3rem;
+                &_heading {
+                    // display: flex;
+                    align-items: center;
+                    h2{
+                        font-family: $mtx_font;
+                        font-size: 22px;
+                        font-weight: 600;
+                        line-height: 40px;
+                    }
+                }
+                &_heading-description{
+                    color: rgb(118, 118, 118);
+                }
+                &_sub-heading {
+                    font-size: 1.2rem;
+                    margin: 1rem 0;
+                    margin-top: 1.5rem;
+                }
+            }
+            &--body {
+                padding: 0 3rem;
+            }
+            &--footer {
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 1.5rem;
+                border-top: 1px solid $mtx_light_gray-2;
+                display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: flex-end;
+        padding: 1.5rem 3rem;
+        @include outlinebtnform;
+        @include neutralbtnform;
+        @include primarybtnform;
+        @include deletebtnform;
+        @include successbtnform;
+            }
+        }
+        .yn_question{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            align-items: center;
+            .question{
+                color: rgb(51, 51, 51);
+                font-family: HelveticaNeue-Medium;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 30px;
+                .sub_section{
+                    color: rgb(51, 51, 51);
+                    font-family: HelveticaNeue;
+                    font-size: 12px;
+                }
+            }
+            .anwser{
+                .mtx-radio-buttons {
+                    margin-top: 0rem;
+                    .slds-radio label {
+                        padding: 1.25rem 2.25rem 1.25rem 2.25rem;
+                    }
+                }
+            }
+        }
+    }
+    &-right--section:not(:first-child) {
+        margin-top: 2rem;
+    }
+    &-model {
+        margin: auto;
+        &--lg {
+            width: 90%;
+        }
+        &--md {
+            width: 60%;
+        }
+        &--sm {
+            width: 35%;
+        }
+    }
+    &-button--section {
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: flex-end;
+        padding: 2rem 0;
+        @include outlinebtnform;
+        @include neutralbtnform;
+        @include primarybtnform;
+        @include deletebtnform;
+        @include successbtnform;
+    }
+}
+
+$border-radius-default: 3px;
+$gap-sm: 1rem;
+$border-color-default: #ddd;
+$screen-sm: 768px;
+
+.mtx {
+    &-radio-buttons {
+        margin-top: $gap-sm;
+        .slds-radio {
+            padding: 0;
+            label {
+                display: flex;
+                align-items: center;
+                padding: 0.25rem 1.25rem 0.25rem 1.25rem;
+                border: 1px solid $border-color-default;
+                border-radius: $border-radius-default;
+                min-height: 2.5rem;
+                .slds-form-element__label {
+                    padding-right: 0;
+                }
+            }
+            + .slds-radio {
+                @media (min-width: $screen-sm) {
+                    margin-left: $gap-sm;
+                }
+            }
+        }
+        &.btns-x {
+            @media (min-width: $screen-sm) {
+                display: flex;
+            }
+        }
+    }
+}
