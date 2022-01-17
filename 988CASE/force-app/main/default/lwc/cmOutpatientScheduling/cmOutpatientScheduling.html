@@ -1,13 +1,4 @@
 <template>
-    <!-- <div style="background-color:#16325c;padding:0.5rem">
-        <lightning-layout>
-            <lightning-layout-item padding="around-small" size="12" class="slds-align_absolute-center">
-                <button class="slds-button slds-button_inverse custom-box" onclick={openModal}
-                    name="MedicalAssessment">Outpatient Scheduling Capacity</button>
-            </lightning-layout-item>
-        </lightning-layout>
-    </div> -->
-
      <template if:true={isModalOpen}>
         <!-- Header -->
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
@@ -43,12 +34,12 @@
                         <template if:true={isDateSelected}>
                             <lightning-layout multiple-rows="false" class="slds-align_absolute-center">
                                 <template for:each={defaultSlot} for:item="slot">
-                                       <lightning-layout-item size="3" key={slot.Id} class="slds-align_absolute-center">
+                                       <lightning-layout-item size="2" key={slot.Id} class="slds-align_absolute-center">
                                             <label key={slot.Id}>
-                                            <input type="radio" name={slot.Time} onclick={timeValue} 
+                                            <input type="radio" name={slot.Time} onclick={timeValue}
                                             class="card-input-element radioStyle slds-align_absolute-center">
-                                            <div class="panel panel-default card-input slds-align_absolute-center" >
-                                                <div class="panel-heading labelStyle slds-align_absolute-center">
+                                            <div class="panel panel-default card-input slds-align_absolute-center">
+                                                <div class="panel-heading labelStyle slds-align_absolute-center" style="padding-left: 5px;">
                                                         <lightning-formatted-time value={slot.Time}>
                                                         </lightning-formatted-time> &nbsp;&nbsp;
                                                     </div>
@@ -59,19 +50,24 @@
                             </lightning-layout> 
                             <!-- {slots}  -->
                         </template> 
+                        <template if:false={isDateSelected}>
+                            <div class="slds-align_absolute-center">
+                             <img src={booking} style="height: 200px">
+                            </div>
+                        </template>
                     </div>
                     </br>
                     <!-- SLOTS ENDS-->
                     <template if:true={isDateSelected}>
                         <div class="slds-align_absolute-center">
                             <label for="bookedDate">
-                                <button class="slds-button" style="color: green;font-weight: bold;">
-                                    Booked Date and Time is : &nbsp;
+                                <button class="slds-button" style="color: green;font-weight: bold;font-size:16px">
+                                    Selected Booking Date and Time is : &nbsp;
                                 </button>
                             </label>&nbsp;
-                            <lightning-formatted-date-time value={bookedDate} id="bookedDate">
-                            </lightning-formatted-date-time>
-                            &nbsp; {istimeValue}
+                            <lightning-formatted-date-time style="color:red;font-size:16px;font-weight:bold" value={bookedDate} id="bookedDate">
+                            </lightning-formatted-date-time>&nbsp;
+                            <div style="color:red;font-size:16px;font-weight:bold">{istimeValue}</div>
                         </div>
                     </template>
                 </div>

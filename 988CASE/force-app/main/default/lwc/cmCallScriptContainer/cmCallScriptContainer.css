@@ -119,3 +119,8 @@ margin-top: 5px;
     margin-top: 25px;
     width: 300px;
   }
+
+  .btnCSS{
+    font-size: 25px;
+    width: -webkit-fill-available;
+  }

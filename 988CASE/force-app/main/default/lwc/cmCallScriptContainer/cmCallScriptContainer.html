@@ -11,7 +11,7 @@
                         <div class="slds-text-heading_large">988 Emergency Helpline</div></br>
                         <div class="slds-m-around_medium slds-align_absolute-center">
                             <!-- <button class="slds-button slds-button_inverse">Resume Call Script</button></br></br> -->
-                            <button class="slds-button slds-button_inverse" style="background-color:#16325c"
+                            <button class="slds-button slds-button_brand btnCSS"
                                 onclick={onLoadSwitch}>Start Call
                                 Script</button>
                         </div>
@@ -116,7 +116,7 @@
                 </div>
             </div>
             <template if:true={isoutpatientScheduling}>
-                <c-cm-outpatient-scheduling></c-cm-outpatient-scheduling>
+                <c-cm-outpatient-scheduling case-id={caseId} onchild={handleModalChanges}></c-cm-outpatient-scheduling>
             </template>
 
             <template if:true={isModalOpen}>

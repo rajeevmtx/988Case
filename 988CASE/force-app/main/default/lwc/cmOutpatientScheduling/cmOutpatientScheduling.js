@@ -1,4 +1,6 @@
 import { LightningElement ,track,api} from 'lwc';
+import booking from '@salesforce/resourceUrl/booking';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 export default class CmOutpatientScheduling extends LightningElement {
     @api caseId;
     @track slots = [{Id: '1',Time: '09:00 AM'},
@@ -17,50 +19,42 @@ export default class CmOutpatientScheduling extends LightningElement {
                     {Id: '14',Time: '03:30 PM'},
                     {Id: '15',Time: '04:00 PM'},
                     {Id: '16',Time: '04:30 PM'},
+                    {Id: '17',Time: '05:00 PM'},
+                    {Id: '18',Time: '05:30 PM'}
                     ];
 
     @track defaultSlot =[];
-    isModalOpen;
-    isDateSelected;
+    isModalOpen = true;
+    isDateSelected = false;
     bookedDate;
     bookedDateTime;
     istimeValue;
-    value = '';
+    booking = booking;
 
     connectedCallback() {
-        this.isDateSelected = false;
-        this.isModalOpen = true;
-        console.log('Record ID ',this.recordId);
+        console.log('Record ID ',this.caseId);
     }
     
     handleDate(event){
-        console.log('Handle Date Called');
         if(event.target.value){
-            console.log('Inside IF');
-            //this.slots = ['8:30 AM', '9:00 AM'];
-            //console.log('Random Value ',parseInt(Math.floor(Math.random() * 17)));
-           // console.log('SLOT REturned ',this.slots[Math.floor(Math.random() * this.slots.length)]);
-           // var s = this.slots[Math.floor(Math.random() * myShows.length)]
-
             this.defaultSlot = this.slots;
             this.isDateSelected = true;
             this.bookedDate = event.target.value ;
+            this.istimeValue ='';
         }
     }
 
     timeValue(event){
-        console.log("Slot:",event.target.name);
         this.istimeValue = event.target.name;
     }
 
     bookSlotHandle(event){
-        console.log('Slot Booked');
-        //Create a date time by combining date + time 
-        //this.bookedDateTime = < your combined value > ;
-        //Submit the record edit form
-       // this.template.querySelector("lightning-record-edit-form").submit();
-        this.isModalOpen = false;
-
+        // 1. Check if booking date and time are available  else through error to select date and time
+        // 2. Create a date time by combining date(this.bookedDate) + time (this.istimeValue)
+        //  this.bookedDateTime = < your combined value > ;
+        // 3. Submit the record edit form using below syntax (just uncomment the below line)
+        // this.template.querySelector("lightning-record-edit-form").submit();
+        this.closeModal();
     }
 
     onSelectedSlot(event){
@@ -69,7 +63,18 @@ export default class CmOutpatientScheduling extends LightningElement {
     }
 
     closeModal() {
-        this.isModalOpen = false;
+        const event = new CustomEvent("child", {
+        detail: { isoutpatientScheduling:false },
+        });
+        this.dispatchEvent(event);
+
+        const ev = new ShowToastEvent({
+            title: 'Slot Booked Successfully!!',
+            message: 'Booking Confirmed on : '+this.bookedDate +' at '+this.istimeValue,
+            variant: 'success',
+            mode: 'dismissable'
+        });
+        this.dispatchEvent(ev);
     }
 
 }

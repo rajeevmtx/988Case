@@ -114,6 +114,10 @@ export default class CmCallScriptContainer extends LightningElement {
 
     }
 
+    handleModalChanges(event){
+        this.isoutpatientScheduling = event.detail.isoutpatientScheduling;
+    }
+
     redirectReferal(event) {
         this.selectedValue = event.target.name;
         this.prevStageNo = this.stageNo;

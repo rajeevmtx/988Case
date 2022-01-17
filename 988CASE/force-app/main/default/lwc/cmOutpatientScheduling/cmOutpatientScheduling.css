@@ -16,6 +16,9 @@
 
 .labelStyle{
     padding: 2px 2px 2px 2px;
-    background:lightgrey;
+    background:darkseagreen;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
     outline: auto;
 }
