@@ -88,24 +88,28 @@ export default class CmReferralCreation extends LightningElement {
         console.log('Notes Change Value',event.detail.value);
     }
     onBackClick() {
-        const count = parseInt(this.prevStageNo, 10) ;
+        // const count = parseInt(this.prevStageNo, 10) ;
 
-        if(this.isDeesclated == true){
+        // if(this.isDeesclated == true){
+        // const event = new CustomEvent('child', {
+        //     detail: {stageNo:this.prevStageNo, prevStageNo:count-1 ,isDeesclated:true},
+        //     });
+        //     this.dispatchEvent(event);
+        // }else if(this.isDeesclated == false){ 
+        //     const event = new CustomEvent('child', {
+        //         detail: {stageNo:this.prevStageNo, prevStageNo:count-2 ,isDeesclated:false},
+        //         });
+        //         this.dispatchEvent(event);
+        // }else{
+        //     const event = new CustomEvent('child', {
+        //         detail: {stageNo:this.prevStageNo, prevStageNo:count-1},
+        //         });
+        //         this.dispatchEvent(event);
+        // }
         const event = new CustomEvent('child', {
-            detail: {stageNo:this.prevStageNo, prevStageNo:count-1 ,isDeesclated:true},
+            detail: {stageNo:2, prevStageNo:5},
             });
             this.dispatchEvent(event);
-        }else if(this.isDeesclated == false){ 
-            const event = new CustomEvent('child', {
-                detail: {stageNo:this.prevStageNo, prevStageNo:count-2 ,isDeesclated:false},
-                });
-                this.dispatchEvent(event);
-        }else{
-            const event = new CustomEvent('child', {
-                detail: {stageNo:this.prevStageNo, prevStageNo:count-2},
-                });
-                this.dispatchEvent(event);
-        }
     }
     onSubmit(){
         if(this.programValue == undefined && this.referralValue == undefined)

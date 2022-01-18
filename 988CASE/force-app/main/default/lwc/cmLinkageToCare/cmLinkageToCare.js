@@ -12,13 +12,13 @@ export default class CmLinkageToCare extends LightningElement {
   @api prevStageNo;
   @api stageNo;
   @api pathTracker;
-  
+
 
   connectedCallback() {
     console.log("caseId from Parent: ", this.caseId);
     var today = new Date();
     this.todayDate = today.toISOString();
-    console.log('Child PathTracker >> ',this.pathTracker);
+    console.log('Child PathTracker >> ', this.pathTracker);
   }
 
   handleInputChange(event) {
@@ -27,6 +27,8 @@ export default class CmLinkageToCare extends LightningElement {
     if (event.target.name == "informationProvided")
       this.informationProvided = event.target.value;
     if (event.target.name == "emailId") this.email = event.target.value;
+    this.template.querySelector("lightning-record-edit-form").submit();
+
   }
 
   sendEmailMethod() {
@@ -36,11 +38,11 @@ export default class CmLinkageToCare extends LightningElement {
       informationRequested: this.informationRequested,
     })
       .then((result) => {
-          const event = new ShowToastEvent({
-            title: 'Email Sent',
-            message: 'Please check your mailbox!',
-            variant: 'success',
-            mode: 'dismissable'
+        const event = new ShowToastEvent({
+          title: 'Email Sent',
+          message: 'Please check your mailbox!',
+          variant: 'success',
+          mode: 'dismissable'
         });
         this.dispatchEvent(event);
       })
@@ -50,10 +52,10 @@ export default class CmLinkageToCare extends LightningElement {
   }
 
   handleCreateReferral() {
-      const event = new CustomEvent("child", {
-        detail: { stageNo: 5, prevStageNo: 4 },
-      });
-      this.dispatchEvent(event);
+    const event = new CustomEvent("newchild", {
+      detail: { stageNo: 5, prevStageNo: 2 },
+    });
+    this.dispatchEvent(event);
   }
 
   handleModal() {
@@ -62,11 +64,11 @@ export default class CmLinkageToCare extends LightningElement {
   }
 
   handleBackButton() {
-    console.log('Stage No >> ',this.stageNo , ' Previous Stage >> ', this.prevStageNo );
-   
+    console.log('Stage No >> ', this.stageNo, ' Previous Stage >> ', this.prevStageNo);
+
     this.template.querySelector("lightning-record-edit-form").submit();
     const event = new CustomEvent("child", {
-      detail: { stageNo:this.prevStageNo },
+      detail: { stageNo: this.prevStageNo },
     });
     this.dispatchEvent(event);
   }
@@ -76,8 +78,8 @@ export default class CmLinkageToCare extends LightningElement {
       message: 'Please view the details on the Case.',
       variant: 'success',
       mode: 'dismissable'
-  });
-  this.dispatchEvent(event);
+    });
+    this.dispatchEvent(event);
     this.template.querySelector("lightning-record-edit-form").submit();
     window.open(
       "https://mtx988casedemo.lightning.force.com/" + this.caseId,

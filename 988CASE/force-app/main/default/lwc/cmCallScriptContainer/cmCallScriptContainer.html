@@ -36,9 +36,11 @@
                         </template>
 
                         <template if:true={isStage2}>
-                            <c-cm-triage onchild={handleStageChanges} case-id={caseId} prev-stage-no={prevStageNo}
+                            <c-cm-new-linkage-to-care onchild={handleStageChanges} case-id={caseId}
+                            prev-stage-no={prevStageNo}></c-cm-new-linkage-to-care>
+                            <!-- <c-cm-triage onchild={handleStageChanges} case-id={caseId} prev-stage-no={prevStageNo}
                                 is-deesclated={isDeesclated} triage-new={triageNew}>
-                            </c-cm-triage>
+                            </c-cm-triage> -->
                         </template>
 
                         <template if:true={isStage3}>

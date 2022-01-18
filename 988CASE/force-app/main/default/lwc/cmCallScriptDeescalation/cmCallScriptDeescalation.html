@@ -1,136 +1,159 @@
 <template>
+
     <div class="slds-theme_default">
-        <h2 class="slds-section__title slds-theme_shade">
-            <span class="slds-truncate slds-p-horizontal_small headerStyle">De-escalation Call Script</span>
-        </h2>
-        <p>&nbsp;</p>
-        <div class="slds-p-horizontal_small paddingStyle">
-            <div class="helptextStyle">* Remain calm, even if you don't feel calm. The caller is more
-                apt to share
-                information.
-            </div></br>
-            <div class="helptextStyle">* If the caller is upset, show them you understand.
-            </div></br>
-            <div class="readoutStyle">"I hear that you are upset. Let's talk about what happened."</div></br>
-            <div class="helptextStyle"> * Ask the caller to:</div></br>
-            <div class="readoutStyle">"calm down and take a few deep breaths."</div></br>
-            <div class="helptextStyle"> * If the caller is venting:
-                Let them go for a while. Perhaps they need a safe place to "dump their feelings."
-                Use supportive statements to acknowledge your understanding and empathy.</div></br>
-            <div class="readoutStyle">
-                "Oh I see."
-                "That sounds like it upset you."</div></br>
-            <div class="helptextStyle"> * If the caller continues to vent for long periods of time
-                and/or is a repeat caller,
-                their use of the crisis line may be self-defeating, nonproductive, and inhibit
-                them from taking
-                action.</div></br>
-            <div class="helptextStyle"> * Ask them what would make the situation
-                better:</div></br>
-            <div class="readoutStyle">
-                "What do you think would make you feel better?
-                "What have tried?"</div></br>
-            <div class="helptextStyle"> * Acknowledge and help the caller clarify their
-                feelings.</div></br>
-            <div class="readoutStyle">"How did that make you feel?"</div></br>
-            <div class="helptextStyle"> * Get the details:</div></br>
-            <div class="readoutStyle">
-                "Tell me more about it.”
-                "When did this occur."</div></br>
-            <div class="helptextStyle"> * If the caller is reluctant to
-                talk:</div></br>
-            <div class="readoutStyle">"Tell me more about it, so I can better
-                understand the situation."</div></br>
-            <div class="helptextStyle"> * Use restatements and
-                paraphrasing:</div></br>
-            <div class="helptextStyle"> * Example: "You said that it would
-                be ok if you just get a job. Are you saying that
-                the
-                problem would be solved?"</div></br>
-            <div class="helptextStyle"> * Avoid Making Assumptions:
-                If you don't understand the caller, ask them to
-                explain further:</div></br>
-            <div class="readoutStyle">
-                "Tell me more about how this affected you."
-                "Let me make sure I understand you correctly."
-            </div></br>
-            <div class="helptextStyle"> * If they use terminology
-                that you don't understand:</div></br>
-            <div class="readoutStyle">
-                "What do you mean when you say 'snuffed them
-                out'?"
-                "Can you tell me what you mean by 'he did a
-                job on her'?"</div></br>
-            <div class="helptextStyle"> * If the caller is
-                angry or abusive and begins to direct their
-                anger towards you, make
-                them aware of their behavior and let them
-                vent for a bit. Give supportive statements
-                during the
-                lulls in the ventilation.</div></br>
-            <div class="readoutStyle">
-                "That really upset you."
-                "I hear you."</div></br>
-            <div class="helptextStyle"> * If the caller is
-                very abusive, you may choose to set some
-                limits .</div></br>
-            <div class="readoutStyle">
-                "I would like to help you, but I
-                can't unless you calm down."
-                "I understand you are upset. If you
-                can't calm down, call me back when
-                you can talk."</div></br>
-            <div class="helptextStyle"> * In all cases
-                avoid passing judgment, avoid
-                statements like:
-                "It's stupid to get a divorce if you
-                have two kids and no job skills."
-                "That's not going to work."</div></br>
-            <div class="helptextStyle"> * If the
-                caller request your opinion on
-                an issue, avoid giving it to
-                them. Turn it
-                back to
-                them, let them decide, don't
-                make decisions for
-                them:</div></br>
-            <div class="readoutStyle">"Well, what
-                do you think?"</div></br>
-            <div class="helptextStyle"> *
-                Emphasize their strengths
-                and positive
-                behaviors:</div></br>
-            <div class="readoutStyle">
-                "It takes a lot of
-                courage to call someone
-                for help."
-                "You sound like you were
-                concerned enough to
-                call."
-            </div>
-            </br>
-            <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
-                <div> <b> Require more
-                        information?</b>
+        <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+
+            <h2 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small headerStyle">De-escalation Call Script</span>
+            </h2>
+            <p>&nbsp;</p>
+            <div class="slds-p-horizontal_small paddingStyle">
+                <div class="helptextStyle">* Remain calm, even if you don't feel calm. The caller is more
+                    apt to share
+                    information.
+                </div></br>
+                <div class="helptextStyle">* If the caller is upset, show them you understand.
+                </div></br>
+                <div class="readoutStyle">"I hear that you are upset. Let's talk about what happened."</div></br>
+                <lightning-input-field field-name="upset_comment__c" name="upsetComment" onchange={handleInputChange}
+                    variant="label-hidden">
+                </lightning-input-field>
+                <div class="helptextStyle"> * Ask the caller to:</div></br>
+                <div class="readoutStyle">"calm down and take a few deep breaths."</div></br>
+
+                <div class="helptextStyle"> * If the caller is venting:
+                    Let them go for a while. Perhaps they need a safe place to "dump their feelings."
+                    Use supportive statements to acknowledge your understanding and empathy.</div></br>
+                <div class="readoutStyle">
+                    "Oh I see."
+                    "That sounds like it upset you."</div></br>
+                <div class="helptextStyle"> * If the caller continues to vent for long periods of time
+                    and/or is a repeat caller,
+                    their use of the crisis line may be self-defeating, nonproductive, and inhibit
+                    them from taking
+                    action.</div></br>
+                <div class="helptextStyle"> * Ask them what would make the situation
+                    better:</div></br>
+                <div class="readoutStyle">
+                    "What do you think would make you feel better?
+                    "What have tried?"</div></br>
+
+                <lightning-input-field field-name="What_have_tried_comment__c" name="What_have_tried_comment" onchange={handleInputChange}
+                    variant="label-hidden">
+                </lightning-input-field>
+
+                <div class="helptextStyle"> * Acknowledge and help the caller clarify their
+                    feelings.</div></br>
+                <div class="readoutStyle">"How did that make you feel?"</div></br>
+
+                <lightning-input-field field-name="How_you_feel_comment__c" name="How_you_feel_comment"
+                    onchange={handleInputChange} variant="label-hidden">
+                </lightning-input-field>
+
+                <div class="helptextStyle"> * Get the details:</div></br>
+                <div class="readoutStyle">
+                    "Tell me more about it.”
+                    "When did this occur."</div></br>
+
+                <lightning-input-field field-name="When_did_it_occur_comment__c" name="When_did_it_occur_comment"
+                    onchange={handleInputChange} variant="label-hidden">
+                </lightning-input-field>
+
+                <div class="helptextStyle"> * If the caller is reluctant to
+                    talk:</div></br>
+                <div class="readoutStyle">"Tell me more about it, so I can better
+                    understand the situation."</div></br>
+                <div class="helptextStyle"> * Use restatements and
+                    paraphrasing:</div></br>
+                <div class="helptextStyle"> * Example: "You said that it would
+                    be ok if you just get a job. Are you saying that
+                    the
+                    problem would be solved?"</div></br>
+                <div class="helptextStyle"> * Avoid Making Assumptions:
+                    If you don't understand the caller, ask them to
+                    explain further:</div></br>
+                <div class="readoutStyle">
+                    "Tell me more about how this affected you."
+                    "Let me make sure I understand you correctly."
+                </div></br>
+
+                <lightning-input-field field-name="how_this_affected_you_comment__c"
+                    name="how_this_affected_you_comment" onchange={handleInputChange} variant="label-hidden">
+                </lightning-input-field>
+
+                <div class="helptextStyle"> * If they use terminology
+                    that you don't understand:</div></br>
+                <div class="readoutStyle">
+                    "What do you mean when you say 'snuffed them
+                    out'?"
+                    "Can you tell me what you mean by 'he did a
+                    job on her'?"</div></br>
+                <div class="helptextStyle"> * If the caller is
+                    angry or abusive and begins to direct their
+                    anger towards you, make
+                    them aware of their behavior and let them
+                    vent for a bit. Give supportive statements
+                    during the
+                    lulls in the ventilation.</div></br>
+                <div class="readoutStyle">
+                    "That really upset you."
+                    "I hear you."</div></br>
+                <div class="helptextStyle"> * If the caller is
+                    very abusive, you may choose to set some
+                    limits .</div></br>
+                <div class="readoutStyle">
+                    "I would like to help you, but I
+                    can't unless you calm down."
+                    "I understand you are upset. If you
+                    can't calm down, call me back when
+                    you can talk."</div></br>
+                <div class="helptextStyle"> * In all cases
+                    avoid passing judgment, avoid
+                    statements like:
+                    "It's stupid to get a divorce if you
+                    have two kids and no job skills."
+                    "That's not going to work."</div></br>
+                <div class="helptextStyle"> * If the
+                    caller request your opinion on
+                    an issue, avoid giving it to
+                    them. Turn it
+                    back to
+                    them, let them decide, don't
+                    make decisions for
+                    them:</div></br>
+                <div class="readoutStyle">"Well, what
+                    do you think?"</div></br>
+                <div class="helptextStyle"> *
+                    Emphasize their strengths
+                    and positive
+                    behaviors:</div></br>
+                <div class="readoutStyle">
+                    "It takes a lot of
+                    courage to call someone
+                    for help."
+                    "You sound like you were
+                    concerned enough to
+                    call."
                 </div>
+                </br>
+                <div> <b>Require more information?</b> </div>
                 <lightning-input-field field-name="Require_more_information__c" name="requiredMoreInfo"
                     onchange={handleInputChange} variant="label-hidden">
                 </lightning-input-field>
                 <br>
-            </lightning-record-edit-form>
-        </div>
-        <div class="slds-p-horizontal_small paddingStyle">
+            </div>
+        </lightning-record-edit-form>
+
+        <!-- <div class="slds-p-horizontal_small paddingStyle">
             <lightning-button variant="neutal" name="Back" label="Back" onclick={onBackBtnClick}></lightning-button>
             <template if:true={requiredInfo}>
                 <button class="slds-button slds-button_destructive slds-m-left_x-small" onclick={onSaveAndClose}>Save
                     and Close</button>
-                <!--<lightning-button variant="brand" label="Save And Close" onclick={onSaveAndClose}>
-                </lightning-button>-->
             </template>
             <template if:false={requiredInfo}>
                 <lightning-button variant="brand" label="Next" onclick={onNxtBtnClick}>
                 </lightning-button>
             </template>
-        </div>
+        </div> -->
     </div>
 </template>

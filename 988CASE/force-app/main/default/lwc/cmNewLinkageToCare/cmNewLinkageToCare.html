@@ -1,0 +1,85 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item size="6" padding="around-small">
+            <div>
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                        title="De-escalation">De-escalation</span>
+                </h3>
+                <div class="safety">
+                    <b>Does the caller appear to be in need of de-escalation?</b>
+                    <lightning-radio-group name="q1" options={options} value={radio1} type="radio"
+                        onchange={handleRadioChange}>
+                    </lightning-radio-group>
+                    </br>
+                </div>
+            </div>
+            <div>
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                        title="Required to provide Linkage to Care?">Required to provide Linkage to
+                        Care?</span>
+                </h3>
+                <div class="safety">
+                    <b>Provide Linkage to Care?</b>
+                    <lightning-radio-group name="q2" options={options} value={radio2} type="radio"
+                        onchange={handleRadioChange}>
+                    </lightning-radio-group>
+                    </br>
+                </div>
+            </div>
+            <div>
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                        title="Identify Key Risk">Non-crisis Triage</span>
+                </h3>
+                </br>
+                <div class="safety">
+                    <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+                        <b>Does the caller need information/assistance with</b>
+                        <lightning-input-field name="riskVal" value={riskOption} onchange={handleRiskChange}
+                            field-name="Does_the_caller_need_information_assista__c" variant="label-hidden">
+                        </lightning-input-field>
+                        </br>
+                        <template if:true={isOtherRisk}>
+                            <b>Other Referral Details</b>
+                            <lightning-input-field name="otherRisk"
+                                field-name="Other_Referral_Details__c" variant="label-hidden">
+                            </lightning-input-field> </br>
+                        </template>
+                        <div class="slds-hide">
+                            <lightning-input-field name="In_need_of_de_escalation__c"
+                                field-name="In_need_of_de_escalation__c" value={q1} variant="label-hidden">
+                            </lightning-input-field>
+                            <lightning-input-field name="Provide_Linkage_to_Care__c"
+                                field-name="Provide_Linkage_to_Care__c" value={q2} variant="label-hidden">
+                            </lightning-input-field>
+
+                        </div>
+                    </lightning-record-edit-form>
+                </div>
+            </div>
+
+        </lightning-layout-item>
+        <lightning-layout-item size="6" padding="around-small">
+            <template if:true={isStageDeescalation}>
+                <c-cm-call-script-deescalation case-id={caseId} prev-stage-no={prevStageNo}>
+                </c-cm-call-script-deescalation>
+            </template>
+            <!-- <template if:false={isStageDeescalation}>
+                Non-crisis Triage
+            </template> -->
+            <template if:true={isStageCare}>
+                <c-cm-linkage-to-care onnewchild={handleStageChange} case-id={caseId} prev-stage-no={prevStageNo}>
+                </c-cm-linkage-to-care>
+            </template>
+            <!-- <template if:false={isStageCare}>
+                Non-crisis Triage
+            </template> -->
+        </lightning-layout-item>
+    </lightning-layout>
+    <div class="slds-p-horizontal_small paddingStyle">
+        <lightning-button variant="neutal" name="Back" label="Back" onclick={onBackBtnClick}></lightning-button> &nbsp;
+        <lightning-button variant="brand" label="Next" onclick={onNxtBtnClick}></lightning-button>
+    </div>
+</template>

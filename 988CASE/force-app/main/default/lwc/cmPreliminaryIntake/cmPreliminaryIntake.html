@@ -68,12 +68,13 @@
                                 </div>
                             </div>
                             <div class="questionSection">
-                                 <!--LOCATION & ADDRESS -->
+                                <!--LOCATION & ADDRESS -->
                                 <lightning-input-address address-label="Location of the Incident" street-label="Street"
                                     city-label="City" country-label="Country" province-label="Province"
-                                    postal-code-label="PostalCode" street={addressData.Street_Address__c} city={addressData.City__c} country={addressData.County__c} province={addressData.Province__c}
-                                    postal-code={addressData.Zip_Code__c} show-address-lookup
-                                    onchange={onAddressChange}>
+                                    postal-code-label="PostalCode" street={addressData.Street_Address__c}
+                                    city={addressData.City__c} country={addressData.County__c}
+                                    province={addressData.Province__c} postal-code={addressData.Zip_Code__c}
+                                    show-address-lookup onchange={onAddressChange}>
                                 </lightning-input-address>
                                 <div class="slds-hide">
                                     <lightning-input-field field-name="Street_Address__c" variant="label-hidden"
@@ -82,15 +83,15 @@
                                     <lightning-input-field field-name="Province__c" variant="label-hidden"
                                         value={addressData.Province__c}>
                                     </lightning-input-field></br>
-                                   
+
                                     <lightning-input-field field-name="City__c" variant="label-hidden"
                                         value={addressData.City__c}>
                                     </lightning-input-field></br>
-                                   
+
                                     <lightning-input-field field-name="County__c" variant="label-hidden"
                                         value={addressData.County__c}>
                                     </lightning-input-field></br>
-                                  
+
                                     <lightning-input-field field-name="Zip_Code__c" variant="label-hidden"
                                         value={addressData.Zip_Code__c}>
                                     </lightning-input-field></br>
@@ -111,11 +112,6 @@
                         <span class="slds-truncate slds-p-horizontal_small headerStyle"
                             title="Introduction and Consent">Introduction
                             and Consent</span>
-                    </template>
-                    <template if:true={step2}>
-                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
-                            title="Personal Information">Personal
-                            Information</span>
                     </template>
                 </h3>
                 <div aria-hidden="false" class="slds-section__content ">
@@ -185,14 +181,19 @@
                                 <lightning-input-field field-name="Has_the_Caller_Consented__c" variant="label-hidden">
                                 </lightning-input-field>
                             </div>
-                            <lightning-button variant="brand" type="submit" name="continue" label="Continue"
+                            <!-- <lightning-button variant="brand" type="submit" name="continue" label="Continue"
                                 onclick={onBtnClick}>
-                            </lightning-button>
-                        </lightning-record-edit-form>
-                    </template>
-
-                    <template if:true={step2}>
-                        <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
+                            </lightning-button> -->
+                            <br>
+                            <div class="slds-section slds-is-open">
+                                <h3 class="slds-section__title slds-theme_shade">
+                                    <template if:true={step2}>
+                                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                            title="Personal Information">Personal
+                                            Information</span>
+                                    </template>
+                                </h3>
+                            </div>
                             <!--PERSONAL INFORMATION-->
                             <div class="questionSection">
                                 <div class="readoutStyle">
@@ -217,44 +218,42 @@
                                     </lightning-layout-item>
                                 </lightning-layout>
 
-                                    <!--LOCATION & ADDRESS -->
+                                <!--LOCATION & ADDRESS -->
                                 <!-- <b>Location of the Incident</b> -->
                                 </br>
-                                <!-- <b>Street Address</b> -->
-                                <lightning-input-address address-label="Location of the Incident" street-label="Street"
-                                    city-label="City" country-label="Country" province-label="Province"
-                                    postal-code-label="PostalCode" street={addressData.Street_Address__c} city={addressData.City__c} country={addressData.County__c} province={addressData.Province__c}
-                                    postal-code={addressData.Zip_Code__c} show-address-lookup
-                                    onchange={onAddressChange}>
-                                </lightning-input-address>
-                                <div class="slds-hide">
-                                    <lightning-input-field field-name="Street_Address__c" variant="label-hidden"
-                                        value={addressData.Street_Address__c}>
-                                    </lightning-input-field></br>
-                                    <!-- <b>Apt, Suite, Unit, Building</b> -->
-                                    <!-- <lightning-input-field field-name="Apt_Suite_Unit_Building__c"
-                                        variant="label-hidden" value={addressData.Apt_Suite_Unit_Building__c}>
-                                    </lightning-input-field></br> -->
-                                    <!-- <b>State</b> -->
-                                    <lightning-input-field field-name="Province__c" variant="label-hidden"
-                                        value={addressData.Province__c}>
-                                    </lightning-input-field></br>
-                                    <!-- <b>City</b> -->
-                                    <lightning-input-field field-name="City__c" variant="label-hidden"
-                                        value={addressData.City__c}>
-                                    </lightning-input-field></br>
-                                    <!-- <b>County</b> -->
-                                    <lightning-input-field field-name="County__c" variant="label-hidden"
-                                        value={addressData.County__c}>
-                                    </lightning-input-field></br>
-                                    <!-- <b>ZipCode</b> -->
-                                    <lightning-input-field field-name="Zip_Code__c" variant="label-hidden"
-                                        value={addressData.Zip_Code__c}>
-                                    </lightning-input-field></br>
+                                <div class="questionSection">
+                                    <lightning-input-address address-label="Location of the Incident"
+                                        street-label="Street" city-label="City" country-label="Country"
+                                        province-label="Province" postal-code-label="PostalCode"
+                                        street={addressData.Street_Address__c} city={addressData.City__c}
+                                        country={addressData.County__c} province={addressData.Province__c}
+                                        postal-code={addressData.Zip_Code__c} show-address-lookup
+                                        onchange={onAddressChange}>
+                                    </lightning-input-address>
+                                    <div class="slds-hide">
+                                        <lightning-input-field field-name="Street_Address__c" variant="label-hidden"
+                                            value={addressData.Street_Address__c}>
+                                        </lightning-input-field></br>
+                                        <lightning-input-field field-name="Province__c" variant="label-hidden"
+                                            value={addressData.Province__c}>
+                                        </lightning-input-field></br>
+
+                                        <lightning-input-field field-name="City__c" variant="label-hidden"
+                                            value={addressData.City__c}>
+                                        </lightning-input-field></br>
+
+                                        <lightning-input-field field-name="County__c" variant="label-hidden"
+                                            value={addressData.County__c}>
+                                        </lightning-input-field></br>
+
+                                        <lightning-input-field field-name="Zip_Code__c" variant="label-hidden"
+                                            value={addressData.Zip_Code__c}>
+                                        </lightning-input-field></br></br>
+                                    </div>
                                 </div>
                             </div>
                             <!-- Nature of Crisis-->
-                            <div class="questionSection">
+                            <!-- <div class="questionSection">
                                 <div class="readoutStyle">
                                     Can you please describe to me the nature of the emergency?</br>
                                 </div>
@@ -271,9 +270,27 @@
                                 <lightning-button variant="brand" type="submit" name="next" label="Next"
                                     onclick={onNxtBtnClick}>
                                 </lightning-button>
-                            </div>
+                            </div> -->
                         </lightning-record-edit-form>
                     </template>
+                    <div>
+                        <!-- Nature of Emergency -->
+                        <br>
+                        <div class="slds-section slds-is-open">
+                            <h3 class="slds-section__title slds-theme_shade">
+                                <template if:true={step2}>
+                                    <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                        title="Nature of Emergency">Nature of Emergency</span>
+                                </template>
+                            </h3>
+                        </div>
+                        <c-cm-triage case-id={caseId}></c-cm-triage>
+                        <lightning-button variant="neutal" name="Back" label="Back" onclick={onBackBtnClick}>
+                        </lightning-button>&nbsp;&nbsp;
+                        <lightning-button variant="brand" type="submit" name="next" label="Next"
+                            onclick={onNxtBtnClick}>
+                        </lightning-button>
+                    </div>
                 </div>
             </div>
         </template>

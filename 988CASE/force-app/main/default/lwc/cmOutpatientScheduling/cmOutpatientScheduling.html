@@ -33,16 +33,24 @@
                     <div class="slds-align_absolute-center">
                         <template if:true={isDateSelected}>
                             <lightning-layout multiple-rows="false" class="slds-align_absolute-center">
-                                <template for:each={defaultSlot} for:item="slot">
+                                <template for:each={slots} for:item="slot">
                                        <lightning-layout-item size="2" key={slot.Id} class="slds-align_absolute-center">
                                             <label key={slot.Id}>
                                             <input type="radio" name={slot.Time} onclick={timeValue}
                                             class="card-input-element radioStyle slds-align_absolute-center">
                                             <div class="panel panel-default card-input slds-align_absolute-center">
-                                                <div class="panel-heading labelStyle slds-align_absolute-center" style="padding-left: 5px;">
-                                                        <lightning-formatted-time value={slot.Time}>
-                                                        </lightning-formatted-time> &nbsp;&nbsp;
+                                                <template if:true={slot.Selected}>
+                                                    <div class="panel-heading selectedlabelStyle slds-align_absolute-center" style="padding-left: 5px;">
+                                                            <lightning-formatted-time value={slot.Time}>
+                                                            </lightning-formatted-time> &nbsp;&nbsp;
                                                     </div>
+                                                </template>
+                                                 <template if:false={slot.Selected}>
+                                                    <div class="panel-heading labelStyle slds-align_absolute-center" style="padding-left: 5px;">
+                                                            <lightning-formatted-time value={slot.Time}>
+                                                            </lightning-formatted-time> &nbsp;&nbsp;
+                                                    </div>
+                                                </template>
                                                 </div>
                                             </label>
                                        </lightning-layout-item>
@@ -76,7 +84,6 @@
                     <lightning-record-edit-form
                                 record-id={caseId}
                                 object-api-name="Case">
-                        <lightning-messages></lightning-messages>
                         <lightning-input-field field-name="Booked_Slot__c" value={bookedDateTime}></lightning-input-field>
                     </lightning-record-edit-form>
                 </div>

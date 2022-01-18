@@ -568,11 +568,11 @@ export default class CmTriage extends LightningElement {
     }
     onBackClick() {
         const event = new CustomEvent("child", {
-            detail: { stageNo: 1, prevStageNo: 1 ,stepNo : 2 },
+            detail: { stageNo: 1, prevStageNo: 1, stepNo: 2 },
         });
         this.dispatchEvent(event);
     }
-    onNextClick() {
+    @api onNextClick() {
         console.log("onNextClick");
         console.log(
             "q1> ",
@@ -612,43 +612,43 @@ export default class CmTriage extends LightningElement {
                 this.error = error.message;
             });
         this.triageNew = false;
-        if (this.caseOutcome === "" || this.caseOutcome === undefined) {
-            console.log("Case OUtcome is NULL or Undefined");
-            const event = new ShowToastEvent({
-                title: "Saving & Closing Call Script",
-                message: "Please view the details on the Case.",
-                variant: "success",
-                mode: "dismissable",
-            });
-            this.dispatchEvent(event);
-            window.open(
-                "https://mtx988casedemo.lightning.force.com/" + this.caseId,
-                "_self"
-            );
-            console.log("Before Query Submitter");
-            this.template.querySelector("lightning-record-edit-form").submit();
-            console.log("After Query Submitter");
-        } else {
-            console.log(
-                "Redirecting_>> ",
-                this.stageNo,
-                " >> ",
-                this.prevStageNo
-            );
-            const event = new CustomEvent("child", {
-                detail: {
-                    stageNo: this.stageNo,
-                    prevStageNo: this.prevStageNo,
-                    triageNew: this.triageNew,
-                    isDeesclated: this.isDeesclated,
-                    caseOutcome: this.caseOutcome,
-                },
-            });
-            this.dispatchEvent(event);
-            console.log("Before Query Submitter");
-            this.template.querySelector("lightning-record-edit-form").submit();
-            console.log("After Query Submitter");
-        }
+        // if (this.caseOutcome === "" || this.caseOutcome === undefined) {
+        //     console.log("Case OUtcome is NULL or Undefined");
+        //     const event = new ShowToastEvent({
+        //         title: "Saving & Closing Call Script",
+        //         message: "Please view the details on the Case.",
+        //         variant: "success",
+        //         mode: "dismissable",
+        //     });
+        //     this.dispatchEvent(event);
+        //     window.open(
+        //         "https://mtx988casedemo.lightning.force.com/" + this.caseId,
+        //         "_self"
+        //     );
+        //     console.log("Before Query Submitter");
+        //     this.template.querySelector("lightning-record-edit-form").submit();
+        //     console.log("After Query Submitter");
+        // } else {
+        //     console.log(
+        //         "Redirecting_>> ",
+        //         this.stageNo,
+        //         " >> ",
+        //         this.prevStageNo
+        //     );
+        //     const event = new CustomEvent("child", {
+        //         detail: {
+        //             stageNo: this.stageNo,
+        //             prevStageNo: this.prevStageNo,
+        //             triageNew: this.triageNew,
+        //             isDeesclated: this.isDeesclated,
+        //             caseOutcome: this.caseOutcome,
+        //         },
+        //     });
+        //     this.dispatchEvent(event);
+        //     console.log("Before Query Submitter");
+        //     this.template.querySelector("lightning-record-edit-form").submit();
+        //     console.log("After Query Submitter");
+        // }
 
         console.log(
             "End Onclick stageNo >> ",
