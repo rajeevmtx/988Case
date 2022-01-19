@@ -24,36 +24,36 @@
                 </lightning-combobox></br>
                 </br>
 
-                <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
-                    <lightning-input-address address-label="Location of the Incident" street-label="Street"
-                        city-label="City" country-label="Country" province-label="Province"
-                        postal-code-label="PostalCode" street={addressData.Street_Address__c} city={addressData.City__c}
-                        country={addressData.County__c} province={addressData.Province__c}
-                        postal-code={addressData.Zip_Code__c} show-address-lookup onchange={onAddressChange}>
-                    </lightning-input-address>
-
-                    <div class="slds-hide">
-                        <lightning-input-field field-name="Street_Address__c" variant="label-hidden"
-                            value={addressData.Street_Address__c}>
-                        </lightning-input-field></br>
-
-                        <lightning-input-field field-name="Province__c" variant="label-hidden"
-                            value={addressData.Province__c}>
-                        </lightning-input-field></br>
-                        <!-- <b>City</b> -->
-                        <lightning-input-field field-name="City__c" variant="label-hidden" value={addressData.City__c}>
-                        </lightning-input-field></br>
-                        <!-- <b>County</b> -->
-                        <lightning-input-field field-name="County__c" variant="label-hidden"
-                            value={addressData.County__c}>
-                        </lightning-input-field></br>
-                        <!-- <b>ZipCode</b> -->
-                        <lightning-input-field field-name="Zip_Code__c" variant="label-hidden"
-                            value={addressData.Zip_Code__c}>
-                        </lightning-input-field></br>
-                    </div>
-                    <lightning-output-field field-name={nameField}> </lightning-output-field>
-                </lightning-record-edit-form>
+                <lightning-record-view-form object-api-name="Case" record-id={caseId}>
+                    <lightning-card  variant="Narrow"  title="Personal Information" icon-name="standard:log_a_call">
+                        <p class="slds-p-horizontal_small slds-box">
+                        <lightning-layout>
+                            <lightning-layout-item size="4">
+                                <lightning-output-field field-name="First_Name__c">
+                                </lightning-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <lightning-output-field field-name="Middle_Name__c">
+                                </lightning-output-field>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <lightning-output-field field-name="Last_Name__c">
+                                </lightning-output-field>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        </br>
+                        <b>Location of the Incident</b>
+                        <lightning-formatted-address address-label="Location of the Incident"
+                                street-label="Street" city-label="City" country-label="Country"
+                                province-label="Province" postal-code-label="PostalCode"
+                                street={addressData.Street_Address__c} city={addressData.City__c}
+                                country={addressData.County__c} province={addressData.Province__c}
+                                postal-code={addressData.Zip_Code__c}
+                                onchange={onAddressChange} disabled>
+                                </lightning-formatted-address>
+                        </p>
+                    </lightning-card>
+                </lightning-record-view-form>
                 </br>
                 <button class="slds-button slds-button_brand" onclick={onBackClick}>Back</button>
                 <button class="slds-button slds-button_neutral" onclick={onSubmit}>Submit</button>

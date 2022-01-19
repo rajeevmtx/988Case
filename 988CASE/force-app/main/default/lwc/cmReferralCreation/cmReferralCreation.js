@@ -145,14 +145,14 @@ export default class CmReferralCreation extends LightningElement {
             this.dispatchEvent(nextNavigationEvent);*/
         })
         .catch(error=>{
-            this.error=error.message;
-            const event = new ShowToastEvent({
-                title: 'Error Creating Referral',
-                message: 'Please provide details before submitting!!',
-                variant: 'error',
-                mode: 'dismissable'
-            });
-            this.dispatchEvent(event);
+            // this.error=error.message;
+            // const event = new ShowToastEvent({
+            //     title: 'Error Creating Referral',
+            //     message: 'Please provide details before submitting!!',
+            //     variant: 'error',
+            //     mode: 'dismissable'
+            // });
+            // this.dispatchEvent(event);
         });
         }
     }

@@ -1,4 +1,6 @@
 import { LightningElement, track, api } from 'lwc';
+import fetchTriage from "@salesforce/apex/CallScriptController.fetchTriage";
+
 
 export default class CmNewLinkageToCare extends LightningElement {
     @track isStageDeescalation;
@@ -9,13 +11,41 @@ export default class CmNewLinkageToCare extends LightningElement {
     @track requiredInfo = true;
     @track q1;
     @track q2;
+    @track radio1;
+    @track radio2;
     @api pathTracker;
     @api stageNo;
     @api prevStageNo;
 
     connectedCallback() {
+
         this.isStageDeescalation = false;
         this.isStageCare = false;
+        fetchTriage({ caseId: this.caseId })
+        .then((result) => {
+            console.log("RESULT >> ", result);
+            if (result.In_need_of_de_escalation__c == true) {
+                this.isStageDeescalation = true;
+                this.q1 = true;
+                this.radio1 = "Yes";
+            }
+            else if (result.In_need_of_de_escalation__c == false) {
+                this.q1 = false;
+                this.radio1 = "No";
+            }
+            if (result.Provide_Linkage_to_Care__c == true) {
+                this.isStageCare = true;
+                this.q2 = true;
+                this.radio2 = "Yes";
+            }
+            else if(result.Provide_Linkage_to_Care__c == false){
+                this.q2 = false;
+                this.radio2 = "No";
+            }
+        })
+        .catch((error) => {
+            console.log("Error >> ", error.message);
+        });
         this.isOtherRisk = false;
         console.log('this.caseId :>> ', this.caseId);
     }
@@ -24,8 +54,8 @@ export default class CmNewLinkageToCare extends LightningElement {
     }
     get options() {
         return [
-            { label: "Yes", value: true },
-            { label: "No", value: false },
+            { label: "Yes", value: "Yes" },
+            { label: "No", value: "No" },
         ];
     }
     handleStageChange(event) {
@@ -42,24 +72,22 @@ export default class CmNewLinkageToCare extends LightningElement {
         var name = event.target.name;
         var value = event.target.value;
         console.log('value,name :>> ', value, name);
-        if (value == false && name == 'q1') {
+        if (value == 'No' && name == 'q1') {
             this.isStageDeescalation = false;
             this.q1 = false;
 
         }
-        if (value == false && name == 'q2') {
+        if (value == 'No' && name == 'q2') {
             this.isStageCare = false;
             this.q2 = false;
-
         }
-        if (name == 'q1' && value == true) {
+        if (name == 'q1' && value == 'Yes') {
             this.isStageDeescalation = true;
             this.q1 = true;
         }
-        if (name == 'q2' && value == true) {
+        if (name == 'q2' && value == 'Yes') {
             this.isStageCare = true;
             this.q2 = true;
-
         }
 
     }

@@ -1,4 +1,4 @@
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, track, wire ,api} from 'lwc';
 import getAvailableBeds from '@salesforce/apex/AvailableBedsController.getAvailableBeds';
 import bed from '@salesforce/resourceUrl/bed';
 import { getPicklistValues } from 'lightning/uiObjectInfoApi';
@@ -8,11 +8,11 @@ import BEDS_OBJECT from '@salesforce/schema/Available_Beds__c';
 
 export default class CmAvailableBeds extends LightningElement {
 
-    bed = bed;
+    bed = bed; 
     @track columns;
     @track data;
     @track value = '';
-    isModalOpen = false;
+    @api isModalOpen;
     showDataTable = false;
     @track facilityValues;
 

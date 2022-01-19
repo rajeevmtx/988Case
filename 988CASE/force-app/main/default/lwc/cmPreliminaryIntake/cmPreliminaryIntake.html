@@ -275,7 +275,7 @@
                     </template>
                     <div>
                         <!-- Nature of Emergency -->
-                        <br>
+                        
                         <div class="slds-section slds-is-open">
                             <h3 class="slds-section__title slds-theme_shade">
                                 <template if:true={step2}>
@@ -284,7 +284,9 @@
                                 </template>
                             </h3>
                         </div>
+                        
                         <c-cm-triage case-id={caseId}></c-cm-triage>
+                         </br>
                         <lightning-button variant="neutal" name="Back" label="Back" onclick={onBackBtnClick}>
                         </lightning-button>&nbsp;&nbsp;
                         <lightning-button variant="brand" type="submit" name="next" label="Next"

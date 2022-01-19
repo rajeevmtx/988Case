@@ -1,0 +1,17 @@
+<template>
+    <lightning-layout >
+        <lightning-layout-item size="6">
+            <lightning-button name="b1" variant="brand" label="Show Available Beds" title="Show Available Beds" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item size="6">
+            <lightning-button name="b2" variant="brand" label="Outpatient Scheduling" title="Outpatient Scheduling" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </lightning-layout-item> 
+    </lightning-layout>    
+
+    <template if:true={showbeds}>
+        <c-cm-available-beds></c-cm-available-beds>
+    </template>
+    <template if:true={showOutpatient}>
+        <c-cm-outpatient-scheduling case-id={recordId} onchild={handleModalChanges}></c-cm-outpatient-scheduling>
+    </template>
+</template>
