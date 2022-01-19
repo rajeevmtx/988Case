@@ -69,7 +69,7 @@
                     <template if:true={isDateSelected}>
                         <div class="slds-align_absolute-center">
                             <label for="bookedDate">
-                                <button class="slds-button" style="color: green;font-weight: bold;font-size:16px">
+                                <button class="slds-button" style="color:black;font-weight: bold;font-size:16px">
                                     Selected Booking Date and Time is : &nbsp;
                                 </button>
                             </label>&nbsp;
@@ -89,9 +89,8 @@
                 </div>
                 <!-- Modal Footer Starts-->
                 <footer class="slds-modal__footer">
-                     <button class="slds-button slds-button_success" onclick={bookSlotHandle} title="Book Slot" >
-                        Book Slot
-                    </button>
+                    <button class="slds-button slds-button_inverse" style="background-color:#16325c;color:white" onclick={bookSlotHandle} title="Book Slot">
+                        Book Slot</button>
 
                     <button class="slds-button slds-button_destructive" onclick={closeModal}
                         title="Cancel">Close</button>
