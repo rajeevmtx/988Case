@@ -1,13 +1,13 @@
 <template>
     <lightning-layout>
-        <lightning-layout-item size="6">
+        <lightning-layout-item size="6" >
             <div class="slds-p-horizontal_small">
                 <!-- <h3 class="slds-section__title slds-theme_shade">
                     <span class="slds-truncate slds-p-horizontal_small headerStyle"
                         title="Referral">Readout/Instructions</span>
                 </h3> -->
                 </br>
-                <div class="paddingStyle">
+                <div class="">
                     <lightning-record-edit-form object-api-name="Case" record-id={caseId}>
                         <p>Can you tell me how you are feeling today?</p>
                         <lightning-input-field field-name="Caller_Name_feeling_today__c" variant="label-hidden"
@@ -66,9 +66,10 @@
                         <template if:true={step1}>
                             <template if:true={showSafety}>
                                 <h3 class="slds-section__title slds-theme_shade">
-                                    <span class="slds-truncate slds-p-horizontal_small subheaderStyle"
+                                    <span class="slds-truncate slds-p-horizontal_small pageTitle"
                                         title="Safety">Safety</span>
                                 </h3>
+                                <br/>
                                 <div class="safety">
                                     <b>Is the caller a danger to self or others?</b>
                                     <lightning-radio-group name="q1" options={options} value={q1} type="radio"

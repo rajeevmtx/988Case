@@ -4,7 +4,7 @@
         <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
             <div class="slds-modal__container">
-                <header class="slds-modal__header" style="background-color:#16325c">
+                <header class="slds-modal__header" style="background-color:#0176d2">
                     <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
                         title="Close" onclick={closeModal}>
                         <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
@@ -69,11 +69,11 @@
                     <template if:true={isDateSelected}>
                         <div class="slds-align_absolute-center">
                             <label for="bookedDate">
-                                <button class="slds-button" style="color:black;font-weight: bold;font-size:16px">
+                                <button class="slds-button" style="color:black;font-size:16px">
                                     Selected Booking Date and Time is : &nbsp;
                                 </button>
                             </label>&nbsp;
-                            <lightning-formatted-date-time style="color:red;font-size:16px;font-weight:bold" value={bookedDate} id="bookedDate">
+                            <lightning-formatted-date-time style="color:#0176d2;font-size:16px;font-weight:bold" value={bookedDate} id="bookedDate">
                             </lightning-formatted-date-time>&nbsp;
                             <div style="color:red;font-size:16px;font-weight:bold">{istimeValue}</div>
                         </div>
@@ -89,10 +89,10 @@
                 </div>
                 <!-- Modal Footer Starts-->
                 <footer class="slds-modal__footer">
-                    <button class="slds-button slds-button_inverse" style="background-color:#16325c;color:white" onclick={bookSlotHandle} title="Book Slot">
+                    <button class="slds-button slds-button_inverse" style="background-color:#0176d2;color:white" onclick={bookSlotHandle} title="Book Slot">
                         Book Slot</button>
 
-                    <button class="slds-button slds-button_destructive" onclick={closeModal}
+                    <button class="slds-button slds-button_destructive" style="background:#fff; border:1px solid #0176d2; color:#0176d2" onclick={closeModal}
                         title="Cancel">Close</button>
                 </footer>
                 <!-- Modal Footer Ends-->

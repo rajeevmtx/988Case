@@ -23,6 +23,8 @@ export default class CmOutpatientScheduling extends LightningElement {
                     {Id: '17',Time: '05:00 PM',Selected:false},
                     {Id: '18',Time: '05:30 PM',Selected:false}
                     ];
+    
+    randomNumber = Math.floor(Math.random() * 4);
 
     isModalOpen = true;
     isDateSelected = false;
@@ -33,6 +35,7 @@ export default class CmOutpatientScheduling extends LightningElement {
 
     connectedCallback() {
         console.log('Record ID ',this.caseId);
+        console.log('Random number: ', this.randomNumber);
     }
     
     
@@ -47,8 +50,9 @@ export default class CmOutpatientScheduling extends LightningElement {
     timeValue(event){
         this.istimeValue = event.target.name;
         this.bookedDateTime = this.bookedDate +' '+this.istimeValue;
+        this.randomNumber
 
-        for(let i = 0;i < this.slots.length;i++){
+        for(let i = 0;i < this.randomNumber;i++){
              if (this.slots[i].Time === this.istimeValue){ 
                 this.slots[i].Selected = true;
             }else{

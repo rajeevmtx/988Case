@@ -109,7 +109,7 @@
             <div class="slds-section slds-is-open">
                 <h3 class="slds-section__title slds-theme_shade">
                     <template if:true={step1}>
-                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                        <span class="slds-truncate slds-p-horizontal_small pageTitle"
                             title="Introduction and Consent">Introduction
                             and Consent</span>
                     </template>
@@ -188,7 +188,7 @@
                             <div class="slds-section slds-is-open">
                                 <h3 class="slds-section__title slds-theme_shade">
                                     <template if:true={step2}>
-                                        <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                        <span class="slds-truncate slds-p-horizontal_small pageTitle"
                                             title="Personal Information">Personal
                                             Information</span>
                                     </template>
@@ -201,18 +201,18 @@
                                     information which I would require to create a case for you?</br>
                                 </div>
                                 <lightning-layout>
-                                    <lightning-layout-item size="4" class="slds-p-around_medium slds-text-align_center">
-                                        <b>First Name</b>
+                                    <lightning-layout-item size="4" class="slds-p-around_medium ">
+                                       First Name
                                         <lightning-input-field field-name="First_Name__c" variant="label-hidden">
                                         </lightning-input-field>
                                     </lightning-layout-item>
-                                    <lightning-layout-item size="4" class="slds-p-around_medium slds-text-align_center">
-                                        <b>Middle Name</b>
+                                    <lightning-layout-item size="4" class="slds-p-around_medium ">
+                                        Middle Name
                                         <lightning-input-field field-name="Middle_Name__c" variant="label-hidden">
                                         </lightning-input-field>
                                     </lightning-layout-item>
-                                    <lightning-layout-item size="4" class="slds-p-around_medium slds-text-align_center">
-                                        <b>Last Name</b>
+                                    <lightning-layout-item size="4" class="slds-p-around_medium ">
+                                       Last Name
                                         <lightning-input-field field-name="Last_Name__c" variant="label-hidden">
                                         </lightning-input-field>
                                     </lightning-layout-item>
@@ -279,7 +279,7 @@
                         <div class="slds-section slds-is-open">
                             <h3 class="slds-section__title slds-theme_shade">
                                 <template if:true={step2}>
-                                    <span class="slds-truncate slds-p-horizontal_small headerStyle"
+                                    <span class="slds-truncate slds-p-horizontal_small pageTitle"
                                         title="Nature of Emergency">Nature of Emergency</span>
                                 </template>
                             </h3>
@@ -287,7 +287,7 @@
                         
                         <c-cm-triage case-id={caseId}></c-cm-triage>
                          </br>
-                        <lightning-button variant="neutal" name="Back" label="Back" onclick={onBackBtnClick}>
+                        <lightning-button variant="neutal" name="Back" label="Back" class="leftSpace" onclick={onBackBtnClick}>
                         </lightning-button>&nbsp;&nbsp;
                         <lightning-button variant="brand" type="submit" name="next" label="Next"
                             onclick={onNxtBtnClick}>

@@ -2,7 +2,7 @@
     <div class="slds-theme_default slds-scrollable_y">
         <div class=" slds-section slds-is-open">
             <h3 class="slds-section__title slds-theme_shade">
-                <span class="slds-truncate slds-p-horizontal_small headerStyle" title="Referral Creation">Referral
+                <span class="slds-truncate slds-p-horizontal_small headerStyle pageTitle" title="Referral Creation">Referral
                     Creation</span>
             </h3></br>
             <div aria-hidden="false" class="slds-section__content">
@@ -24,7 +24,7 @@
                 </lightning-combobox></br>
                 </br>
 
-                <lightning-record-view-form object-api-name="Case" record-id={caseId}>
+                <lightning-record-view-form object-api-name="Case" record-id={caseId} class="personalInformation" >
                     <lightning-card  variant="Narrow"  title="Personal Information" icon-name="standard:log_a_call">
                         <p class="slds-p-horizontal_small slds-box">
                         <lightning-layout>
@@ -55,9 +55,9 @@
                     </lightning-card>
                 </lightning-record-view-form>
                 </br>
-                <button class="slds-button slds-button_brand" onclick={onBackClick}>Back</button>
-                <button class="slds-button slds-button_neutral" onclick={onSubmit}>Submit</button>
-                <button class="slds-button slds-button_destructive" onclick={onClose}>Save and Close</button>
+                <button class="slds-button slds-button_neutral " onclick={onBackClick}>Back</button>
+                <button class="slds-button slds-button_brand"  onclick={onSubmit}>Submit</button>
+                <button class="slds-button slds-button_neutral" style="background: #e8eaec;" onclick={onClose}>Save and Close</button>
                 </br>
                 </br>
                 <template if:true={hasReferral}>

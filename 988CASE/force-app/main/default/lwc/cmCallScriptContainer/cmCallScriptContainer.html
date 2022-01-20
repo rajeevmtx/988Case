@@ -25,10 +25,10 @@
         <div class="callScriptNotes">
             <div class="introductionConsent">
                 <lightning-layout>
-                    <lightning-layout-item size="3">
+                    <lightning-layout-item size="2">
                         <c-cm-sidebar stage-num={stageNo}></c-cm-sidebar>
                     </lightning-layout-item>
-                    <lightning-layout-item size="9">
+                    <lightning-layout-item size="10">
                         <template if:true={isStage1}>
                             <c-cm-preliminary-intake onchild={handleStageChanges} case-id={caseId}
                                 prev-stage-no={prevStageNo} step-no={stepNo}>
@@ -125,7 +125,7 @@
                 <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
                     aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
                     <div class="slds-modal__container">
-                        <header class="slds-modal__header" style="background-color:#16325c">
+                        <header class="slds-modal__header" style="background-color:#0176d2">
                             <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
                                 title="Close" onclick={closeModal}>
                                 <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
@@ -162,7 +162,7 @@
                             </template>
                         </div>
                         <footer class="slds-modal__footer">
-                            <button class="slds-button slds-button_destructive" onclick={closeModal}
+                            <button class="slds-button slds-button_destructive" style="border:1px solid #0176d2; color:#0176d2; background: #fff;" onclick={closeModal}
                                 title="Cancel">Close</button>
                         </footer>
                     </div>
